@@ -1,4 +1,6 @@
 'use strict';
+// vendorsから読み込む外部ファイル
+import imagesLoaded from 'imagesloaded';
 // libsから読み込むファイル
 import drawer from './libs/drawer';
 import pageAnchorLink from './libs/page-anchor-link';
@@ -6,8 +8,6 @@ import ScrollObserver from './libs/scroll-observer';
 import setFillHeight from './libs/set-fill-height';
 import topFvAnime from './libs/top-fv-anime';
 import ua from './libs/ua-parser';
-// vendorsから読み込む外部ファイル
-import imagesLoaded from 'imagesloaded';
 
 // 初期化
 document.addEventListener('DOMContentLoaded', function () {

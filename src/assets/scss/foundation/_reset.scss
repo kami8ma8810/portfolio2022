@@ -405,10 +405,6 @@ table {
   border-color: inherit; /* 1 */
 }
 
-caption {
-  text-align: left;
-}
-
 td,
 th {
   vertical-align: top;
@@ -416,6 +412,39 @@ th {
 }
 
 th {
-  text-align: left;
-  font-weight: bold;
+  font-weight: normal;
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++
+// My added
+// +++++++++++++++++++++++++++++++++++++++++++++++++
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dt,
+dd,
+li,
+ul,
+ol,
+span,
+figcaption,
+address,
+th,
+td,
+thead,
+caption,
+label,
+input,
+form,
+button,
+select,
+textarea,
+sup,
+sub {
+  line-break: strict;
 }

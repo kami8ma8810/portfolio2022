@@ -8,23 +8,21 @@ const htmlMin = require('gulp-htmlmin');
 const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
-
-// Sass
+// Sass,CSS
 const sass = require('gulp-dart-sass');
+const sassGlob = require('gulp-sass-glob-use-forward');
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const postCss = require('gulp-postcss');
 const autoprefixer = require('autoprefixer');
 const gcmq = require('gulp-group-css-media-queries');
 const cssNano = require('gulp-cssnano');
-
 // JavaScript
 const babel = require('gulp-babel');
 const terser = require('gulp-terser'); //ES6(ES2015)の圧縮に対応
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 const webpackStream = require('webpack-stream');
-
 // 画像
 const imageMin = require('gulp-imagemin');
 const pngQuant = require('imagemin-pngquant');
@@ -32,14 +30,14 @@ const mozJpeg = require('imagemin-mozjpeg');
 const svgo = require('gulp-svgo');
 const webp = require('gulp-webp'); //webpに変換
 const changed = require('gulp-changed');
-
 // ブラウザ同期
 const browserSync = require('browser-sync').create();
-
 // 削除
 const clean = require('gulp-clean');
 
-//パス設定
+/* ------------------------------------------------------
+パス設定
+------------------------------------------------------ */
 const paths = {
   ejs: {
     src: ['./src/**/*.ejs', '!./src/**/_*.ejs'],
@@ -48,13 +46,19 @@ const paths = {
   },
   styles: {
     src: './src/assets/scss/**/*.scss',
-    copy: ['./src/assets/css/vendors/*.css','!./src/assets/css/vendors/_*.css'],
+    copy: [
+      './src/assets/css/vendors/*.css',
+      '!./src/assets/css/vendors/_*.css',
+    ],
     dist: './public/assets/css/',
     distCopy: './public/assets/css/vendors/',
   },
   scripts: {
     src: ['./src/assets/js/**/*.js', '!./src/assets/js/**/vendors/*.js'], //外部のライブラリファイルはコンパイルしない
-    copy: ['./src/assets/js/**/vendors/*.js', '!./src/assets/js/**/vendors/_*.js'],
+    copy: [
+      './src/assets/js/**/vendors/*.js',
+      '!./src/assets/js/**/vendors/_*.js',
+    ],
     dist: './public/assets/js/',
   },
   images: {
@@ -78,7 +82,9 @@ const paths = {
   },
 };
 
-// ejsコンパイル
+/* ------------------------------------------------------
+ejsコンパイル
+------------------------------------------------------ */
 const ejsCompile = () => {
   // ejsの設定を読み込む
   const data = JSON.parse(fs.readFileSync('./ejs-config.json'));
@@ -114,7 +120,9 @@ const ejsCompile = () => {
     .pipe(browserSync.stream()); //変更があった所のみコンパイル
 };
 
-// Sassコンパイル
+/* ------------------------------------------------------
+Sassコンパイル
+------------------------------------------------------ */
 const sassCompile = () => {
   return (
     src(paths.styles.src, {
@@ -127,14 +135,17 @@ const sassCompile = () => {
           errorHandler: notify.onError('Error: <%= error.message %>'),
         })
       )
+      //Glob有効化
+      .pipe(sassGlob())
       // scss→cssコンパイル
       .pipe(
         sass({
-          //出力時の形式（下記詳細）
+          includePaths: ['src/scss'],//フォルダ名と合わせる
+          outputStyle: 'compressed',
           /*
+          outputStyle 詳細
            *https://utano.jp/entry/2018/02/hello-sass-output-style/
            */
-          outputStyle: 'compressed',
         }).on('error', sass.logError)
       )
       .pipe(
@@ -148,11 +159,12 @@ const sassCompile = () => {
       )
       //メディアクエリをまとめる
       .pipe(gcmq())
-      //圧縮
+      //CSS圧縮
       .pipe(cssNano())
+      // 出力
       .pipe(
         dest(paths.styles.dist, {
-          // ソースマップを出力する場合のパス
+          // ソースマップ出力先のパス
           sourcemaps: './map',
         })
       )
@@ -161,7 +173,9 @@ const sassCompile = () => {
   );
 };
 
-// JavaScriptコンパイル
+/* ------------------------------------------------------
+JavaScriptコンパイル
+------------------------------------------------------ */
 const jsCompile = () => {
   return src(paths.scripts.src)
     .pipe(
@@ -179,7 +193,9 @@ const jsCompile = () => {
     .pipe(dest(paths.scripts.dist));
 };
 
-// webpack
+/* ------------------------------------------------------
+webpack設定
+------------------------------------------------------ */
 const jsBundle = (done) => {
   //webpackStreamの第2引数にwebpackを渡す
   webpackStream(webpackConfig, webpack)
@@ -190,7 +206,9 @@ const jsBundle = (done) => {
   done();
 };
 
-// 画像圧縮
+/* ------------------------------------------------------
+画像圧縮
+------------------------------------------------------ */
 const imagesCompress = () => {
   return src(
     paths.images.src
@@ -251,8 +269,9 @@ const imagesCompress = () => {
     )
     .pipe(dest(paths.images.dist));
 };
-
-// 画像webp変換（gif,svgを除く）
+/* ------------------------------------------------------
+webp変換
+------------------------------------------------------ */
 const webpConvert = () => {
   return src(
     paths.images.srcWebp
@@ -264,7 +283,11 @@ const webpConvert = () => {
         errorHandler: notify.onError('Error: <%= error.message %>'),
       })
     )
-    .pipe(webp())
+    .pipe(
+      webp({
+        // quality: 80,
+      })
+    )
     .pipe(dest(paths.images.dist));
 };
 
@@ -278,20 +301,17 @@ const jsCopy = () => {
   return src(paths.scripts.copy).pipe(dest(paths.scripts.dist));
 };
 
-// 画像コピー（webpに変換しないものはそのままdistへ移行
-const imagesCopy = () => {
-  return src(paths.images.src).pipe(dest(paths.images.dist));
-};
 // fontコピー（ローカルフォント使用する場合
 const fontsCopy = () => {
   return src(paths.fonts.src).pipe(dest(paths.fonts.dist));
 };
 
-// ローカルサーバー起動
+/* ------------------------------------------------------
+ローカルサーバー起動
+------------------------------------------------------ */
 const browserSyncFunc = (done) => {
   browserSync.init({
-    //デフォルトの connected のメッセージ非表示
-    notify: false,
+    notify: false, //デフォルトの connected のメッセージ非表示
     server: {
       baseDir: './',
     },
@@ -301,15 +321,18 @@ const browserSyncFunc = (done) => {
   done();
 };
 
-// ブラウザ自動リロード
+/* ------------------------------------------------------
+ブラウザリロード
+------------------------------------------------------ */
 const browserReloadFunc = (done) => {
   browserSync.reload();
   done();
 };
 
-// -----------------------
-// ファイル削除
-// -----------------------
+/* ------------------------------------------------------
+削除
+------------------------------------------------------ */
+
 // public 内をすべて削除
 const cleanAll = (done) => {
   src(paths.clean.all, { read: false }).pipe(clean());
@@ -358,9 +381,8 @@ exports.default = series(
     cssCopy,
     jsBundle,
     jsCopy,
-    // imagesCopy,
     // imagesCompress,
-    webpConvert,
+    // webpConvert,
     fontsCopy
   ),
   parallel(watchFiles, browserSyncFunc)

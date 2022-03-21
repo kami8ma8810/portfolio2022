@@ -1,7 +1,7 @@
 @use 'sass:math';
 @use 'sass:string';
 
-//pxをvwに変換
+//pxをvw/vhに変換
 @function vw($size, $viewport: 750) {
   $rate: math.div(100, $viewport);
   @return $rate * $size * 1vw;
@@ -21,6 +21,12 @@
 @function vh_fv($size, $viewport: 1334) {
   $rate: math.div(100, $viewport);
   @return $rate * $size * 1vh;
+}
+
+// pxをremに変換
+@function rem($px, $basePx: 16) {
+  $rate: math.div($px, $basePx);
+  @return $rate * 1rem;
 }
 
 // line-height

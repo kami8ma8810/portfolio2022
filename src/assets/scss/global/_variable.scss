@@ -1,21 +1,5 @@
-// font
-@font-face {
-  font-family: 'RobotoMedium';
-  src: url('../fonts/RobotoMedium.woff2') format('woff2'),
-    url('../fonts/RobotoMedium.woff') format('woff'),
-    url('../fonts/RobotoMedium.ttf') format('truetype');
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'MyYuMinchoC';
-  src: local('YuMincho-Demibold'), /* for Win */ local('YuMincho Demibold'); /* for Mac */
-}
-@font-face {
-  font-family: 'YuMinchoWindows';
-  font-weight: bold;
-  src: local('YuMincho-Demibold');
-}
+// $robot-mono: 'Roboto Mono', monospace;
+// $shippori-mincho: 'Shippori Mincho', serif;
 
 // color
 $primaryBlue: #002b69;
@@ -28,47 +12,6 @@ $pcInnerWidth: 1080px;
 // path
 $imgPath: '../images/';
 $fontPath: '../fonts/';
-
-//break point
-$breakpoints: (
-  'se': (
-    min-width: 320px,
-  ),
-  'std': (
-    min-width: 375px,
-  ),
-  'sm': (
-    min-width: 520px,
-  ),
-  'md': (
-    min-width: 768px,
-  ),
-  'lg': (
-    min-width: 960px,
-  ),
-  'tab': (
-    min-width: 1024px,
-  ),
-  'tabOver': (
-    min-width: 1025px,
-  ),
-  'pc': (
-    min-width: 1280px,
-  ),
-  'xl': (
-    min-width: 1366px,
-  ),
-  'pc-md': (
-    min-width: 1536px,
-  ),
-  'fullHd': (
-    min-width: 1920px,
-  ),
-  'wqHd': (
-    min-width: 2560px,
-  ),
-) !default;
-
 /*
 easing
 https://easings.net/ja

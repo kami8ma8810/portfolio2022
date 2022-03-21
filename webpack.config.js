@@ -87,7 +87,7 @@ module.exports = {
         terserOptions: {
           compress: {
             // console.logを削除（trueで削除）
-            drop_console: true,
+            // drop_console: true,
           },
         },
       }),
