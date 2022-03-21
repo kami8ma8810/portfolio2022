@@ -1,0 +1,174 @@
+@use '../global' as *;
+
+body.growth {
+  .c-fvGradientArrows {
+    &__title {
+      width: vw(538);
+      @include mq(lg) {
+        width: 602px;
+      }
+    }
+  }
+
+  .content {
+    font-feature-settings: 'palt';
+    width: 100%;
+    overflow: hidden;
+    // background-color: darkcyan;
+    &__inner {
+      padding: vw(120) vw(40) vw(280);
+      @include mq(lg) {
+        width: 100%;
+        max-width: 780px;
+        // max-width: 1175px;
+        // max-width: 1318px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 160px 295px 240px 0;
+        // padding: 160px 295px 240px 0;
+        // padding: 160px 295px 240px vw_lg(143);
+        box-sizing: content-box;
+      }
+    }
+    &__title {
+      font-size: vw(56);
+      line-height: lh(56, 108);
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+      @include mq(lg) {
+        font-size: 54px;
+        line-height: lh(64, 108);
+        letter-spacing: 0.08em;
+        .is-sp {
+          display: none;
+        }
+      }
+    }
+    &__desc {
+      font-size: vw(22);
+      line-height: lh(22, 48);
+      margin-top: 1.6em;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-justify: inter-character;
+      letter-spacing: 0.1em;
+      @include mq(lg) {
+        font-size: 14px;
+        line-height: lh(14, 36);
+      }
+    }
+  }
+
+  .linkBox {
+    $this: &;
+    margin-top: vw(55);
+    @include mq(lg) {
+      margin-top: 90px;
+    }
+    &__item {
+      width: vw(670);
+      height: vw(280);
+      @include mq(lg) {
+        width: 780px;
+        height: 220px;
+      }
+      &:first-of-type {
+        background: url('../images/growth/btn-culture--sp.png') no-repeat;
+        background-size: contain;
+        @include mq(lg) {
+          background: url('../images/growth/btn-culture.png') no-repeat;
+        }
+        // .linkBox__readmore span {
+        //   background: rgb(255, 135, 0);
+        //   background: linear-gradient(
+        //     30deg,
+        //     rgba(255, 135, 0, 1) 0%,
+        //     rgba(250, 175, 90, 1) 100%
+        //   );
+        // }
+      }
+      &:last-of-type {
+        background: url('../images/growth/btn-number--sp.png') no-repeat;
+        background-size: contain;
+        @include mq(lg) {
+          background: url('../images/growth/btn-number.png') no-repeat;
+        }
+        // .linkBox__readmore span {
+        //   background: rgb(70, 109, 210);
+        //   background: linear-gradient(
+        //     30deg,
+        //     rgba(70, 109, 210, 1) 0%,
+        //     rgba(85, 150, 215, 1) 100%
+        //   );
+        // }
+      }
+      & + .linkBox__item {
+        margin-top: vw(40);
+        @include mq(lg) {
+          margin-top: 30px;
+        }
+      }
+    }
+    &__link {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      padding-left: vw(60);
+      @include mq(lg) {
+        position: relative;
+        padding-left: 50px;
+        &:hover {
+          .linkBox__readmore {
+            width: 320px;
+          }
+        }
+      }
+    }
+    &__title {
+      position: relative;
+      z-index: 20;
+      font-size: vw(40);
+      line-height: lh(40, 64);
+      letter-spacing: 0.1em;
+      color: #fff;
+      font-weight: normal;
+      @include mq(lg) {
+        font-size: 32px;
+        line-height: 1;
+        .is-sp {
+          display: none;
+        }
+      }
+    }
+    &__readmore {
+      opacity: 0;
+      visibility: hidden;
+      @include mq(lg) {
+        opacity: 1;
+        visibility: visible;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        left: 440px;
+        z-index: 10;
+        padding-left: 0;
+        background: url('../images/common/btn-arrowParts--white.svg') no-repeat;
+        background-size: auto 100%;
+        background-position: right center;
+      }
+      &::before {
+        z-index: 0;
+        background-color: #fff;
+      }
+      img {
+        position: relative;
+        z-index: 20;
+        display: block;
+        width: auto;
+        height: 11px;
+        padding-left: 20px;
+      }
+    }
+  }
+}

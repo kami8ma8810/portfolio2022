@@ -1,0 +1,45 @@
+@use '../global' as *;
+
+.c-readmore {
+  position: relative;
+  display: inline-block;
+  width: vw(280);
+  height: vw(160);
+  padding-left: vw(14);
+  color: #fff;
+  @include roboto;
+  font-size: vw(20);
+  font-weight: normal !important;
+  line-height: vw(165);
+  text-align: left;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: url('../images/common/btn-arrowParts--blue.svg') no-repeat;
+  background-size: contain;
+  background-position: right;
+  transition: width 0.3s $easeOutCirc;
+  @include mq(lg) {
+    width: 260px;
+    height: 120px;
+    padding-left: 20px;
+    font-size: 15px;
+    line-height: 120px;
+    &:hover {
+      width: 320px;
+    }
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 0;
+    width: 80%;
+    height: vw(29);
+    transform: translateY(-50%);
+    background-color: $primaryBlue;
+    @include mq(lg) {
+      height: 21px;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+@use '../global' as *;
+
+body.members {
+  // color: #ff0000;
+  .c-fvGradientArrows {
+    &__title {
+      width: vw(569);
+      top: vw(-178);
+      left: vw(22);
+      @include mq(lg) {
+        width: 637px;
+        top: -100px;
+        left: 142px;
+      }
+    }
+  }
+  .articles {
+    margin: vw(140) 0 vw(275);
+    padding: 0 vw(40);
+    @include mq(lg) {
+      margin: 180px 0 195px;
+      padding: 0;
+    }
+  }
+  .articles__items {
+    @include mq(lg) {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      max-width: 980px;
+      margin: -75px auto 0;
+    }
+  }
+  .articles__item {
+    margin-top: vw(100);
+    @include mq(lg) {
+      margin-top: 75px;
+      flex: 0 1 460px;
+    }
+  }
+}

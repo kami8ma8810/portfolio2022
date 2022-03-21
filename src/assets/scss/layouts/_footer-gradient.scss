@@ -1,0 +1,111 @@
+@use '../global' as *;
+
+.footer {
+  &__gradient {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include webpBg('../images/common/bg-gradient-footer', 'png');
+    background-size: cover;
+    height: vw(495);
+    @include mq(lg) {
+      height: min(vw_lg(500), 500px);
+    }
+  }
+  &__btns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: vw(1.5) solid #fff;
+    width: vw(670);
+    height: vw(335);
+    @include mq(lg) {
+      width: min(vw_lg(1080), 1080px);
+      height: min(vw_lg(280), 280px);
+      border: 1.5px solid #fff;
+    }
+  }
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    @include mq(lg) {
+      justify-content: flex-start;
+      &:hover {
+        .footer__btnArrow {
+          width: 92px;
+        }
+      }
+    }
+    img {
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      display: inline-block;
+      @include mq(lg) {
+        top: 50%;
+        left: 43%;
+      }
+      &:first-of-type {
+        width: vw(174);
+        @include mq(lg) {
+          width: 37%;
+        }
+      }
+      &:last-of-type {
+        width: vw(178);
+        @include mq(lg) {
+          width: 38%;
+        }
+      }
+    }
+    & + & {
+      border-left: vw(1.5) solid #fff;
+      @include mq(lg) {
+        border-left: 1.5px solid #fff;
+      }
+    }
+  }
+  &__btnArrow {
+    position: relative;
+    width: vw(46);
+    height: vw(42);
+    margin-right: vw(45);
+    @include mq(lg) {
+      width: 52px;
+      height: 48px;
+      margin-right: 0;
+      margin-left: min(vw_lg(363), 363px);
+      transition: width 0.3s $easeOutCirc;
+    }
+    &::before,
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+    }
+    &::before {
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      background-color: #fff;
+      width: 80%;
+      height: vw(8);
+      @include mq(lg) {
+        height: 8px;
+      }
+    }
+    &::after {
+      background: url('../images/common/btn-arrowParts--white.svg') no-repeat;
+      background-size: contain;
+      background-position: right center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

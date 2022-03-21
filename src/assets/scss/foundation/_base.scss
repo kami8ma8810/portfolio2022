@@ -1,0 +1,135 @@
+@use '../global' as *;
+
+body {
+  background-color: #fff;
+  color: $primaryBlue;
+  @include yumin-bold;
+  font-weight: bold;
+  &.ua-macos {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  &.ua-chrome {
+    // Chrome画像にじみ対処
+    img,
+    source {
+      image-rendering: -webkit-optimize-contrast;
+    }
+  }
+  &.ua-android {
+    font-family: 'Noto Serif JP', serif;
+    .top-bgGradient {
+      background: none;
+      position: relative;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../images/top/top-bg-gradient--android.jpg');
+        background-image: url('../images/top/top-bg-gradient--android.webp');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    }
+    .top-growth {
+      background: none;
+    }
+    .top-mission {
+      background: none;
+    }
+  }
+  // &.ua-windows {
+  // p,
+  // span,
+  // dt,
+  // dd,
+  // .contents__linkAnchor,
+  // .c-memberSection__lead,
+  // .c-membersArticle__title,
+  // .fv__box {
+  //   font-weight: bold;
+  // }
+  // .footer__subItem a,
+  // .footer__item a > span,
+  // .footer__external,
+  // .drawer__external,
+  // .fv__lead span,
+  // .fv__titleText,
+  // .culture__titleInner,
+  // .culture__lead span,
+  // .system__titleInner,
+  // .system__leadText,
+  // .system__leadText > span {
+  //   font-weight: normal;
+  // }
+  // }
+  // &.ua-sp {
+  // font-weight: bold;
+  // }
+}
+
+// スクリーンリーダー非表示用
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  border: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dt,
+dd,
+li,
+ul,
+ol,
+span,
+figcaption,
+address,
+th,
+td,
+thead,
+caption,
+label,
+input,
+form,
+button,
+select,
+textarea,
+sup,
+sub {
+  line-break: strict;
+}
+
+.common-container {
+  // overflow: hidden;
+}
+
+picture {
+  display: block;
+}
+img,
+source {
+  max-width: 100%;
+  height: auto;
+}
+
+// gsapによる自動生成エレメント削除
+.pin-spacer {
+  pointer-events: none;
+}

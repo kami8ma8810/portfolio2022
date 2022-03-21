@@ -1,0 +1,80 @@
+<% const siteName='中途採用情報｜エムスリー株式会社【M3, Inc.】'; %>
+<%# const siteUrl='http://on-01.main.jp/test/m3-mid/'; %>
+<% const siteUrl='https://www.m3/career/'; %>
+
+<% if(meta.isTop) {%>
+
+<head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# website:http://ogp.me/ns/website#">
+  <% } else {%>
+
+  <head prefix="og:http://ogp.me/ns# fb:http://ogp.me/ns/fb# article:http://ogp.me/ns/article#">
+    <% }%>
+    <meta charset="UTF-8" />
+    <title><%= meta.title %><%= siteName %></title>
+    <meta name="description" content="What’s YOUR Next? エムスリー株式会社の中途採用サイトです。エムスリーにはどのような成長環境があるのか。どのような社員が活躍しているのか。インタビューやデータなど様々な角度からご紹介します。" />
+    <meta name="keywords" content="m3,M3,エムスリー,中途,キャリア,採用,募集,医療,IT,マーケティング,コンサルティング,m3.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="robots" content="index,follow" />
+    <meta content="telephone=no" name="format-detection" />
+    <!-- URL関係はすべて絶対パスで記述 -->
+    <link rel="canonical" href="<%= siteUrl %>">
+    <meta property="og:title" content="<%= meta.title %><%= siteName %>" />
+    <meta property="og:description" content="What’s YOUR Next? エムスリー株式会社の中途採用サイトです。エムスリーにはどのような成長環境があるのか。どのような社員が活躍しているのか。インタビューやデータなど様々な角度からご紹介します。" />
+    <meta property="og:url" content="<%= meta.pageUrl %>" />
+    <meta property="og:image" content="<%= siteUrl %>ogp.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="What's Your Next?" />
+    <% if(meta.isTop) {%>
+    <meta property="og:type" content="website" />
+    <% } else {%>
+    <meta property="og:type" content="article" />
+    <% }%>
+    <meta property="og:site_name" content="<%= siteName %>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:src" content="<%= siteUrl %>ogp.jpg" />
+    <meta name="twitter:image:alt" content="What's Your Next?" />
+    <meta name="twitter:title" content="<%= meta.title %><%= siteName %>" />
+    <meta name="twitter:description" content="What’s YOUR Next? エムスリー株式会社の中途採用サイトです。エムスリーにはどのような成長環境があるのか。どのような社員が活躍しているのか。インタビューやデータなど様々な角度からご紹介します。" />
+    <meta name="thumbnail" content="<%= siteUrl %>ogp.jpg" />
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= siteUrl %>apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= siteUrl %>favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= siteUrl %>favicon-16x16.png">
+    <link rel="manifest" href="<%= siteUrl %>site.webmanifest">
+    <link rel="mask-icon" href="<%= siteUrl %>safari-pinned-tab.svg" color="#002b69">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Google Fonts for Android -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap" media="print" onload="this.media='all'"> -->
+    <script type="text/javascript">
+    let uA=navigator.userAgent;if(uA.indexOf("Android")>0){const e=document.createElement("link");e.rel="preconnect",e.href="https://fonts.googleapis.com",document.head.appendChild(e);const t=document.createElement("link");t.rel="preconnect",t.href="https://fonts.gstatic.com",t.crossOrigin="anonymous",document.head.appendChild(t);const n=document.createElement("link");n.rel="stylesheet",n.href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap",document.head.appendChild(n)}
+    </script>
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500&display=swap">
+    </noscript>
+
+    <!-- loading CSS -->
+    <!-- <style>
+      .loading{position:fixed;top:0;left:0;width:100%;min-height:100vh;min-height:calc(var(--vh,1vh) * 100);background-color:#fff;display:flex;justify-content:center;align-items:center;z-index:10000}.loading__logo{display:block;width:50%;max-width:100%;height:auto}@media screen and (min-width:960px){.loading__logo{width:300px}}
+      </style> -->
+
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="<%= meta.stylePath %>style.css">
+    <!-- ↓非同期読み込みする場合 -->
+    <!-- <link rel="stylesheet" href="./assets/css/style.css" media="print" onload="this.media='all'" /> -->
+    <!-- background-image 遅延読み込み用（hoverやclickなどアクションでしか表示されない画像がある場合 -->
+    <!-- <link rel="stylesheet" href="<%= meta.stylePath %>preload.css" media="print" onload="this.media='all'" /> -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-2134223-50"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-2134223-50');
+    </script>
+  </head>

@@ -1,0 +1,159 @@
+@use '../global' as *;
+
+.c-memberSection {
+  $this: &;
+  margin-top: vw(104);
+  padding: 0 vw(40);
+  @include mq(lg) {
+    padding: 0;
+    margin-top: 120px;
+  }
+  // 入社のきっかけ
+  &:nth-of-type(1) {
+    margin-top: 0;
+    @include mq(lg) {
+      width: 840px;
+      margin-left: auto;
+      margin-right: auto;
+      .c-memberSection__desc {
+        margin-top: 22px;
+      }
+    }
+  }
+  // 入社して驚いたこと
+  &:nth-of-type(2) {
+    @include mq(lg) {
+      display: flex;
+      margin: 85px auto 0;
+      max-width: 1230px;
+      transform: translateX(-68px);
+    }
+    #{$this}__photo {
+      margin-right: auto;
+      margin-left: vw(-40);
+      @include mq(lg) {
+        margin-right: 50px;
+        margin-left: 0;
+        width: 680px;
+        height: 600px;
+        flex: 0 1 680px;
+      }
+    }
+    #{$this}__textContainer {
+      margin-top: vw(120);
+      @include mq(lg) {
+        margin-top: 60px;
+        flex: 0 1 510px;
+      }
+    }
+  }
+  // 現在の仕事内容
+  &:nth-of-type(3) {
+    @include mq(lg) {
+      width: 840px;
+      margin-left: auto;
+      margin-right: auto;
+      .c-memberSection__desc {
+        margin-top: 22px;
+      }
+    }
+  }
+  // エムスリーの成長環境
+  &:nth-of-type(4) {
+    @include mq(lg) {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+      margin: 85px auto 0;
+      max-width: 1230px;
+      transform: translateX(75px);
+    }
+    #{$this}__photo {
+      margin-left: auto;
+      margin-right: vw(-40);
+      @include mq(lg) {
+        margin-right: 0;
+        margin-left: 78px;
+        width: 640px;
+        height: 720px;
+        flex: 0 1 640px;
+      }
+    }
+    #{$this}__textContainer {
+      margin-top: vw(120);
+      @include mq(lg) {
+        margin-top: 65px;
+        flex: 0 1 505px;
+      }
+    }
+    #{$this}__desc {
+      @include mq(lg) {
+        margin-top: 40px;
+      }
+    }
+  }
+  // 今後の目標
+  &:nth-of-type(5) {
+    @include mq(lg) {
+      margin-top: 80px;
+      width: 840px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #{$this}__desc {
+      @include mq(lg) {
+        margin-top: 35px;
+      }
+    }
+  }
+  &__photo {
+    overflow: hidden;
+    width: vw(620);
+    height: vw(600);
+  }
+  &__title {
+    width: auto;
+    height: vw(40);
+    @include mq(lg) {
+      height: 24px;
+    }
+    picture,
+    img,
+    source {
+      height: 100%;
+      width: auto;
+    }
+  }
+  &__content {
+    margin-top: vw(72);
+    @include mq(lg) {
+      margin-top: 42px;
+      padding-left: 40px;
+    }
+  }
+  &__lead {
+    font-size: vw(32);
+    line-height: lh(32, 52);
+    font-feature-settings: 'palt';
+    letter-spacing: 0.1em;
+    @include mq(lg) {
+      font-size: 26px;
+      line-height: lh(26, 46);
+      .is-sp {
+        display: none;
+      }
+    }
+  }
+  &__desc {
+    margin-top: vw(56);
+    font-size: vw(22);
+    line-height: lh(22, 48);
+    font-feature-settings: 'palt';
+    letter-spacing: 0.1em;
+    @include mq(lg) {
+      margin-top: 27px;
+      font-size: 14px;
+      line-height: lh(14, 36);
+    }
+  }
+}

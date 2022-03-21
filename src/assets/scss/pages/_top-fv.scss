@@ -1,0 +1,339 @@
+@use '../global' as *;
+
+body.ua-ipad {
+  // .topFv {
+  //   @include mq(lg) {
+  //     @include webpBg('../images/top/top-fv-bg--sp', 'png');
+  //   }
+  // }
+}
+
+.topFv {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  @include vh100;
+  overflow: hidden;
+  @include webpBg('../images/top/top-fv-bg--sp', 'png');
+  background-size: cover;
+  background-position: center;
+  @include mq(lg) {
+    @include webpBg('../images/top/top-fv-bg', 'png');
+  }
+  // @include aspect-ratio {
+  //   @include webpBg('../images/top/top-fv-bg', 'png');
+  //   background-position: center;
+  // }
+  &__titleContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+    @include mq(lg) {
+      top: 51.5%;
+      left: 49%;
+    }
+  }
+  &__title {
+    width: vw(315);
+    opacity: 0;
+    @include mq(lg) {
+      width: 275px;
+    }
+  }
+  &__leadContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    @include mq(lg) {
+      // max-width: 1366px;
+      min-width: 1366px;
+      min-height: 800px;
+      max-height: 800px;
+      width: 1366px;
+      height: 800px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__lead {
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.9);
+    // &.is-active {
+    // animation-name: fuwaLarge;
+    // animation-timing-function: ease-in-out;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate;
+    // animation-duration: 2.5s;
+    // }
+    // @keyframes fuwaLarge {
+    //   0% {
+    //     transform: translate3d(0, 0, 0);
+    //   }
+    //   100% {
+    //     // transform: translate3d(0, 8px, 0);
+    //     transform: translate3d(0, 8px, 0);
+    //   }
+    // }
+
+    &.is-main {
+      transform: scale(0.95);
+      // &.is-active {
+      // animation-name: fuwaSmall;
+      // animation-timing-function: ease-in-out;
+      // animation-iteration-count: infinite;
+      // animation-direction: alternate;
+      // animation-duration: 2s;
+      // }
+      // @keyframes fuwaSmall {
+      //   0% {
+      //     transform: translate3d(0, 0, 0);
+      //   }
+      //   100% {
+      //     transform: translate3d(0, 3px, 0);
+      //   }
+      // }
+
+      @include mq(lg) {
+        width: 110vw !important;
+        height: 110vw !important;
+        // max-width: 110vw !important;
+        max-width: 100% !important;
+        top: auto !important;
+        left: auto !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        source,
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      @include mq(xl) {
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+      }
+    }
+    picture {
+      max-width: 100%;
+      height: auto;
+    }
+    source,
+    img {
+      width: 100%;
+    }
+    // 成功体験
+    &:nth-of-type(1) {
+      width: vw(417);
+      top: vh_fv(160);
+      left: vw(80);
+      max-width: 294px;
+      // @include mq(lg) {
+      // width: 294px;
+      // top: vh_lg(279);
+      // top: auto;
+      // left: vw_lg(917);
+      // }
+      // @include mq(xl) {
+      //   top: 279px;
+      //   left: 917px;
+      // }
+      // @include aspect-ratio {
+      //   width: 294px;
+      //   top: vh_lg(279);
+      //   left: vw_lg(917);
+      // }
+    }
+    // 世界11か国
+    &:nth-of-type(2) {
+      width: vw(367);
+      top: vh_fv(1006);
+      left: vw(324);
+      max-width: 372px;
+      // @include mq(lg) {
+      // width: 372px;
+      // top: vh_lg(594);
+      // top: auto;
+      // bottom: 145px;
+      // bottom: vh_lg(145);
+      // left: vw_lg(253);
+      // bottom: 145px;
+      // }
+      // @include mq(xl) {
+      //   top: 594px;
+      //   left: 253px;
+      // }
+    }
+    // 0-1 1-10
+    &:nth-of-type(3) {
+      width: vw(390);
+      top: vh_fv(860);
+      left: vw(62);
+      max-width: 325px;
+
+      // @include mq(lg) {
+      // width: 325px;
+      // top: vh_lg(186);
+      // left: vw_lg(379);
+      // }
+      // @include mq(xl) {
+      //   top: 186px;
+      //   left: 379px;
+      // }
+    }
+    // コンサル
+    &:nth-of-type(4) {
+      width: vw(446);
+      top: vh_fv(330);
+      left: vw(260);
+      max-width: 366px;
+      // animation-duration: 2.2s;
+
+      // @include mq(lg) {
+      //   width: 366px;
+      //   top: vh_lg(373);
+      //   left: vw_lg(94);
+      // }
+      // @include mq(xl) {
+      //   top: 373px;
+      //   left: 94px;
+      // }
+    }
+    // あなたが次世代
+    &:nth-of-type(5) {
+      width: vw(427);
+      top: vh_fv(1122);
+      left: vw(54);
+      max-width: 356px;
+      // animation-duration: 2.7s;
+      // @include mq(lg) {
+      //   width: 356px;
+      //   top: vh_lg(456);
+      //   // top: auto;
+      //   // bottom: vh_lg(240);
+      //   left: vw_lg(878);
+      //   // bottom: 240px;
+      // }
+      // @include mq(xl) {
+      //   top: 456px;
+      //   left: 878px;
+      // }
+    }
+    // ---------------------------------
+    // ブラー
+    // ---------------------------------
+    // 成功体験
+    &:nth-of-type(6) {
+      width: vw(840);
+      top: vh_fv(42);
+      left: vw(565);
+      max-width: 860px;
+      // animation-duration: 2.8s;
+      @include mq(lg) {
+        width: 872px;
+        // top: vh_lg(105);
+        top: 108px;
+        // left: vw_lg(-555);
+        // left: -555px;
+        left: -41%;
+      }
+      // @include mq(xl) {
+      // top: 105px;
+      // left: -555px;
+      // }
+    }
+    // 世界11か国
+    &:nth-of-type(7) {
+      width: vw(820);
+      top: vh_fv(610);
+      left: vw(-670);
+      max-width: 841px;
+      @include mq(lg) {
+        width: 854px;
+        // top: vh_lg(25);
+        top: 25px;
+        // left: vw_lg(800);
+        left: auto;
+        right: -20%;
+      }
+      // @include mq(xl) {
+      // top: 25px;
+      // left: 800px;
+      // }
+    }
+    // 0-1 1-10
+    &:nth-of-type(8) {
+      width: vw(520);
+      top: vh_fv(282);
+      left: vw(-354);
+      max-width: 632px;
+      @include mq(lg) {
+        width: 632px;
+        // top: vh_lg(564);
+        top: 564px;
+        // top: auto;
+        // bottom: vh_lg(37);
+        // left: vw_lg(-416);
+        // left: -416px;
+        left: -30.5%;
+      }
+      // @include mq(xl) {
+      // top: 564px;
+      // left: -416px;
+      // }
+    }
+    // コンサル
+    &:nth-of-type(9) {
+      width: vw(850);
+      top: vh_fv(516);
+      left: vw(600);
+      max-width: 753px;
+
+      @include mq(lg) {
+        width: 753px;
+        // top: vh_lg(293);
+        top: 293px;
+        // left: vw_lg(1261);
+        left: auto;
+        right: -47.3%;
+      }
+      // @include mq(xl) {
+      // top: 293px;
+      // left: 1261px;
+      // }
+    }
+    // あなたが次世代
+    &:nth-of-type(10) {
+      width: vw(1690);
+      top: vh_fv(1120);
+      left: vw(514);
+      max-width: 1346px;
+      // animation-duration: 4s;
+      @include mq(lg) {
+        width: 1346px;
+        // top: vh_lg(620);
+        top: 620px;
+        // left: vw_lg(602);
+        left: auto;
+        right: -42.5%;
+      }
+      // @include mq(xl) {
+      // top: 620px;
+      // left: 602px;
+      // }
+    }
+  }
+}

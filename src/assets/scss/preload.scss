@@ -1,0 +1,9 @@
+// background-image遅延用（ホバーなどのアクションで表示されるbackground-imageがある場合）
+@charset "UTF-8";
+
+html::after {
+  // content: '';
+  // background-image: url('../images/bg01.png'), url('../images/bg02.png'),
+  //   url('../images/bg03.png');
+  // ↑追加する画像を複数で指定していく
+}

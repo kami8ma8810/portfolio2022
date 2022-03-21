@@ -1,0 +1,14 @@
+@use '../global' as *;
+
+body.is-member.member001 {
+  .fv__details {
+    dd {
+      &.belong {
+        letter-spacing: -0.05em;
+      }
+      &.ex {
+        letter-spacing: 0.05em;
+      }
+    }
+  }
+}

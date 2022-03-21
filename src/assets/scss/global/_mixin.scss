@@ -1,0 +1,127 @@
+@use 'variables' as *;
+
+// 複数行underline
+@mixin underlines($color: #fff) {
+  display: inline;
+  background: linear-gradient(transparent 92%, $color 0%);
+  padding-bottom: 0.25em;
+}
+
+@mixin aspect-ratio11 {
+  @media screen and (min-aspect-ratio: 1/1) {
+    @content;
+  }
+}
+@mixin aspect-ratio43 {
+  @media screen and (min-aspect-ratio: 4/3) {
+    @content;
+  }
+}
+
+// 背景画像のwebp対応（ブラウザで出し分けする）
+$webpClassName: '.webp';
+$noWebpClassName: '.no-webp';
+
+// 入れ子にする場合
+@mixin webpBg($filePath, $fileExtension: 'jpg') {
+  #{$webpClassName} & {
+    background-image: url(#{$filePath}.webp);
+  }
+  #{$noWebpClassName} & {
+    background-image: url(#{$filePath}.#{$fileExtension});
+  }
+}
+// 【記述例】
+// .box{
+// @include webpBg('../images/bg', 'png');
+// }
+// ※入れ子内で記述する
+
+// ================================================
+// ↓入れ子にしない場合
+// @mixin webpBg($selector, $filePath, $fileExtension: 'jpg') {
+//   #{$noWebpClassName} #{$selector} {
+//     background-image: url(#{$filePath}.#{$fileExtension});
+//   }
+//   #{$webpClassName} #{$selector} {
+//     background-image: url(#{$filePath}.webp);
+//   }
+// }
+// 【記述例】
+// @include webpBg('.main .test', '../images/bg', 'png');
+// ※入れ子内で記述しない
+
+// メディアクエリ（印刷対応する場合はprintを記述）
+@mixin mq($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media print,screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+      @content;
+    }
+  }
+}
+
+@mixin disableHover {
+  // ホバーが使えないデバイス用（IEのみ非対応
+  @media (hover: none) {
+    @content;
+  }
+}
+@mixin enableHover {
+  // ホバーが使えるデバイス用（IEのみ非対応
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+@mixin textjustify {
+  text-align: justify; /* 基本 */
+  text-justify: inter-ideograph; /* IEで必要 */
+  text-justify: inter-character; /* Firefoxで必要 */
+}
+@mixin vh100 {
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100); //safari用
+}
+
+// font
+@mixin roboto {
+  font-family: 'RobotoMedium', sans-serif;
+}
+@mixin yumin {
+  font-family: '游明朝体', 'Yu Mincho', YuMincho, 'ヒラギノ明朝 Pro',
+    'Hiragino Mincho Pro', 'MS P明朝', 'MS PMincho', serif;
+}
+
+// windowsのみ太字にする特殊パターン
+// @mixin yumin-bold {
+//   font-family: 'YuMincho', /* for Mac (as Medium)*/ 'YuminchoWindows'; /* for Chrome and firefox on Windows */
+//   @supports (-ms-ime-align: auto) {
+//     /* for Edge(Legacy) */
+//     font-family: 'Yu Mincho Demibold';
+//   }
+// }
+@mixin yumin-bold {
+  font-family: 'YuMincho', /* for Mac (as Medium)*/ 'MyYuminchoC'; /* for Chrome and firefox on Windows */
+  @supports (-ms-ime-align: auto) {
+    /* for Edge(Legacy) */
+    font-family: 'Yu Mincho Demibold';
+  }
+}
+@mixin yugo-medium {
+  font-family: '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic,
+    '游ゴシック', 'Yu Gothic', sans-serif;
+  font-weight: normal;
+}
+@mixin yugo {
+  font-family: '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック体', YuGothic,
+    '游ゴシック', 'Yu Gothic', sans-serif;
+}
+@mixin yugo-bold {
+  font-family: '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic', sans-serif;
+  font-weight: bold;
+}
+@mixin yugo-bold-italic {
+  font-family: '游ゴシック体', YuGothic, '游ゴシック', 'Yu Gothic', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}

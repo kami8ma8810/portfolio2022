@@ -1,0 +1,130 @@
+@use '../global' as *;
+
+.c-membersArticle {
+  $this: &;
+  &__inner {
+    font-feature-settings: 'palt';
+    letter-spacing: 0.1em;
+  }
+  &__link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    @include mq(lg) {
+      &:hover #{$this}__photo {
+        source,
+        img {
+          transform: scale3d(1.1, 1.1, 1.1);
+        }
+      }
+    }
+  }
+  &__thumbnail {
+    position: relative;
+    width: 100%;
+    @include mq(lg) {
+      height: 300px;
+    }
+  }
+  &__photo {
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    source,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s $easeOutCirc;
+      transform-origin: center;
+    }
+  }
+  &__readmore {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    width: vw(250);
+    @include mq(lg) {
+      width: 140px;
+    }
+  }
+  &__title {
+    text-align: justify;
+    text-justify: inter-ideograph;
+    text-justify: inter-character;
+    font-size: vw(30);
+    line-height: lh(30, 46);
+    letter-spacing: 0.1em;
+    margin-top: 1.2em;
+    @include mq(lg) {
+      margin-top: 15px;
+      font-size: 22px;
+      line-height: lh(22, 34);
+    }
+  }
+  &__desc {
+    color: #505050;
+    margin-top: 0.8em;
+    @include mq(lg) {
+      margin-top: 22px;
+    }
+  }
+  &__name {
+    letter-spacing: 0.11em;
+    font-size: vw(24);
+    line-height: lh(24, 36);
+    @include mq(lg) {
+      font-size: 20px;
+    }
+    .en {
+      text-transform: uppercase;
+      margin-left: 0.8em;
+      @include mq(lg) {
+        margin-left: 15px;
+      }
+    }
+  }
+  &__details {
+    margin-top: 0.9em;
+    @include mq(lg) {
+      margin-top: 13px;
+    }
+  }
+  &__detail {
+    display: flex;
+    dt,
+    dd {
+      display: flex;
+      align-items: flex-start;
+      font-size: vw(20);
+      line-height: lh(20, 34);
+      @include mq(lg) {
+        font-size: 14px;
+        line-height: lh(14, 22);
+      }
+    }
+    dt {
+      width: vw(92);
+      padding-top: vw(4);
+      flex: 0 0 vw(92);
+      @include mq(lg) {
+        width: 60px;
+        padding-top: 2px;
+        flex: 0 0 60px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+    dd {
+      margin-left: 0.8em;
+      letter-spacing: 0.1em;
+      @include mq(lg) {
+        margin-left: 10px;
+      }
+    }
+  }
+}

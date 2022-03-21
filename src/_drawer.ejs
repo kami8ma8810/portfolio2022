@@ -1,0 +1,54 @@
+<div id="js-drawer" class="drawer js-drawer" aria-expanded="false">
+  <!-- ※デフォルトはfalse -->
+  <div class="drawer__inner">
+    <nav id="js-drawerNav" class="footer__gNav" aria-hidden="true">
+      <ul class="footer__items">
+        <li class="footer__item"><a href="<%= meta.linkPath %>"><span class="footer__item--main">TOP</span></a></li>
+        <li class="footer__item"><a href="<%= meta.linkPath %>message.html"><span class="footer__item--main">message</span><span class="footer__item--sub">What’s<span class="u-textUpper">Your</span>Purpose?</span></a></li>
+        <li class="footer__item"><a href="<%= meta.linkPath %>members.html"><span class="footer__item--main">members</span><span class="footer__item--sub">それぞれの“Next”</span></a></li>
+        <li class="footer__item"><a href="<%= meta.linkPath %>growth.html"><span class="footer__item--main">growth</span><span class="footer__item--sub">エムスリーの成長環境</span></a>
+          <ul class="footer__subItems">
+            <li class="footer__subItem"><a href="<%= meta.linkPath %>growth/culture.html">カルチャー / 制度・仕組み</a></li>
+            <li class="footer__subItem"><a href="<%= meta.linkPath %>growth/figures.html">数字で見る成長環境</a></li>
+          </ul>
+        </li>
+        <li class="footer__item"><a href="<%= meta.linkPath %>mission.html"><span class="footer__item--main">mission</span><span class="footer__item--sub">エムスリーが目指しているもの</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="drawer__btns">
+      <a class="drawer__btn" href="https://m3.recruitment.jp/business2/job/entry" aria-label="エントリーサイトを開く" target="_blank" rel="noopener noreferrer">
+        <picture>
+          <source srcset="<%= meta.imgPath %>common/drawer-entry.svg" media="(min-width: 960px)" width="291" height="74">
+          <img src="<%= meta.imgPath %>common/drawer-entry--sp.svg" alt="" width="598" height="98">
+        </picture>
+      </a>
+      <a class="drawer__btn" href="https://m3.recruitment.jp/business2/job/event" aria-label="イベントサイトを開く" target="_blank" rel="noopener noreferrer">
+        <picture>
+          <source srcset="<%= meta.imgPath %>common/drawer-event.svg" media="(min-width: 960px)" width="291" height="75">
+          <img src="<%= meta.imgPath %>common/drawer-event--sp.svg" alt="" width="598" height="98">
+        </picture>
+      </a>
+      <p class="drawer__external"><a href="https://corporate.m3.com/" target="_blank" rel="noopener noreferrer">コーポレートサイト</a></p>
+    </div>
+  </div>
+
+  <header class="header" data-scroll-sticky>
+    <div class="header__inner">
+      <h1 class="header__logo"><a href="<%= meta.linkPath %>">
+          <picture>
+            <source srcset="<%= meta.imgPath %>common/header-logo.svg" media="(min-width: 560px)" width="365" height="46">
+            <img src="<%= meta.imgPath %>common/header-logo--sp.svg" alt="エムスリー inc career recruiting" width="398" height="44">
+          </picture>
+        </a></h1>
+      <div class="header__btns">
+        <button id="js-closeDrawer" class="header__hamburger js-closeDrawer" type="button" aria-label="メニューを閉じる" aria-controls="js-drawer">
+          <picture>
+            <source srcset="<%= meta.imgPath %>common/drawer-close-btn.svg" media="(min-width: 560px)" width="70" height="17">
+            <img src="<%= meta.imgPath %>common/drawer-close-btn--sp.svg" alt="" width="81" height="23">
+          </picture>
+        </button>
+      </div>
+    </div>
+  </header>
+</div>

@@ -1,0 +1,33 @@
+@use '../global' as *;
+
+body.is-member.member003 {
+  .fv__box {
+    @include mq(lg) {
+      top: min(vh_lg(98), 98px);
+    }
+  }
+  .fv__boxInner {
+    @include mq(lg) {
+      padding-top: 2.6em;
+    }
+  }
+  .fv__desc {
+    @include mq(lg) {
+      margin-top: 2.1em;
+    }
+  }
+  .fv__details {
+    dd {
+      &.belong {
+        letter-spacing: 0.1em;
+        font-feature-settings: 'palt';
+      }
+      &.ex {
+        letter-spacing: 0.01em;
+      }
+    }
+  }
+  .pageMember__bg {
+    padding-top: vw(594);
+  }
+}

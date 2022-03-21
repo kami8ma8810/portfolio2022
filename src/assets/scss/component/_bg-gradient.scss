@@ -1,0 +1,12 @@
+@use '../global' as *;
+
+.c-bgGradient {
+  background: rgb(22, 138, 199);
+  background: linear-gradient(
+    90deg,
+    rgba(22, 138, 199, 1) 0%,
+    rgba(84, 120, 213, 1) 50%,
+    rgba(212, 203, 191, 1) 100%
+  );
+  color: #fff;
+}
