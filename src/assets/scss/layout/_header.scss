@@ -1,10 +1,15 @@
 @use '../global' as *;
 
-.header {
+.l-header {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  width: 100%;
+  background-color: lightgoldenrodyellow;
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
   &__logo {
     font-size: rem(30);
   }

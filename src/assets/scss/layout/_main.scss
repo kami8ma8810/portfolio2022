@@ -1,16 +1,6 @@
 @use '../global' as *;
 
-.main {
-  position: relative;
-  padding-top: 400px;
-  font-family: $roboto-mono;
-  // @include aspect-ratio11 {
-  //   font-size: 60px;
-  // }
-  @include aspect-ratio {
-    font-size: 120px;
-  }
-  // @include aspect-ratio43 {
-  //   color: red;
-  // }
+.l-wrapper {
+}
+.l-main {
 }

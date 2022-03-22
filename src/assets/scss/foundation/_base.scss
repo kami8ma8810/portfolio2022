@@ -1,8 +1,57 @@
 @use '../global' as *;
 
+// +++++++++++++++++++++++++++++++++++++++++++++++++
+// My reset
+// +++++++++++++++++++++++++++++++++++++++++++++++++
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+dt,
+dd,
+li,
+ul,
+ol,
+span,
+figcaption,
+address,
+th,
+td,
+thead,
+caption,
+label,
+input,
+form,
+button,
+select,
+textarea,
+sup,
+sub {
+  line-break: strict;
+}
+
+picture {
+  display: block;
+}
+
+img,
+source {
+  max-width: 100%;
+  height: auto;
+}
+
+// +++++++++++++++++++++++++++++++++++++++++++++++++
+// My reset END
+// +++++++++++++++++++++++++++++++++++++++++++++++++
+
 body {
-  color: $c-main;
+  color: $color-main;
   background-color: #fff;
+  font-size: rem(16);
   &.ua-macos {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -29,21 +78,7 @@ body {
   border: 0;
 }
 
-picture {
-  display: block;
-}
-
-img,
-source {
-  max-width: 100%;
-  height: auto;
-}
-
 // gsapによる自動生成エレメント削除
 .pin-spacer {
   pointer-events: none;
-}
-
-.common-container {
-  // overflow: hidden;
 }

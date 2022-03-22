@@ -1,16 +1,14 @@
 @use '../global' as *;
-
 .drawer {
   position: fixed;
   top: 0;
   left: 0;
   z-index: 200;
+  background: lightblue;
   width: 100%;
   height: 100vh;
-  @include vh100;
-  background: lightblue;
-  // background: lightcoral;
   font-weight: bold;
+  // background: lightcoral;
   @include mq(lg) {
     display: flex;
     align-items: center;
@@ -21,40 +19,33 @@
 // ドロワーアニメーション 初期設定 (aria-expanded)
 // ----------------------------------------
 .drawer[aria-expanded] {
-  transition-timing-function: $easeOutCirc;
-  transition-duration: 0.4s;
-  // transition-delay: 0.2s;
-  transition-property: transform opacity;
+  transition: transform 0.4s, opacity 0.4s;
+  // transition-timing-function: $easeOutCirc;
 }
-
 .drawer[aria-expanded] .drawer__nav {
-  // transition-timing-function: ease-out;
   // transition-duration: 1s;
   // transition-property: opacity transform;
 }
-
 // ----------------------------------------
 // 開いているとき
 // ----------------------------------------
 .drawer[aria-expanded='true'] {
-  opacity: 1;
   visibility: visible;
+  opacity: 1;
   // transform: translateX(0);
   // transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
   // transition-duration: 0.3s;
   // transition-delay: 0.2s;
   // transition-property: transform opacity;
 }
-
 .drawer[aria-expanded='true'] .drawer__nav {
 }
-
 // ----------------------------------------
 // 閉じているとき
 // ----------------------------------------
 .drawer[aria-expanded='false'] {
-  opacity: 0;
   visibility: hidden;
+  opacity: 0;
   // transform: translateX(-101%);
   // transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
   // transition-duration: 0.3s;

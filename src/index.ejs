@@ -1,11 +1,11 @@
-<% const page='top'; %>
+<% const page='is-top'; %>
 <!DOCTYPE html>
 <html lang="ja">
 <%- include('./_head.ejs',{meta:pageMeta[page]}); %>
 
 <body class="<%= page %>">
   <%# include('./_loading.ejs',{meta:pageMeta[page]}); %>
-  <div id="common-container" class="common-container js-smoothScroll" data-scroll-container>
+  <div class="l-wrapper js-smoothScroll" data-scroll-container>
     <%- include('./_header.ejs',{meta:pageMeta[page]}); %>
     <%- include('./_drawer.ejs',{meta:pageMeta[page]}); %>
     <%- include('./_top-main.ejs',{meta:pageMeta[page]}); %>

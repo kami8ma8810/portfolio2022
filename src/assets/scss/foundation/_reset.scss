@@ -1,4 +1,4 @@
-/*! destyle.css v3.0.0 | MIT License | https://github.com/nicolas-cusan/destyle.css */
+/*! destyle.css v3.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 
 /* Reset box-model and set borders */
 /* ============================================ */
@@ -88,12 +88,11 @@ ol {
 /* ============================================ */
 
 dt {
-  // font-weight: normal;
-  margin: 0;
+  font-weight: bold;
 }
 
 dd {
-  margin: 0;
+  margin-left: 0;
 }
 
 /* Grouping content */
@@ -403,6 +402,11 @@ summary {
 
 table {
   border-color: inherit; /* 1 */
+  border-collapse: collapse;
+}
+
+caption {
+  text-align: left;
 }
 
 td,
@@ -412,39 +416,6 @@ th {
 }
 
 th {
-  font-weight: normal;
-}
-
-// +++++++++++++++++++++++++++++++++++++++++++++++++
-// My added
-// +++++++++++++++++++++++++++++++++++++++++++++++++
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-dt,
-dd,
-li,
-ul,
-ol,
-span,
-figcaption,
-address,
-th,
-td,
-thead,
-caption,
-label,
-input,
-form,
-button,
-select,
-textarea,
-sup,
-sub {
-  line-break: strict;
+  text-align: left;
+  font-weight: bold;
 }
