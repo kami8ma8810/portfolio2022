@@ -9,8 +9,63 @@
   &__inner {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    padding: vw(10) vw(20);
+    @include mq(lg) {
+      padding: 10px 20px;
+    }
   }
   &__logo {
-    font-size: rem(30);
+    width: vw(100);
+    @include mq(lg) {
+      width: 50px;
+    }
+  }
+  &__hamburger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: vw(90);
+    height: vw(90);
+    border: 1px solid $color-accent;
+    border-radius: 50%;
+    @include mq(lg) {
+      width: 40px;
+      height: 40px;
+      border: 2px solid $color-accent;
+    }
+  }
+  &__hamburgerInner {
+    content: '';
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 80%;
+    border: 1px solid $color-accent;
+    border-radius: 50%;
+    @include mq(lg) {
+      border: 2px solid $color-accent;
+    }
+    &::before,
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      width: 50%;
+      height: 1px;
+      background-color: $color-accent;
+      transform: translateX(-50%);
+      @include mq(lg) {
+        height: 2px;
+      }
+    }
+    &::before {
+      top: 30%;
+    }
+    &::after {
+      bottom: 30%;
+    }
   }
 }

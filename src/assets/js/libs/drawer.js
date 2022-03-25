@@ -6,7 +6,7 @@ export default () => {
   const openButton = document.getElementById('js-openDrawer');
   const closeButton = document.getElementById('js-closeDrawer');
   const body = document.body;
-  const header = document.querySelector('.header');
+  const header = document.querySelector('.l-header');
   // スクロールバーの幅を取得
   const scrollbarWidth = window.innerWidth - body.clientWidth;
 
@@ -39,7 +39,7 @@ export default () => {
     //PCのみスクロールバーのガタつきをなくすためにヘッダーにpadding-right設定
     if (ua.getDevice() == 'pc') {
       header.style.paddingRight = `${scrollbarWidth}px`;
-      header.style.backgroundColor='#fff';
+      header.style.backgroundColor = '#fff';
     }
   }
 
@@ -49,7 +49,7 @@ export default () => {
     body.style.overflowY = ''; //メインコンテンツをスクロール不可を解除する
     if (ua.getDevice() == 'pc') {
       header.style.paddingRight = ''; //PCのみヘッダーのpadding-right削除
-      header.style.backgroundColor='';
+      header.style.backgroundColor = '';
     }
   }
 

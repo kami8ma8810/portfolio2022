@@ -6,6 +6,7 @@ import drawer from './libs/drawer';
 import pageAnchorLink from './libs/page-anchor-link';
 import ScrollObserver from './libs/scroll-observer';
 import setFillHeight from './libs/set-fill-height';
+import switchDarkMode from './libs/switch-dark-mode';
 import topFvAnime from './libs/top-fv-anime';
 import ua from './libs/ua-parser';
 
@@ -38,10 +39,13 @@ class Main {
   _init() {
     // ユーザーエージェント判定
     ua.init();
+    // ダークモード
+    switchDarkMode();
     //100vhのsafariフォールバック
     setFillHeight();
+    drawer();
     // locomotive初期化
-    // locomotiveGsap();
+    locomotiveGsap();
     // すべての画像の読み込みが完了したタイミングで処理する（背景画像を含む
     const watchTarget = document.querySelector('.common-container');
     const imgLoad = imagesLoaded(watchTarget, { background: true });
@@ -49,14 +53,14 @@ class Main {
       console.log(
         '---------------------\nDONE__imagesLoaded\n---------------------'
       );
-      drawer();
-      this._scrollInit();
-      if (document.querySelector('.js-topFvAnime') !== null) {
-        topFvAnime();
-      }
-      if (document.querySelector('.js-pageAnchorLink') !== null) {
-        pageAnchorLink();
-      }
+      // drawer();
+      // this._scrollInit();
+      // if (document.querySelector('.js-topFvAnime') !== null) {
+      //   topFvAnime();
+      // }
+      // if (document.querySelector('.js-pageAnchorLink') !== null) {
+      //   pageAnchorLink();
+      // }
     });
   }
   //検証用

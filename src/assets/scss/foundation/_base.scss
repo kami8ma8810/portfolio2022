@@ -48,9 +48,47 @@ source {
 // My reset END
 // +++++++++++++++++++++++++++++++++++++++++++++++++
 
+// :root {
+//   --cBackground: #fedfe1;
+//   --cText: #656765;
+// }
+
+// /* OSの設定がダークモード時のスタイル */
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --cBackground: #64363c;
+//     --cText: #fcfaf2;
+//   }
+// }
+:root {
+  --cBackground: #ffffff;
+  --cText: #2b2b2b;
+}
+
+/* OSの設定がダークモード時のスタイル */
+:root.is-darkmode {
+  --cBackground: #2b2b2b;
+  --cText: #ffffff;
+}
+
+.test {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: var(--cBackground);
+}
+.test__text {
+  color: var(--cText);
+  text-align: center;
+  line-height: 100px;
+}
+
 body {
-  color: $color-main;
-  background-color: #fff;
+  // color: $color-main;
+  // background-color: #fff;
+  background-color: var(--cBackground);
+  transition: background-color 1s $easeOutCirc;
+
   font-size: rem(16);
   &.ua-macos {
     -webkit-font-smoothing: antialiased;
