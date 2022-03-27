@@ -1,1 +1,7 @@
 @use '../global' as *;
+
+.u-br-min-lg {
+  @include mq(lg) {
+    display: none;
+  }
+}

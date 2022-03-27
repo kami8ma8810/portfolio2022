@@ -40,14 +40,14 @@ class Main {
     // ユーザーエージェント判定
     ua.init();
     // ダークモード
-    switchDarkMode();
+    // switchDarkMode();
     //100vhのsafariフォールバック
     setFillHeight();
     drawer();
     // locomotive初期化
-    locomotiveGsap();
+    // locomotiveGsap();
     // すべての画像の読み込みが完了したタイミングで処理する（背景画像を含む
-    const watchTarget = document.querySelector('.common-container');
+    const watchTarget = document.querySelector('.l-wrapper');
     const imgLoad = imagesLoaded(watchTarget, { background: true });
     imgLoad.on('always', () => {
       console.log(

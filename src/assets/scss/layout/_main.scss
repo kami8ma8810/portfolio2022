@@ -1,6 +1,11 @@
 @use '../global' as *;
 
 .l-wrapper {
+  display: flex;
+  flex-direction: column;
+  @include vh100;
 }
 .l-main {
+  flex: 1;
+  overflow-x: hidden;
 }
