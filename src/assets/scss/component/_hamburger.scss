@@ -1,0 +1,74 @@
+@use '../global' as *;
+.c-hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: vw(40);
+  bottom: vw(40);
+  z-index: 200;
+  width: vw(90);
+  height: vw(90);
+  border: 1px solid $color-main;
+  border-radius: 50%;
+  @include mq(lg) {
+    width: 40px;
+    height: 40px;
+    border: 2px solid $color-main;
+  }
+  &--close {
+    width: vw(180);
+    height: vw(180);
+    border-width: 0;
+    right: auto;
+    left: vw(40);
+    .c-hamburger__inner {
+      &::before,
+      &::after {
+        width: 100%;
+        top: 50%;
+        left: 0;
+        background-color: #fff;
+      }
+      &::before {
+        transform: rotate(30deg);
+      }
+      &::after {
+        transform: rotate(-30deg);
+      }
+    }
+  }
+  &__inner {
+    content: '';
+    display: block;
+    position: relative;
+    width: 80%;
+    height: 80%;
+    &::before,
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      left: 50%;
+      width: 80%;
+      height: 1px;
+      background-color: $color-main;
+      transform: translateX(-50%);
+      @include mq(lg) {
+        height: 2px;
+      }
+      :root.is-darkmode & {
+        background-color: #fff;
+      }
+    }
+    &::before {
+      top: 30%;
+    }
+    &::after {
+      bottom: 30%;
+    }
+  }
+  :root.is-darkmode & {
+    border-color: #fff;
+  }
+}

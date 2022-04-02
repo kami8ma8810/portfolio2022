@@ -1,4 +1,6 @@
 import ua from './ua-parser';
+import { gsap } from 'gsap';
+
 export default () => {
   console.log('RUN__drawer.js');
   const drawer = document.getElementById('js-drawer');
@@ -7,6 +9,10 @@ export default () => {
   const closeButton = document.getElementById('js-closeDrawer');
   const body = document.body;
   const header = document.querySelector('.l-header');
+  const drawerItems = document.querySelectorAll('.js-drawerItem');
+  const hamburger = document.querySelector('.c-hamburger');
+  const hamburgerInner = document.querySelector('.c-hamburger__inner');
+
   // スクロールバーの幅を取得
   const scrollbarWidth = window.innerWidth - body.clientWidth;
 
@@ -32,25 +38,119 @@ export default () => {
   }
 
   function openDrawer() {
-    changeState(true);
-    drawerNav.setAttribute('aria-hidden', false);
-    body.style.overflowY = 'hidden'; //ドロワーを開いている間はメインコンテンツをスクロール不可にする
+    gsap.set('.js-drawerItem a', { yPercent: 101 });
+    gsap.set('.l-drawer__close', {
+      opacity: 0,
+    });
+    const tl = gsap.timeline({
+      onComplete: () => {
+        changeState(true);
+        drawerNav.setAttribute('aria-hidden', false);
+        body.style.overflowY = 'hidden'; //ドロワーを開いている間はメインコンテンツをスクロール不可にする
 
-    //PCのみスクロールバーのガタつきをなくすためにヘッダーにpadding-right設定
-    if (ua.getDevice() == 'pc') {
-      header.style.paddingRight = `${scrollbarWidth}px`;
-      header.style.backgroundColor = '#fff';
-    }
+        //PCのみスクロールバーのガタつきをなくすためにヘッダーにpadding-right設定
+        if (ua.getDevice() == 'pc') {
+          header.style.paddingRight = `${scrollbarWidth}px`;
+          header.style.backgroundColor = '#fff';
+        }
+      },
+    });
+    tl.to(hamburger, {
+      keyframes: [
+        {
+          scale: 1.5,
+          duration: 0.04,
+        },
+        {
+          scale: 1,
+          duration: 0.04,
+        },
+      ],
+    })
+      // .to(hamburgerInner, {
+      //   rotate: 540,
+      //   ease: 'circ.inOut',
+      //   duration: 0.3,
+      // })
+      .to(hamburgerInner, {
+        opacity: 0,
+        duration: 0.2,
+      })
+      .to(
+        hamburger,
+        {
+          backgroundColor: '#4D7447',
+          // border: 0,
+          duration: 0.2,
+        },
+        '<'
+      )
+      .to(hamburger, {
+        scale: 50,
+        ease: 'circ.inOut',
+        duration: 0.4,
+      })
+      .to(drawer, {
+        visibility: 'visible',
+        opacity: 1,
+        duration: 0.01,
+      })
+      .to(drawerItems, {
+        yPercent: 0,
+        stagger: { amount: 0.3 },
+      })
+      .to(
+        '.l-drawer__close',
+        {
+          opacity: 1,
+        },
+        '-=.1'
+      );
   }
 
   function closeDrawer() {
-    changeState(false);
-    drawerNav.setAttribute('aria-hidden', true);
-    body.style.overflowY = ''; //メインコンテンツをスクロール不可を解除する
-    if (ua.getDevice() == 'pc') {
-      header.style.paddingRight = ''; //PCのみヘッダーのpadding-right削除
-      header.style.backgroundColor = '';
-    }
+    const tl = gsap.timeline({
+      defaults: {
+        ease: 'circ.inOut',
+      },
+      onComplete: () => {
+        changeState(false);
+        drawerNav.setAttribute('aria-hidden', true);
+        body.style.overflowY = ''; //メインコンテンツをスクロール不可を解除する
+        if (ua.getDevice() == 'pc') {
+          header.style.paddingRight = ''; //PCのみヘッダーのpadding-right削除
+          header.style.backgroundColor = '';
+        }
+      },
+    });
+    tl.to(drawer, {
+      keyframes: [
+        {
+          opacity: 0,
+          duration: 0.2,
+        },
+        {
+          visibility: 'hidden',
+          duration: 0.01,
+        },
+      ],
+    })
+      .to(hamburger, {
+        scale: 1,
+        duration: 0.8,
+      })
+      .to(hamburger, {
+        backgroundColor: 'transparent',
+        duration: 0.2,
+      })
+      .to(
+        hamburgerInner,
+        {
+          opacity: 1,
+          duration: 0.2,
+        },
+        '<'
+      );
   }
 
   function onClickOpenButton() {

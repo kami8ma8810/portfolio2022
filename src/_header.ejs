@@ -1,7 +1,17 @@
 <header class="l-header js-header" data-scroll-sticky>
   <div class="l-header__inner l-header__inner--top">
-    <div class="l-header__logo"><a href="<%= meta.linkPath %>"><img src="./assets/images/logo.svg" alt="" width="86" height="86"></a></div>
-    <button id="js-openDrawer" class="l-header__hamburger js-openDrawer" type="button" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false"><span class="l-header__hamburgerInner"></span></button>
+    <!-- <div class="l-header__logo"><a href="<%= meta.linkPath %>"><img src="./assets/images/logo.svg" alt="" width="86" height="86"></a></div> -->
+    <div class="l-header__switch">
+      <span class="l-header__switchText">Dark Mode</span>
+      <div class="onoffswitch l-header__switchBtn">
+        <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0">
+        <label class="onoffswitch-label" for="myonoffswitch">
+          <span class="onoffswitch-inner"></span>
+          <span class="onoffswitch-switch"></span>
+        </label>
+      </div>
+    </div>
+    <!-- <button id="js-openDrawer" class="l-header__hamburger js-openDrawer" type="button" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false"><span class="l-header__hamburgerInner"></span></button> -->
   </div>
   <div class="l-header__inner l-header__inner--right"></div>
   <div class="l-header__inner l-header__inner--bottom"></div>

@@ -3,6 +3,7 @@
 import imagesLoaded from 'imagesloaded';
 // libsから読み込むファイル
 import drawer from './libs/drawer';
+import locomotiveGsap from './libs/locomotiveGsap';
 import pageAnchorLink from './libs/page-anchor-link';
 import ScrollObserver from './libs/scroll-observer';
 import setFillHeight from './libs/set-fill-height';
@@ -37,15 +38,17 @@ class Main {
   }
   // 初期化処理（ここに実行する処理を追記していく
   _init() {
+    // ダークモード
+    switchDarkMode();
     // ユーザーエージェント判定
     ua.init();
-    // ダークモード
-    // switchDarkMode();
     //100vhのsafariフォールバック
     setFillHeight();
-    drawer();
     // locomotive初期化
-    // locomotiveGsap();
+    locomotiveGsap();
+    // ドロワー
+    drawer();
+
     // すべての画像の読み込みが完了したタイミングで処理する（背景画像を含む
     const watchTarget = document.querySelector('.l-wrapper');
     const imgLoad = imagesLoaded(watchTarget, { background: true });

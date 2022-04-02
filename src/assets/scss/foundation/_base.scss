@@ -56,35 +56,30 @@ source {
 //   --cText: #656765;
 // }
 
-// /* OSの設定がダークモード時のスタイル */
+:root {
+  --colorBg: #{$color-base};
+  --colorText: #2b2b2b;
+}
+/* OSの設定がダークモード時のスタイル */
 // @media (prefers-color-scheme: dark) {
 //   :root {
-//     --cBackground: #64363c;
-//     --cText: #fcfaf2;
+//     --colorBg: #383735;
+//     --colorText: #fff;
 //   }
 // }
-:root {
-  --colorLightBg: #e5dfd3;
-  --colorLightText: #2b2b2b;
-}
 
 /* OSの設定がダークモード時のスタイル */
 :root.is-darkmode {
-  --colorDarkBg: #2b2b2b;
-  --colorDarkText: #fff;
+  --colorBg: #383735;
+  --colorText: #{$color-base};
+  .l-footer__twitter .st0 {
+    fill: var(--colorText);
+  }
+  .l-footer__blog .d {
+    stroke: var(--colorText);
+  }
 }
 
-.test {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto;
-  background-color: var(--cBackground);
-}
-.test__text {
-  color: var(--cText);
-  text-align: center;
-  line-height: 100px;
-}
 // =================================================
 // モーションOFF（視差効果を減らす）
 // =================================================
@@ -104,10 +99,12 @@ source {
 body {
   transition: background-color 1s $easeOutCirc;
   font-size: rem(16);
-  background-image: url('../images/bg-main.jpg');
-  background-color: rgba(255, 255, 255, 0.5);
-  background-blend-mode: lighten;
-  background-attachment: fixed;
+  background-color: var(--colorBg);
+  color: var(--colorText);
+  // background-image: url('../images/bg-main.jpg');
+  // background-color: rgba(255, 255, 255, 0.5);
+  // background-blend-mode: lighten;
+  // background-attachment: fixed;
   font-family: $shippori-mincho;
   font-weight: 500;
   &.ua-macos {

@@ -1,15 +1,13 @@
-<div id="js-drawer" class="drawer js-drawer" aria-expanded="false">
-  <!-- ※デフォルトはfalse -->
-  <div class="drawer__inner">
-    <nav id="js-drawerNav" class="footer__gNav" aria-hidden="true">
-      <ul>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
-        <li><a href="#"></a></li>
+<!-- aria-expanded デフォルトはfalse -->
+<div id="js-drawer" class="l-drawer js-drawer" aria-expanded="false">
+  <div class="l-drawer__inner">
+    <nav id="js-drawerNav" class="l-drawer__nav" aria-hidden="true">
+      <ul class="l-drawer__items">
+        <li class="l-drawer__item js-drawerItem"><a class="l-drawer__link js-drawerItem" href="#">Works</a></li>
+        <li class="l-drawer__item js-drawerItem"><a class="l-drawer__link js-drawerItem" href="#">About</a></li>
+        <li class="l-drawer__item js-drawerItem"><a class="l-drawer__link js-drawerItem" href="#">Contact</a></li>
       </ul>
     </nav>
-    <button id="js-closeDrawer" class="js-closeDrawer" type="button" aria-label="メニューを閉じる" aria-controls="js-drawer">
-      閉じる
-    </button>
+    <button id="js-closeDrawer" class="c-hamburger c-hamburger--close l-drawer__close js-closeDrawer" type="button" aria-label="メニューを閉じる" aria-controls="js-drawer"><span class="c-hamburger__inner l-drawer__closeInner"></span></button>
   </div>
 </div>

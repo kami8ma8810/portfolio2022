@@ -1,5 +1,6 @@
 'use strict';
 export default () => {
+  console.log('RUN__switch-dark-mode');
   // スイッチのinput要素（checkbox）
   const modeSwitch = document.getElementById('myonoffswitch');
 
@@ -7,13 +8,19 @@ export default () => {
   modeSwitch.addEventListener('change', () => {
     if (modeSwitch.checked) {
       darkModeOn();
+      sessionStorage.setItem('darkMode', 'on');
     } else {
       darkModeOff();
+      sessionStorage.setItem('darkMode', 'off');
     }
   });
 
-  // OSの設定がダークモードかどうか判定
-  const osDark = window.matchMedia('(prefers-color-scheme: dark)');
+  // ロード時の状況に応じて切り替え
+  if (sessionStorage.getItem('darkMode') === 'on') {
+    darkModeOn();
+  } else if (sessionStorage.getItem('darkMode') === 'off') {
+    darkModeOff();
+  }
 
   // ダークモードがオンの時に実行する処理
   function darkModeOn() {
@@ -34,6 +41,9 @@ export default () => {
       darkModeOff();
     }
   };
+
+  // OSの設定がダークモードかどうか判定
+  const osDark = window.matchMedia('(prefers-color-scheme: dark)');
 
   // リスナー登録
   osDark.addEventListener('change', listener);

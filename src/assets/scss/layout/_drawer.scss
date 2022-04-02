@@ -1,49 +1,78 @@
 @use '../global' as *;
-.drawer {
+.l-drawer {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 200;
-  background: lightblue;
+  z-index: 300;
+  color: #fff;
   width: 100%;
   height: 100vh;
-  font-weight: bold;
-  // background: lightcoral;
   @include mq(lg) {
     display: flex;
     align-items: center;
     justify-content: center;
   }
+  &__inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: $color-accent;
+    width: 100%;
+    height: 100vh;
+    padding-left: vw(40);
+  }
+  &__items {
+  }
+  &__item {
+    position: relative;
+    font-size: vw(100);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    overflow: hidden;
+    & + & {
+      margin-top: 1em;
+    }
+  }
+  &__link {
+    display: block;
+    // transform: translateY(101%);
+  }
+  &__close {
+    position: absolute;
+    bottom: vw(40);
+    right: vw(40);
+    overflow: hidden;
+  }
 }
 // ----------------------------------------
 // ドロワーアニメーション 初期設定 (aria-expanded)
 // ----------------------------------------
-.drawer[aria-expanded] {
-  transition: transform 0.4s, opacity 0.4s;
+.l-drawer[aria-expanded] {
+  // transition: transform 0.4s, opacity 0.4s;
   // transition-timing-function: $easeOutCirc;
 }
-.drawer[aria-expanded] .drawer__nav {
+.l-drawer[aria-expanded] .l-drawer__nav {
   // transition-duration: 1s;
   // transition-property: opacity transform;
 }
 // ----------------------------------------
 // 開いているとき
 // ----------------------------------------
-.drawer[aria-expanded='true'] {
-  visibility: visible;
-  opacity: 1;
+.l-drawer[aria-expanded='true'] {
+  // visibility: visible;
+  // opacity: 1;
   // transform: translateX(0);
   // transition-timing-function: cubic-bezier(0.83, 0, 0.17, 1);
   // transition-duration: 0.3s;
   // transition-delay: 0.2s;
   // transition-property: transform opacity;
 }
-.drawer[aria-expanded='true'] .drawer__nav {
+.l-drawer[aria-expanded='true'] .l-drawer__nav {
 }
 // ----------------------------------------
 // 閉じているとき
 // ----------------------------------------
-.drawer[aria-expanded='false'] {
+.l-drawer[aria-expanded='false'] {
   visibility: hidden;
   opacity: 0;
   // transform: translateX(-101%);

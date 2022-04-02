@@ -2,10 +2,13 @@
 
 .onoffswitch {
   position: relative;
-  width: 90px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  width: vw(120);
+  @include mq(lg) {
+    width: 90px;
+  }
 }
 .onoffswitch-checkbox {
   position: absolute;
@@ -16,8 +19,12 @@
   display: block;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid #999999;
-  border-radius: 20px;
+  border: 1px solid #fff;
+  border-radius: vw(40);
+  @include mq(lg) {
+    border: 2px solid #fff;
+    border-radius: 20px;
+  }
 }
 .onoffswitch-inner {
   display: block;
@@ -30,41 +37,58 @@
   display: block;
   float: left;
   width: 50%;
-  height: 30px;
+  height: vw(40);
   padding: 0;
-  line-height: 30px;
-  font-size: 14px;
-  color: #ffffff;
+  line-height: vw(40);
+  font-size: vw(24);
+  color: #fff;
+  @include mq(lg) {
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+  }
 }
 .onoffswitch-inner:before {
   content: 'ON';
-  padding-left: 10px;
-  background-color: #a71f19;
-  color: #ffffff;
+  padding-left: vw(20);
+  background-color: $color-accent;
+  color: #fff;
+  @include mq(lg) {
+    padding-left: 10px;
+  }
 }
 .onoffswitch-inner:after {
   content: 'OFF';
-  padding-right: 10px;
-  background-color: #ffffff;
+  padding-right: vw(20);
+  background-color: #fff;
   color: #2b2b2b;
   text-align: right;
+  @include mq(lg) {
+    padding-right: 10px;
+  }
 }
 .onoffswitch-switch {
   display: block;
-  width: 22px;
-  margin: 6px;
-  background: #ffffff;
+  width: vw(24);
+  margin: vw(10);
+  background: #fff;
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 56px;
-  border: 2px solid #999999;
+  right: vw(75);
+  border: 1px solid #2b2b2b;
   border-radius: 50%;
   transition: all 0.8s $easeOutCirc;
+  @include mq(lg) {
+    width: 22px;
+    margin: 6px;
+    right: 56px;
+    border: 2px solid #2b2b2b;
+  }
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-  right: 0px;
+  right: 0;
 }

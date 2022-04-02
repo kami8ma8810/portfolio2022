@@ -40,11 +40,12 @@ html.has-scroll-dragging {
   width: 11px;
   height: 100%;
   opacity: 0;
-  transition: transform 0.3s, opacity 0.3s;
-  transform-origin: center right;
+  // transition: transform 0.3s, opacity 0.3s;
+  // transform-origin: center right;
 }
 // .c-scrollbar:hover {
-//   transform: scaleX(1.45); }
+//   transform: scaleX(1.5);
+// }
 .c-scrollbar:hover,
 .has-scroll-scrolling .c-scrollbar,
 .has-scroll-dragging .c-scrollbar {
@@ -69,8 +70,8 @@ html.has-scroll-dragging {
   margin: 2px;
   cursor: -webkit-grab;
   cursor: grab;
-  background-color: #000;
-  // border-radius: 10px;
+  background-color: $color-main;
+  border-radius: 10px;
   @media screen and (min-width: 960px) {
     width: 10px;
   }

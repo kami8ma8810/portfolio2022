@@ -8,13 +8,13 @@
   // background-color: lightgoldenrodyellow;
   // backdrop-filter: blur(4px);
   &__inner {
-    background-color: $color-main;
+    // background-color: $color-main;
     // background-color: var(--colorLightBg);
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    padding: vw(10) vw(15) vw(10) vw(10);
+    padding: vw(20) vw(40);
     @include mq(lg) {
       padding: 10px 20px;
     }
@@ -28,6 +28,16 @@
       width: 50px;
     }
   }
+  &__switch {
+    display: flex;
+    align-items: center;
+  }
+  &__switchText {
+    font-size: vw(24);
+  }
+  &__switchBtn {
+    margin-left: vw(15);
+  }
   &__hamburger {
     display: flex;
     align-items: center;
@@ -35,12 +45,15 @@
     position: relative;
     width: vw(90);
     height: vw(90);
-    border: 1px solid #fff;
+    border: 1px solid $color-main;
     border-radius: 50%;
     @include mq(lg) {
       width: 40px;
       height: 40px;
-      border: 2px solid #fff;
+      border: 2px solid $color-main;
+    }
+    :root.is-darkmode & {
+      border-color: #fff;
     }
   }
   &__hamburgerInner {
@@ -49,23 +62,26 @@
     position: relative;
     width: 80%;
     height: 80%;
-    border: 1px solid #fff;
-    border-radius: 50%;
-    @include mq(lg) {
-      border: 2px solid #fff;
-    }
+    // border: 1px solid #fff;
+    // border-radius: 50%;
+    // @include mq(lg) {
+    //   border: 2px solid #fff;
+    // }
     &::before,
     &::after {
       content: '';
       display: inline-block;
       position: absolute;
       left: 50%;
-      width: 50%;
+      width: 80%;
       height: 1px;
-      background-color: #fff;
+      background-color: $color-main;
       transform: translateX(-50%);
       @include mq(lg) {
         height: 2px;
+      }
+      :root.is-darkmode & {
+        background-color: #fff;
       }
     }
     &::before {

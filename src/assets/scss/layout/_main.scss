@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   @include vh100;
+  overflow: hidden;
 }
 .l-main {
   flex: 1;
-  overflow-x: hidden;
+  overflow: hidden;
 }
