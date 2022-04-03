@@ -2,12 +2,28 @@
   "pageMeta": {
     "is-top": {
       "title":"",
-      "pageUrl": "https://corporate.m3.com/career/",
+      "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./",
       "isTop": true
+    },
+    "is-works": {
+      "title":"WORKS｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
+    },
+    "is-about": {
+      "title":"ABOUT｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
     }
   }
 }

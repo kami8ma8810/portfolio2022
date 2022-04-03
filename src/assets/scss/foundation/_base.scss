@@ -91,7 +91,6 @@ source {
 // 共通スタイル
 // =================================================
 body {
-  transition: background-color 1s $easeOutCirc;
   font-size: rem(16);
   background-color: var(--colorBg);
   color: var(--colorText);
@@ -112,19 +111,6 @@ body {
       image-rendering: -webkit-optimize-contrast;
     }
   }
-}
-
-// スクリーンリーダー非表示用
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  border: 0;
 }
 
 // gsapによる自動生成エレメント削除

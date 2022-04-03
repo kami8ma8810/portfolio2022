@@ -5,20 +5,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  padding: 0 vw(40);
   @include mq(lg) {
-    padding: 0;
-    margin: 80px;
-    width: calc(100% - 160px);
+    padding: min(vw_lg(40), 40px);
   }
 }
 .p-top-fv {
   position: relative;
   width: 100%;
-  @include mq(lg) {
-    padding: 80px;
-  }
   &__title {
     font-size: min(vw(28), 24px);
     font-family: $roboto-mono;

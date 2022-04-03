@@ -1,13 +1,14 @@
 @use '../global' as *;
 
 .l-footer {
-  // position: fixed;
-  // bottom: 0;
-  // left: 0;
   width: 100%;
-  // background-color: $color-main;
   font-family: $roboto-mono;
+  // background-color: var(--colorBg);
+  position: fixed;
+  bottom: 0;
+  left: 0;
   @include mq(lg) {
+    background-color: var(--colorBg);
     display: none;
   }
   &__inner {

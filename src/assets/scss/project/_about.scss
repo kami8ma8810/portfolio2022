@@ -1,1 +1,95 @@
 @use '../global' as *;
+.p-about-main {
+  @include mq(lg) {
+    overflow: hidden;
+  }
+  &__content {
+    margin-top: vw(160);
+  }
+}
+
+.p-about-content {
+  &__lead {
+    position: relative;
+    font-size: vw(48);
+    // color: var(--colorBg);
+    // background-color: var(--colorText);
+    line-height: 1;
+    letter-spacing: 0.2em;
+    &:not(:first-of-type) {
+      margin-top: 2em;
+    }
+  }
+  &__leadText {
+    line-height: 1;
+    display: block;
+  }
+  &__leadBg {
+    position: absolute;
+    left: 0;
+    top: 40%;
+    transform: translateY(-50%);
+    color: var(--colorText);
+    opacity: 0.2;
+    font-size: vw(80);
+    text-transform: uppercase;
+    letter-spacing: -0.05em;
+    line-height: 1;
+  }
+  &__subLead {
+    font-size: vw(36);
+    border-bottom: 1px solid var(--colorText);
+  }
+  &__desc {
+    font-size: vw(32);
+    padding: 2em 0 0 1em;
+    line-height: 1.8;
+  }
+  &__subDesc {
+    padding: 0.5em 0 0 1em;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    text-justify: inter-character;
+  }
+  &__paragraph {
+    margin-top: 2em;
+  }
+  &__item {
+    & + & {
+      padding-top: 1em;
+    }
+  }
+  &__timeline {
+    height: vw(400);
+  }
+}
+.p-about-timeline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  &__title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--colorBg);
+    background-color: var(--colorText);
+    padding: 0 0.5em;
+  }
+  &__desc {
+    position: absolute;
+    padding: 2em 0.5em;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    text-justify: inter-character;
+  }
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.2;
+    filter: blur(2px);
+  }
+}
