@@ -1,0 +1,18 @@
+<% const page='is-top'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<%- include('./_head.ejs',{meta:pageMeta[page]}); %>
+
+<body class="<%= page %>">
+  <%# include('./_loading.ejs',{meta:pageMeta[page]}); %>
+  <div class="l-wrapper js-smoothScroll" data-scroll-container>
+    <%- include('./_header.ejs',{meta:pageMeta[page]}); %>
+    <button id="js-openDrawer" class="c-hamburger js-openDrawer" type="button" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false"><span class="c-hamburger__inner"></span></button>
+    <%- include('./_drawer.ejs',{meta:pageMeta[page]}); %>
+    <%- include('./_top-main.ejs',{meta:pageMeta[page]}); %>
+    <%- include('./_footer.ejs',{meta:pageMeta[page]}); %>
+  </div>
+  <%- include('./_footer-script.ejs',{meta:pageMeta[page]}); %>
+</body>
+
+</html>

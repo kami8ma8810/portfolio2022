@@ -7,16 +7,27 @@
   justify-content: center;
   width: 100%;
   padding: 0 vw(40);
+  @include mq(lg) {
+    padding: 0;
+    margin: 80px;
+    width: calc(100% - 160px);
+  }
 }
 .p-top-fv {
   position: relative;
   width: 100%;
+  @include mq(lg) {
+    padding: 80px;
+  }
   &__title {
     font-size: min(vw(28), 24px);
     font-family: $roboto-mono;
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
     text-transform: uppercase;
+    @include mq(lg) {
+      display: none;
+    }
   }
   &__desc {
     margin-top: 1em;
@@ -26,17 +37,10 @@
     letter-spacing: 0.05em;
     @include mq(lg) {
       font-size: 64px;
+      margin-top: 0;
     }
   }
   &__text {
     display: block;
-  }
-  &__image {
-    text-align: right;
-    img {
-      display: inline-block;
-      width: vw(400);
-      transform: scaleX(-1);
-    }
   }
 }

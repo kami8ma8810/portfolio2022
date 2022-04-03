@@ -12,9 +12,7 @@
   border: 1px solid $color-main;
   border-radius: 50%;
   @include mq(lg) {
-    width: 40px;
-    height: 40px;
-    border: 2px solid $color-main;
+    display: none;
   }
   &--close {
     width: vw(180);
@@ -54,9 +52,6 @@
       height: 1px;
       background-color: $color-main;
       transform: translateX(-50%);
-      @include mq(lg) {
-        height: 2px;
-      }
       :root.is-darkmode & {
         background-color: #fff;
       }

@@ -3,6 +3,7 @@
 import imagesLoaded from 'imagesloaded';
 // libsから読み込むファイル
 import drawer from './libs/drawer';
+import highlightNav from './libs/highlight-nav';
 import locomotiveGsap from './libs/locomotiveGsap';
 import pageAnchorLink from './libs/page-anchor-link';
 import ScrollObserver from './libs/scroll-observer';
@@ -48,6 +49,8 @@ class Main {
     locomotiveGsap();
     // ドロワー
     drawer();
+    // 現在のディレクトリをハイライト
+    highlightNav();
 
     // すべての画像の読み込みが完了したタイミングで処理する（背景画像を含む
     const watchTarget = document.querySelector('.l-wrapper');

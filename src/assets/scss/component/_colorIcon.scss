@@ -1,0 +1,7 @@
+@use '../global' as *;
+
+:root.is-darkmode {
+  .c-colorIcon {
+    fill: var(--colorText);
+  }
+}

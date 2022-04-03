@@ -72,12 +72,6 @@ source {
 :root.is-darkmode {
   --colorBg: #383735;
   --colorText: #{$color-base};
-  .l-footer__twitter .st0 {
-    fill: var(--colorText);
-  }
-  .l-footer__blog .d {
-    stroke: var(--colorText);
-  }
 }
 
 // =================================================
