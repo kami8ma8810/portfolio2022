@@ -8,6 +8,7 @@ import highlightNav from './libs/highlight-nav';
 import pageAnchorLink from './libs/page-anchor-link';
 import ScrollObserver from './libs/scroll-observer';
 import setFillHeight from './libs/set-fill-height';
+import slider from './libs/slider';
 import smoothScroller from './libs/smooth-scroller';
 import switchDarkMode from './libs/switch-dark-mode';
 import topFvAnime from './libs/top-fv-anime';
@@ -46,15 +47,20 @@ class Main {
     ua.init();
     //100vhのsafariフォールバック
     setFillHeight();
-    // locomotive初期化
-    // locomotiveGsap();
     // ドロワー
     drawer();
     // 現在のディレクトリをハイライト
     highlightNav();
     // 慣性スクロール（Windows/PCのみ）
-    if (ua.getDevice() == 'pc' && ua.getOS() == 'windows') {
-      smoothScroller();
+    // if (
+    //   document.querySelector('.js-smoothScroller') !== null &&
+    //   ua.getDevice() == 'pc' &&
+    //   ua.getOS() == 'windows'
+    // ) {
+    //   smoothScroller();
+    // }
+    if (document.querySelector('.js-slider') !== null) {
+      slider();
     }
 
     // すべての画像の読み込みが完了したタイミングで処理する（背景画像を含む

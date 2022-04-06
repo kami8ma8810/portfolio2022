@@ -1,0 +1,14 @@
+@use '../global' as *;
+
+.c-readmore {
+  display: inline-block;
+  height: 2em;
+  padding: 0 1em;
+  background-color: var(--colorText);
+  line-height: 2em;
+  border-radius: 1em;
+  color: var(--colorBg);
+  font-family: $roboto-mono;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

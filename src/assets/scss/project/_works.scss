@@ -1,1 +1,73 @@
 @use '../global' as *;
+.p-works-main {
+  overflow: initial;
+  &__inner {
+    overflow: initial;
+  }
+}
+.p-works-content__slider {
+  position: relative;
+  padding-top: vw(100);
+  .swiper {
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    // height: vw(400);
+    .swiper-slide {
+      // background-color: lightcoral;
+    }
+  }
+  .swiper-pagination {
+    top: vw(30) !important;
+    bottom: auto;
+  }
+}
+
+.p-works-slide {
+  &__thumbnail {
+    display: block;
+  }
+  &__inner {
+    padding: 2em 0;
+    // opacity: 0.5;
+  }
+  &__title {
+    font-size: vw(40);
+    line-height: 1.5;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    @include mq(lg) {
+      br {
+        display: none;
+      }
+    }
+  }
+  &__desc {
+    padding-top: 2em;
+    font-family: $roboto-mono;
+    text-transform: uppercase;
+  }
+  &__descLead {
+    font-size: vw(32);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+  &__descItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    padding-top: 2em;
+    font-size: vw(28);
+    &::after {
+      content: 'etc.';
+      text-transform: lowercase;
+    }
+  }
+  &__descItem {
+    &::after {
+      content: ',';
+    }
+  }
+  &__readmore {
+    margin-top: 2em;
+  }
+}

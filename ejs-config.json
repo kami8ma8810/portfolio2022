@@ -9,16 +9,82 @@
       "linkPath": "./",
       "isTop": true
     },
+    "is-about": {
+      "title":"ABOUT｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./",
+      "isAbout":true
+    },
     "is-works": {
       "title":"WORKS｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
+      "linkPath": "./",
+      "isWorks":true
+    },
+    "is-work001": {
+      "title":"WORK 001｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
       "linkPath": "./"
     },
-    "is-about": {
-      "title":"ABOUT｜",
+    "is-work002": {
+      "title":"WORK 002｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
+    },
+    "is-work003": {
+      "title":"WORK 003｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
+    },
+    "is-work004": {
+      "title":"WORK 004｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
+    },
+    "is-work005": {
+      "title":"WORK 005｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
+    },
+    "is-work006": {
+      "title":"WORK 006｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
+    },
+    "is-work007": {
+      "title":"WORK 007｜",
+      "pageUrl": "",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
+    },
+    "is-work008": {
+      "title":"WORK 008｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",

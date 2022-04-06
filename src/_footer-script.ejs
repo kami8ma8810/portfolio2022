@@ -7,3 +7,22 @@
 <!-- 共通で読み込む -->
 <script src="<%= meta.scriptPath %>vendors.bundle.js"></script>
 <script src="<%= meta.scriptPath %>index.bundle.js"></script>
+
+<!-- ABOUTページのみ読み込む -->
+<% if(meta.isAbout) { %>
+<!-- <script>
+  new ScrollHint('.js-scrollable',{
+    scrollHintIconAppendClass: 'scroll-hint-icon-white',
+    i18n:{
+      scrollable:'横スクロールできます'
+    }
+  });
+</script> -->
+<% } %>
+
+<!-- WOKSページのみ読み込む -->
+<!-- <% if(meta.isWorks) { %>
+<link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+
+<script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+<% } %> -->

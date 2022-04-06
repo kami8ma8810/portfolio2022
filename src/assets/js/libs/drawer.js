@@ -36,6 +36,11 @@ export default () => {
     changeAriaExpanded(state);
     drawerOpen = state;
   }
+  gsap.config({
+    force3D: true,
+    nullTargetWarn: false,
+    trialWarn: false,
+  });
 
   function openDrawer() {
     gsap.set('.js-drawerItem a', { yPercent: 101 });
@@ -58,12 +63,12 @@ export default () => {
     tl.to(hamburger, {
       keyframes: [
         {
-          scale: 1.5,
-          duration: 0.04,
+          scale: 0.8,
+          duration: 0.1,
         },
         {
           scale: 1,
-          duration: 0.04,
+          duration: 0.1,
         },
       ],
     })
@@ -123,21 +128,33 @@ export default () => {
         }
       },
     });
-    tl.to(drawer, {
+    tl.to(closeButton, {
       keyframes: [
         {
-          opacity: 0,
-          duration: 0.2,
+          scale: 0.5,
+          duration: 0.1,
         },
         {
-          visibility: 'hidden',
-          duration: 0.01,
+          scale: 1,
+          duration: 0.1,
         },
       ],
     })
+      .to(drawer, {
+        keyframes: [
+          {
+            opacity: 0,
+            duration: 0.2,
+          },
+          {
+            visibility: 'hidden',
+            duration: 0.01,
+          },
+        ],
+      })
       .to(hamburger, {
         scale: 1,
-        duration: 0.8,
+        duration: 0.6,
       })
       .to(hamburger, {
         backgroundColor: 'transparent',

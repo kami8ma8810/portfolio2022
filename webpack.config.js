@@ -13,7 +13,8 @@ module.exports = {
   // エントリーポイントの設定
   entry: {
     index: './src/assets/js/index.js',
-    figures:'./src/assets/js/figures.js'
+    figures: './src/assets/js/figures.js',
+    about: './src/assets/js/about.js',
   },
   // 出力の設定
   output: {

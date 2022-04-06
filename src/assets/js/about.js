@@ -1,17 +1,18 @@
-import { gsap } from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import ScrollToPlugin from 'gsap/ScrollToPlugin';
-gsap.registerPlugin(ScrollToPlugin);
-// gsap.registerPlugin(ScrollTrigger);
+'use strict';
 
-export default () => {
-  console.log('RUN__smooth-scroller.js');
+import ua from './libs/ua-parser';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
+
+const smoothScroller = () => {
+  console.log('RUN__smoothScroller.js');
   function smoothScroll(toBottom) {
     let direction = '-=250';
     if (toBottom) {
       direction = '+=250';
     }
-    gsap.to('.js-smoothScroller', {
+    gsap.to('.l-main__inner', {
       scrollTo: { y: direction, autoKill: true },
       duration: 1,
       ease: 'power4.out',
@@ -43,3 +44,7 @@ export default () => {
   document.addEventListener('touchmove', touchmove, { passive: false });
   document.addEventListener('mousewheel', mousemove, { passive: false });
 };
+
+if (ua.getDevice() == 'pc' && ua.getOS() == 'windows') {
+  window.addEventListener('load', smoothScroller());
+}
