@@ -13,7 +13,7 @@
   position: relative;
   width: 100%;
   &__title {
-    font-size: min(vw(28), 24px);
+    font-size: min(vw(28), 20px);
     font-family: $roboto-mono;
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
@@ -24,7 +24,7 @@
   }
   &__desc {
     margin-top: 1em;
-    font-size: min(vw(56), 56px);
+    font-size: min(vw(56), 48px);
     line-height: 1.8;
     font-weight: 700;
     letter-spacing: 0.05em;

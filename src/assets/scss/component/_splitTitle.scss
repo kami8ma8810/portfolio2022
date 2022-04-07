@@ -1,0 +1,22 @@
+@use '../global' as *;
+
+.c-splitTitle {
+  overflow: hidden;
+  &__inner {
+    span {
+      display: inline-block;
+      transform: translateY(101%);
+      animation: showEachChar 1s forwards;
+      @keyframes showEachChar {
+        100% {
+          transform: translateY(0);
+        }
+      }
+    }
+    @for $i from 1 through 10 {
+      span:nth-of-type(#{$i}) {
+        animation-delay: #{$i * 0.1}s;
+      }
+    }
+  }
+}

@@ -7,19 +7,24 @@
   right: vw(40);
   bottom: vw(40);
   z-index: 200;
-  width: vw(90);
-  height: vw(90);
+  width: min(vw(90), 80px);
+  height: min(vw(90), 80px);
   border: 1px solid $color-main;
   border-radius: 50%;
   @include mq(lg) {
     display: none;
   }
   &--close {
-    width: vw(180);
-    height: vw(180);
+    width: min(vw(180), 160px);
+    height: min(vw(90), 80px);
     border-width: 0;
     right: auto;
     left: vw(40);
+    @include mq(lg) {
+      width: 160px;
+      height: 80px;
+      display: block;
+    }
     .c-hamburger__inner {
       &::before,
       &::after {

@@ -5,6 +5,9 @@
   position: fixed;
   top: 0;
   left: 0;
+  .is-top & {
+    position: relative;
+  }
   &__inner {
     display: flex;
     justify-content: space-between;
@@ -70,7 +73,7 @@
   }
   &__switchText {
     color: var(--colorText);
-    font-size: vw(24);
+    font-size: min(vw(24), 20px);
     @include mq(lg) {
       color: $color-base;
       font-size: 20px;
@@ -121,6 +124,7 @@
   }
   &__seasonItem {
     font-size: 20px;
+    color: var(--colorBg);
     & + & {
       margin-top: 1em;
     }

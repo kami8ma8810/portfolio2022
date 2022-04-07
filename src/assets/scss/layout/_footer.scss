@@ -4,14 +4,11 @@
   width: 100%;
   font-family: $roboto-mono;
   // background-color: var(--colorBg);
-  position: fixed;
-  bottom: 0;
-  left: 0;
   @include mq(lg) {
-    background-color: var(--colorBg);
     display: none;
   }
   &__inner {
+    max-height: 80px;
     padding: vw(40) vw(50);
     display: flex;
     align-items: center;
@@ -21,10 +18,7 @@
     display: flex;
     align-items: center;
   }
-  &__item {
-    flex: 0 0 vw(40);
-    & + & {
-      margin-left: vw(80);
-    }
+  &__link {
+    width: min(vw(40), 40px);
   }
 }

@@ -57,11 +57,11 @@
     }
   }
   &__title {
-    font-size: vw(80);
+    font-size: vw(120);
+    font-weight: 700;
     letter-spacing: 0.05em;
     line-height: 1;
     text-transform: uppercase;
-    font-weight: 700;
     @include mq(lg) {
       font-size: 120px;
     }

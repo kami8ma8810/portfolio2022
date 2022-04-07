@@ -10,6 +10,7 @@ import ScrollObserver from './libs/scroll-observer';
 import setFillHeight from './libs/set-fill-height';
 import slider from './libs/slider';
 import smoothScroller from './libs/smooth-scroller';
+import { SpanWrapText } from './libs/split-title';
 import switchDarkMode from './libs/switch-dark-mode';
 import topFvAnime from './libs/top-fv-anime';
 import ua from './libs/ua-parser';
@@ -59,6 +60,11 @@ class Main {
     // ) {
     //   smoothScroller();
     // }
+    if (document.querySelector('.js-splitTitle') !== null) {
+      document.querySelectorAll('.js-splitTitle').forEach((element) => {
+        new SpanWrapText(element);
+      });
+    }
     if (document.querySelector('.js-slider') !== null) {
       slider();
     }
