@@ -27,64 +27,40 @@
       "linkPath": "./",
       "isWorks":true
     },
-    "is-work001": {
-      "title":"WORK 001｜",
+    "is-work01": {
+      "title":"WORK 01｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./"
     },
-    "is-work002": {
-      "title":"WORK 002｜",
+    "is-work02": {
+      "title":"WORK 02｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./"
     },
-    "is-work003": {
-      "title":"WORK 003｜",
+    "is-work03": {
+      "title":"WORK 03｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./"
     },
-    "is-work004": {
-      "title":"WORK 004｜",
+    "is-work04": {
+      "title":"WORK 04｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./"
     },
-    "is-work005": {
-      "title":"WORK 005｜",
-      "pageUrl": "",
-      "stylePath": "./assets/css/",
-      "scriptPath": "./assets/js/",
-      "imgPath": "./assets/images/",
-      "linkPath": "./"
-    },
-    "is-work006": {
-      "title":"WORK 006｜",
-      "pageUrl": "",
-      "stylePath": "./assets/css/",
-      "scriptPath": "./assets/js/",
-      "imgPath": "./assets/images/",
-      "linkPath": "./"
-    },
-    "is-work007": {
-      "title":"WORK 007｜",
-      "pageUrl": "",
-      "stylePath": "./assets/css/",
-      "scriptPath": "./assets/js/",
-      "imgPath": "./assets/images/",
-      "linkPath": "./"
-    },
-    "is-work008": {
-      "title":"WORK 008｜",
+    "is-work05": {
+      "title":"WORK 05｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",

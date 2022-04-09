@@ -57,7 +57,7 @@
     }
   }
   &__title {
-    font-size: vw(120);
+    font-size: min(vw(120), 120px);
     font-weight: 700;
     letter-spacing: 0.05em;
     line-height: 1;

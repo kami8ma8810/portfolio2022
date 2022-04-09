@@ -1,125 +1,91 @@
-<!-- ※担当領域を明記する -->
+<% var worksList = [
+  {
+    index:1,
+    bgColor:'#0602C9',
+    title:'エムスリー株式会社<br>新規採用サイト',
+    tech:['Locomotive Scroll','Tag Sort']
+  },
+  {
+    index:2,
+    bgColor:'#EFAD60',
+    title:'エムスリー株式会社<br>中途採用サイト',
+    tech:['Chart.js']
+  },
+  {
+    index:3,
+    bgColor:'#BB355E',
+    title:'株式会社マルニシ<br>新卒採用サイト',
+    tech:['Barba.js']
+  },
+  {
+    index:4,
+    bgColor:'#64d3b9',
+    title:'富田美憂<br>ファンクラブサイト',
+    tech:['Calendar API','Swiper']
+  },
+  {
+    index:5,
+    bgColor:'#791E87',
+    title:'長野県 松本市<br class="is-pc">イルミネーション特設サイト',
+    tech:['Instagram API']
+  },
+
+] %>
 <main class="l-main p-works-main">
   <div class="l-main__inner p-works-main__inner">
-    <h1 class="c-splitTitle l-main__title"><span class="c-splitTitle__inner js-splitTitle">Works</span></h1>
-    <div class="p-works-content">
-      <ul class="p-works-content__items">
-        <!-- <li class="p-works-content__item"><a class="p-works-content__itemLink" href="">エムスリー株式会社 中途採用サイト</a></li>
-        <li class="p-works-content__item"><a class="p-works-content__itemLink" href="http://www.024.co.jp/recruit/index.html">株式会社マルニシ 新卒採用サイト</a></li>
-        <li class="p-works-content__item"><a class="p-works-content__itemLink" href="">富田美憂 ファンクラブサイト</a></li>
-        <li class="p-works-content__item"><a class="p-works-content__itemLink" href="">柳田将洋 ファンクラブサイト</a></li>
-        <li class="p-works-content__item"><a class="p-works-content__itemLink" href="https://matsumotoillumi.jp/">松本市イルミネーション特設サイト</a></li> -->
-      </ul>
-      <div class="p-works-content__slider">
-        <div class="swiper js-slider">
-          <div class="swiper-wrapper">
-            <div class="p-works-slide swiper-slide">
-              <article class="p-works-slide__article">
-                <img class="p-works-slide__thumbnail" src="./assets/images/works-slide01.webp" alt="" width="1200" height="630">
-                <div class="p-works-slide__inner">
-                  <h2 class="p-works-slide__title">エムスリー株式会社<br>新規採用サイト</h2>
-                  <dl class="p-works-slide__desc">
-                    <dt class="p-works-slide__descLead">Technologies...</dt>
-                    <div class="p-works-slide__descItems">
-                      <dd class="p-works-slide__descItem">Tag Sort</dd>
-                      <dd class="p-works-slide__descItem">Scroll Smoother</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                    </div>
-                  </dl>
-                  <a class="c-readmore p-works-slide__readmore" href="./work001.html">Read more</a>
-                </div>
-              </article>
-            </div>
-            <div class="p-works-slide swiper-slide">
-              <article class="p-works-slide__article">
-                <img class="p-works-slide__thumbnail" src="./assets/images/works-slide02.webp" alt="" width="1200" height="630">
-                <div class="p-works-slide__inner">
-                  <h2 class="p-works-slide__title">エムスリー株式会社<br>中途採用サイト</h2>
-                  <dl class="p-works-slide__desc">
-                    <dt class="p-works-slide__descLead">Technologies..</dt>
-                    <div class="p-works-slide__descItems">
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Chart.js</dd>
-                    </div>
-                  </dl>
-                  <a class="c-readmore p-works-slide__readmore" href="./work001.html">Read more</a>
-                </div>
-              </article>
-            </div>
-            <div class="p-works-slide swiper-slide">
-              <article class="p-works-slide__article">
-                <img class="p-works-slide__thumbnail" src="./assets/images/works-slide01.webp" alt="" width="1200" height="630">
-                <div class="p-works-slide__inner">
-                  <h2 class="p-works-slide__title">エムスリー株式会社<br>中途採用サイト</h2>
-                  <dl class="p-works-slide__desc">
-                    <dt class="p-works-slide__descLead">Technologies...</dt>
-                    <div class="p-works-slide__descItems">
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Chart.js</dd>
-                    </div>
-                  </dl>
-                  <a class="c-readmore p-works-slide__readmore" href="./work001.html">Read more</a>
-                </div>
-              </article>
-            </div>
-            <div class="p-works-slide swiper-slide">
-              <article class="p-works-slide__article">
-                <img class="p-works-slide__thumbnail" src="./assets/images/works-slide01.webp" alt="" width="1200" height="630">
-                <div class="p-works-slide__inner">
-                  <h2 class="p-works-slide__title">エムスリー株式会社<br>新規採用サイト</h2>
-                  <dl class="p-works-slide__desc">
-                    <dt class="p-works-slide__descLead">Technologies...</dt>
-                    <div class="p-works-slide__descItems">
-                      <dd class="p-works-slide__descItem">Tag Sort</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                    </div>
-                  </dl>
-                  <a class="c-readmore p-works-slide__readmore" href="./work001.html">Read more</a>
-                </div>
-              </article>
-            </div>
-            <div class="p-works-slide swiper-slide">
-              <article class="p-works-slide__article">
-                <img class="p-works-slide__thumbnail" src="./assets/images/works-slide01.webp" alt="" width="1200" height="630">
-                <div class="p-works-slide__inner">
-                  <h2 class="p-works-slide__title">エムスリー株式会社<br>新規採用サイト</h2>
-                  <dl class="p-works-slide__desc">
-                    <dt class="p-works-slide__descLead">Technologies...</dt>
-                    <div class="p-works-slide__descItems">
-                      <dd class="p-works-slide__descItem">Tag Sort</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                    </div>
-                  </dl>
-                  <a class="c-readmore p-works-slide__readmore" href="./work001.html">Read more</a>
-                </div>
-              </article>
-            </div>
-            <div class="p-works-slide swiper-slide">
-              <article class="p-works-slide__article">
-                <img class="p-works-slide__thumbnail" src="./assets/images/works-slide01.webp" alt="" width="1200" height="630">
-                <div class="p-works-slide__inner">
-                  <h2 class="p-works-slide__title">エムスリー株式会社<br>新規採用サイト</h2>
-                  <dl class="p-works-slide__desc">
-                    <dt class="p-works-slide__descLead">Technologies...</dt>
-                    <div class="p-works-slide__descItems">
-                      <dd class="p-works-slide__descItem">Tag Sort</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                      <dd class="p-works-slide__descItem">Parallax</dd>
-                    </div>
-                  </dl>
-                  <a class="c-readmore p-works-slide__readmore" href="./work001.html">Read more</a>
-                </div>
-              </article>
-            </div>
+    <h1 class="c-splitTitle l-main__title p-works-main__title"><span class="c-splitTitle__inner js-splitTitle">Works</span></h1>
+    <div class="p-works-slider js-slider">
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <% for (var works of worksList) { %>
+          <div class="p-works-slide swiper-slide" data-slide-bg-color="<%= works.bgColor %>">
+            <article class="p-works-slide__article">
+              <div class="p-works-slide__imgContainer">
+                <img class="p-works-slide__img" src="./assets/images/works-slide0<%= works.index %>.webp" alt="" width="1200" height="630" loading="lazy" decoding="async">
+              </div>
+              <div class="p-works-slide__inner">
+                <h2 class="p-works-slide__title"><%- works.title %></h2>
+                <dl class="p-works-slide__desc">
+                  <dt class="p-works-slide__descLead">Technologies...</dt>
+                  <div class="p-works-slide__descItems">
+                    <% var array = works.tech %>
+                    <% array.forEach(function (value) { %>
+                    <dd class="p-works-slide__descItem"><%= value %></dd>
+                    <% }); %>
+                  </div>
+                </dl>
+                <a class="c-readmore p-works-slide__readmore" href="./work0<%= works.index %>.html">Read more</a>
+              </div>
+            </article>
           </div>
+          <% } %>
         </div>
-        <div class="swiper-pagination"></div>
+        <div class="p-works-slider__button p-works-slider__button--prev">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 350 160 90">
+            <g class="fashion-slider-svg-wrap">
+              <g class="fashion-slider-svg-circle-wrap">
+                <circle cx="42" cy="42" r="40"></circle>
+              </g>
+              <path class="fashion-slider-svg-arrow" d="M.983,6.929,4.447,3.464.983,0,0,.983,2.482,3.464,0,5.946Z">
+              </path>
+              <path class="fashion-slider-svg-line" d="M80,0H0"></path>
+            </g>
+          </svg>
+        </div>
+        <div class="p-works-slider__button p-works-slider__button--next">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 350 160 90">
+            <g class="fashion-slider-svg-wrap">
+              <g class="fashion-slider-svg-circle-wrap">
+                <circle cx="42" cy="42" r="40"></circle>
+              </g>
+              <path class="fashion-slider-svg-arrow" d="M.983,6.929,4.447,3.464.983,0,0,.983,2.482,3.464,0,5.946Z">
+              </path>
+              <path class="fashion-slider-svg-line" d="M80,0H0"></path>
+            </g>
+          </svg>
+        </div>
       </div>
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </main>

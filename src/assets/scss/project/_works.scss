@@ -1,53 +1,83 @@
 @use '../global' as *;
 .p-works-main {
   overflow: initial;
-  &__inner {
-    overflow: initial;
-  }
-}
-.p-works-content__slider {
   position: relative;
-  padding-top: vw(100);
-  .swiper {
-    width: 100vw;
-    margin: 0 calc(50% - 50vw);
-    // height: vw(400);
-    .swiper-slide {
-      // background-color: lightcoral;
+  z-index: 0;
+  @include mq(lg) {
+    overflow: hidden;
+  }
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    padding: 0;
+    overflow: initial;
+    @include mq(lg) {
+      height: 100%;
+      padding: 0;
     }
   }
-  .swiper-pagination {
-    top: vw(30) !important;
-    bottom: auto;
+  &__title {
+    position: absolute;
+    z-index: 10;
+    top: min(vh(90), 80px);
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    @include mq(lg) {
+      top: 40px;
+    }
   }
 }
 
 .p-works-slide {
-  &__thumbnail {
+  @include mq(lg) {
+    width: 100%;
+  }
+  &__article {
+    @include mq(lg) {
+      display: flex;
+    }
+  }
+  &__imgContainer {
+    aspect-ratio: 120/63;
+    cursor: grab;
+    @include mq(lg) {
+      width: 50%;
+    }
+  }
+  &__img {
     display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
   &__inner {
     padding: 2em 0;
-    // opacity: 0.5;
+    opacity: 0;
   }
   &__title {
-    font-size: vw(40);
+    font-size: min(vw(40), 32px);
     line-height: 1.5;
     font-weight: bold;
     letter-spacing: 0.05em;
     @include mq(lg) {
+      white-space: nowrap;
       br {
         display: none;
+        // &.is-pc {
+        //   display: block;
+        // }
       }
     }
   }
   &__desc {
     padding-top: 2em;
     font-family: $roboto-mono;
-    text-transform: uppercase;
+    // text-transform: uppercase;
   }
   &__descLead {
-    font-size: vw(32);
+    font-size: min(vw(32), 24px);
     font-weight: 700;
     letter-spacing: 0.05em;
   }
@@ -56,7 +86,7 @@
     flex-wrap: wrap;
     gap: 0.5em;
     padding-top: 2em;
-    font-size: vw(28);
+    font-size: min(vw(28), 20px);
     &::after {
       content: 'etc.';
       text-transform: lowercase;
@@ -69,5 +99,6 @@
   }
   &__readmore {
     margin-top: 2em;
+    font-size: min(vw(32), 24px);
   }
 }

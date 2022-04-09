@@ -1,9 +1,17 @@
 @use '../global' as *;
 
 .l-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
   width: 100%;
   font-family: $roboto-mono;
+  pointer-events: none;
   // background-color: var(--colorBg);
+  .is-top & {
+    position: relative;
+  }
   @include mq(lg) {
     display: none;
   }
