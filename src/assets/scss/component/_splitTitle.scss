@@ -3,19 +3,24 @@
 .c-splitTitle {
   overflow: hidden;
   &__inner {
+    opacity: 0;
     span {
       display: inline-block;
       transform: translateY(101%);
-      animation: showEachChar 1s forwards;
+      animation: showEachChar 0.8s forwards;
       @keyframes showEachChar {
+        0% {
+          transform: translateY(101%);
+        }
         100% {
+          opacity: 1;
           transform: translateY(0);
         }
       }
     }
     @for $i from 1 through 10 {
       span:nth-of-type(#{$i}) {
-        animation-delay: #{$i * 0.1}s;
+        animation-delay: #{$i * 0.08}s;
       }
     }
   }

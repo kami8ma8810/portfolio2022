@@ -12,6 +12,7 @@ class SpanWrapText {
    * @description テキストを1文字ずつspanで囲む
    */
   convert() {
+    this.target.style.opacity = 1;
     console.log('RUN__split-title.js');
     let spanWrapText = '';
 

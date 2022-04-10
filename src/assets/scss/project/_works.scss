@@ -37,24 +37,37 @@
   &__article {
     @include mq(lg) {
       display: flex;
+      gap: 40px;
+      align-items: flex-start;
     }
   }
   &__imgContainer {
-    aspect-ratio: 120/63;
     cursor: grab;
+    transform-origin: bottom center;
     @include mq(lg) {
-      width: 50%;
+      flex: 0 0 40%;
+      width: 40%;
+      max-width: 500px;
     }
   }
   &__img {
+    aspect-ratio: 120/63;
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    @include mq(lg) {
+      aspect-ratio: 1/1;
+      height: auto;
+    }
   }
   &__inner {
     padding: 2em 0;
     opacity: 0;
+    @include mq(lg) {
+      flex: 1 1 auto;
+      padding: 0;
+    }
   }
   &__title {
     font-size: min(vw(40), 32px);
@@ -62,7 +75,7 @@
     font-weight: bold;
     letter-spacing: 0.05em;
     @include mq(lg) {
-      white-space: nowrap;
+      // white-space: nowrap;
       br {
         display: none;
         // &.is-pc {
@@ -75,6 +88,9 @@
     padding-top: 2em;
     font-family: $roboto-mono;
     // text-transform: uppercase;
+    @include mq(lg) {
+      padding-top: 4em;
+    }
   }
   &__descLead {
     font-size: min(vw(32), 24px);
