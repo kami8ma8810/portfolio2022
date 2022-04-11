@@ -38,7 +38,9 @@
     @include mq(lg) {
       display: flex;
       gap: 40px;
-      align-items: flex-start;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
   &__imgContainer {

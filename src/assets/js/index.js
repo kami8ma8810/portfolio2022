@@ -1,6 +1,10 @@
 'use strict';
 // vendorsから読み込む外部ファイル
 import imagesLoaded from 'imagesloaded';
+import { BarbaTransition } from './libs/barba-transition';
+// import barba from '@barba/core';
+// import barbaPrefetch from '@barba/prefetch';
+// import gsap from 'gsap';
 // libsから読み込むファイル
 import drawer from './libs/drawer';
 import highlightNav from './libs/highlight-nav';
@@ -10,17 +14,15 @@ import { SpanWrapText } from './libs/split-title';
 import switchDarkMode from './libs/switch-dark-mode';
 import ua from './libs/ua-parser';
 
+new BarbaTransition();
+
 // 初期化
 document.addEventListener('DOMContentLoaded', function () {
   console.log('---------------------\nDOMContentLoaded\n---------------------');
-  // スクロール位置の復元
-  // if (history.scrollRestoration) {
-  //   history.scrollRestoration = 'auto';
-  // }
+
   const main = new Main();
 });
 
-// クラスの生成
 class Main {
   constructor() {
     this._observers = []; //オブザーバーで監視する要素が複数あるため配列にする
@@ -43,23 +45,10 @@ class Main {
     switchDarkMode();
     //100vhのsafariフォールバック
     setFillHeight();
-    if (document.querySelector('.js-splitTitle') !== null) {
-      document.querySelectorAll('.js-splitTitle').forEach((element) => {
-        new SpanWrapText(element);
-      });
-    }
     // ドロワー
     drawer();
     // 現在のディレクトリをハイライト
     highlightNav();
-    // 慣性スクロール（Windows/PCのみ）
-    // if (
-    //   document.querySelector('.js-smoothScroller') !== null &&
-    //   ua.getDevice() == 'pc' &&
-    //   ua.getOS() == 'windows'
-    // ) {
-    //   smoothScroller();
-    // }
 
     // すべての画像の読み込みが完了したタイミングで処理する（背景画像を含む
     const watchTarget = document.querySelector('.l-wrapper');
@@ -68,6 +57,12 @@ class Main {
       console.log(
         '---------------------\nDONE__imagesLoaded\n---------------------'
       );
+      if (document.querySelector('.js-splitTitle') !== null) {
+        document.querySelectorAll('.js-splitTitle').forEach((element) => {
+          new SpanWrapText(element);
+        });
+      }
+      // this._scrollInit();
     });
   }
   //検証用
@@ -106,20 +101,6 @@ class Main {
       this.observers = new ScrollObserver('.js-showin', this._addClassInview, {
         routMargin: '0% 0%',
       });
-    }
-    if (document.querySelector('.js-fvarrow')) {
-      this.observers = new ScrollObserver('.js-fvarrow', this._addClassArrow);
-    }
-    if (document.querySelector('.js-fvshow')) {
-      // インスタンス生成
-      this.observers = new ScrollObserver(
-        // 要素を指定
-        '.js-fvshow',
-        // 実行するインスタンスを指定
-        this._addClassInview
-        // オプションを変更する場合の書き方
-        // { routMargin: '0% 0%' }
-      );
     }
   }
 }

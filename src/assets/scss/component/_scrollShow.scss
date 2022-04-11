@@ -1,0 +1,14 @@
+@use '../global' as *;
+
+.c-smoothShowText {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0) skewY(10deg);
+  transform-origin: bottom left;
+  transition-property: transform opacity;
+  transition-duration: 0.4s;
+  transition-timing-function: $easeOutCirc;
+  &.is-show {
+    opacity: 1;
+    transform: none;
+  }
+}

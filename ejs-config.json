@@ -2,6 +2,7 @@
   "pageMeta": {
     "is-top": {
       "title":"",
+      "description":"かみやまはやとのポートフォリオサイトです。This is portfolio site by Hayato Kamiyama.",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
@@ -11,6 +12,7 @@
     },
     "is-about": {
       "title":"ABOUT｜",
+      "description":"かみやまはやとについての詳細ページ。Let me introduce myself.",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
@@ -20,6 +22,7 @@
     },
     "is-works": {
       "title":"WORKS｜",
+      "description":"実績の紹介。Let me introduce my works.",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",

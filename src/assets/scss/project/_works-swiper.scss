@@ -37,11 +37,14 @@
   .swiper-pagination-bullets.swiper-pagination-horizontal,
   .swiper-pagination-custom,
   .swiper-pagination-fraction {
-    bottom: 30px;
+    // top: 100px;
+    // bottom: auto;
   }
   .swiper-pagination {
     @include mq(lg) {
-      width: calc(100% - 40px);
+      // width: calc(100% - 40px);
+      width: 100%;
+      max-width: 1000px;
       margin: 0 auto;
       left: 50%;
       transform: translateX(-50%);
@@ -51,9 +54,9 @@
   .swiper-pagination-horizontal.swiper-pagination-bullets
     .swiper-pagination-bullet {
     transition: 0.3s;
-    width: calc(100% / 6);
-    height: 2px;
-    border-radius: 0;
+    // width: calc((100% - 40px) / 5);
+    // height: 2px;
+    // border-radius: 0;
   }
   .swiper-pagination-bullet-active {
     background: var(--colorText);

@@ -3,9 +3,9 @@
 <html lang="ja">
 <%- include('./_head.ejs',{meta:pageMeta[page]}); %>
 
-<body class="<%= page %>">
+<body class="<%= page %>" data-barba="wrapper">
   <%# include('./_loading.ejs',{meta:pageMeta[page]}); %>
-  <div class="l-wrapper js-smoothScroll" data-scroll-container>
+  <div class="l-wrapper" data-barba="container" data-barba-namespace="works">
     <%- include('./_header.ejs',{meta:pageMeta[page]}); %>
     <button id="js-openDrawer" class="c-hamburger js-openDrawer" type="button" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false"><span class="c-hamburger__inner"></span></button>
     <%- include('./_drawer.ejs',{meta:pageMeta[page]}); %>
