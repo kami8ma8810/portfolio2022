@@ -35,7 +35,7 @@
         top: 0;
         left: 0;
         height: 80px;
-        justify-content: space-between;
+        justify-content: flex-end;
         z-index: 10;
         padding: 0 80px;
       }
@@ -62,28 +62,6 @@
     width: vw(100);
     @include mq(lg) {
       width: 50px;
-    }
-  }
-  &__switch {
-    display: flex;
-    align-items: center;
-    font-family: $roboto-mono;
-    @include mq(lg) {
-      color: $color-base;
-    }
-  }
-  &__switchText {
-    color: var(--colorText);
-    font-size: min(vw(24), 20px);
-    @include mq(lg) {
-      color: $color-base;
-      font-size: 20px;
-    }
-  }
-  &__switchBtn {
-    margin-left: vw(15);
-    @include mq(lg) {
-      margin-left: 20px;
     }
   }
   &__rowTitle {

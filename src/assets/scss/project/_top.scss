@@ -5,8 +5,17 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  @include mq(lg) {
-    padding: min(vw_lg(40), 40px);
+  &__inner {
+    padding: 0;
+    overflow: hidden;
+    @include mq(lg) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      padding: min(vw_lg(40), 40px);
+    }
   }
 }
 .p-top-fv {

@@ -6,21 +6,21 @@ import { BarbaTransition } from './libs/barba-transition';
 // import barbaPrefetch from '@barba/prefetch';
 // import gsap from 'gsap';
 // libsから読み込むファイル
-import drawer from './libs/drawer';
-import highlightNav from './libs/highlight-nav';
+// import drawer from './libs/drawer';
+// import highlightNav from './libs/highlight-nav';
 import ScrollObserver from './libs/scroll-observer';
-import setFillHeight from './libs/set-fill-height';
+// import setFillHeight from './libs/set-fill-height';
 import { SpanWrapText } from './libs/split-title';
 import switchDarkMode from './libs/switch-dark-mode';
-import ua from './libs/ua-parser';
+// import ua from './libs/ua-parser';
 
-new BarbaTransition();
+const barbaInit = new BarbaTransition();
 
 // 初期化
 document.addEventListener('DOMContentLoaded', function () {
   console.log('---------------------\nDOMContentLoaded\n---------------------');
 
-  const main = new Main();
+  // const main = new Main();
 });
 
 class Main {
@@ -44,11 +44,11 @@ class Main {
     // ダークモード
     switchDarkMode();
     //100vhのsafariフォールバック
-    setFillHeight();
+    // setFillHeight();
     // ドロワー
-    drawer();
+    // drawer();
     // 現在のディレクトリをハイライト
-    highlightNav();
+    // highlightNav();
 
     // すべての画像の読み込みが完了したタイミングで処理する（背景画像を含む
     const watchTarget = document.querySelector('.l-wrapper');

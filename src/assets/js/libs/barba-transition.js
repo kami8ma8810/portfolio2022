@@ -4,15 +4,18 @@ import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 import gsap from 'gsap';
 
+import drawer from './drawer';
+import highlightNav from './highlight-nav';
+import setFillHeight from './set-fill-height';
+import switchDarkMode from './switch-dark-mode';
+import ua from './ua-parser';
+
 class BarbaTransition {
   constructor() {
     this._init();
   }
   _init() {
     console.log('RUN__barba-transition.js');
-
-    const bodyEl = document.body;
-    const mainEl = document.querySelector('.l-main');
 
     // 遅延用の関数
     function delay(n) {
@@ -41,10 +44,10 @@ class BarbaTransition {
         "link[rel='prev']",
         "link[rel='next']",
         "script[src^='']",
+        "link[rel='canonical']",
         // 'meta[itemprop]',
         // "meta[property^='fb']",
         // 'link[itemprop]',
-        // "link[rel='canonical']"
       ].join(',');
       const headTags = [...head.querySelectorAll(removeHeadTags)];
       headTags.forEach((item) => {
@@ -58,35 +61,60 @@ class BarbaTransition {
 
     // bodyスクロール不可
     function disableScrollBody() {
-      gsap.set(document.body, {
-        overflow: 'hidden',
-      });
+      document.body.style.overflow = 'hidden';
     }
     // bodyスクロール許可
     function enableScrollBody() {
-      gsap.set(document.body, {
-        overflow: 'auto',
-      });
-    }
-    // mainタグを表示するアニメーション
-    function showMain(el) {
-      gsap.to(el, {
-        opacity: 1,
-        delay: 1,
-      });
+      document.body.style.overflow = 'auto';
     }
 
     // アクセス時の処理
     function onceAnimation() {
-      gsap.to(mainEl, {
-        opacity: 1,
-        delay: 0.5,
-      });
+      // ユーザーエージェント判定
+      ua.init();
+      // ダークモード
+      switchDarkMode();
+      //100vhのsafariフォールバック
+      setFillHeight();
+      // メニュー動作
+      drawer();
+      // 現在のディレクトリをハイライト
+      highlightNav();
     }
 
+    // ページを離脱するときのアニメーション（enter）
+    function leaveAnimation(el) {
+      console.log('leave animation!');
+      const mainCurrent = el.current.container.querySelector('.l-main');
+      const mainInnerCurrent =
+        el.current.container.querySelector('.l-main__inner');
+      const mainNext = el.next.container.querySelector('.l-main');
+      const mainInnerNext =
+        el.current.container.querySelector('.l-main__inner');
+      const tl = gsap.timeline();
+      tl.to([mainInnerCurrent, mainInnerNext], {
+        opacity: 0,
+        duration: 0.2,
+      }).to([mainCurrent, mainNext], {
+        transformOrigin: 'top',
+        scaleY: 0,
+        duration: 0.4,
+      });
+    }
     // ページが表示されるときのアニメーション（enter）
-    function enterAnimation(container) {
-      showMain(container.querySelector('.l-main'));
+    function enterAnimation(el) {
+      console.log('enter animation!');
+      const main = el.next.container.querySelector('.l-main');
+      const mainInner = el.next.container.querySelector('.l-main__inner');
+      const tl = gsap.timeline();
+      tl.to(main, {
+        transformOrigin: 'bottom',
+        scaleY: 1,
+        duration: 0.4,
+      }).from(mainInner, {
+        opacity: 0,
+        duration: 0.2,
+      });
     }
 
     // prefetchはinitより前で実行
@@ -98,6 +126,7 @@ class BarbaTransition {
       // console.log(data.current.container);
       disableScrollBody();
     });
+
     barba.hooks.leave((data) => {
       console.log('●●●●● hooks leave ●●●●●');
       // console.log(data.current.container);
@@ -117,11 +146,15 @@ class BarbaTransition {
       console.log('●●●●● hooks after ●●●●●');
       // console.log(data.next.container);
       enableScrollBody();
+      switchDarkMode();
+      setFillHeight();
+      drawer();
+      highlightNav();
     });
 
     // 初期化
     barba.init({
-      sync: true, //trueにするとenterとleaveが同時に処理されるため、asyncでタイミングを設定する。
+      sync: true, //trueにするとenterとleaveが同時に処理されるため、asyncで秒数による発火タイミングを制御できる。
       views: [
         //views で有効なのは beforeLeave, afterLeave, beforeEnter, afterEnter のみ。
         // ※transitionと重複しているものはviewsの処理が優先される（transitionの処理は動かない）
@@ -134,35 +167,39 @@ class BarbaTransition {
       ],
       transitions: [
         {
+          // 全ページ共通の遷移
+          name: 'common-transition',
           // ===================================
           // 初回読み込み時の処理
           // ===================================
-          name: 'common',
           once(data) {
             console.log('●●●●● once ●●●●●');
             onceAnimation();
           },
           // ===================================
-          // ページを離脱するときの処理
+          // ページを離脱するときの処理（enterと同時発火。awaitの秒数でタイミングを制御）
           // ===================================
           async leave(data) {
             console.log('●●●●● leave ●●●●●');
             const done = this.async();
-            await delay(700);
+            leaveAnimation(data);
+            await delay(600); //ここの秒数と離脱アニメーションの秒数を揃える
             done();
           },
-          // ===================================
-          // ページを表示するときの処理
-          // ===================================
+
           beforeEnter({ next }) {
             console.log('●●●●● beforeEnter ●●●●●');
             // headタグを書き換える
             replaceHeadTags(next);
           },
-          async enter({ next }) {
+
+          // ===================================
+          // ページを表示するときの処理（leaveと同時発火。awaitの秒数でタイミングを制御））
+          // ===================================
+          async enter(data) {
+            await delay(600);
             console.log('●●●●● enter ●●●●●');
-            await delay(400);
-            enterAnimation(next.container);
+            enterAnimation(data);
           },
         },
       ],

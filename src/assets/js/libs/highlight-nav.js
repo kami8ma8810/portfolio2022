@@ -8,11 +8,12 @@ export default () => {
   // 現在のページのすべてのヘッダーナビのhrefを取得
   const navLinks = document.querySelectorAll('.js-highlightLink');
 
-  // 現在のページのナビの項目にis-currentクラスを付与
+  // 現在のページのナビの項目にis-currentクラスを付与、href属性を削除
   for (let i = 0; i < navLinks.length; i++) {
     let navHref = navLinks[i].href;
     if (currentHref === navHref) {
       navLinks[i].classList.add(CLASS_NAME);
+      navLinks[i].removeAttribute('href');
     }
   }
 };

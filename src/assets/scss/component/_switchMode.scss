@@ -1,0 +1,28 @@
+@use '../global' as *;
+
+.c-switchMode {
+  position: fixed;
+  top: vw(20);
+  left: vw(40);
+  display: flex;
+  align-items: center;
+  font-family: $roboto-mono;
+  @include mq(lg) {
+    top: 30px;
+    left: 80px;
+  }
+  &__text {
+    color: var(--colorText);
+    font-size: min(vw(28), 20px);
+    @include mq(lg) {
+      color: $color-base;
+      font-size: 20px;
+    }
+  }
+  &__btn {
+    margin-left: vw(32);
+    @include mq(lg) {
+      margin-left: 20px;
+    }
+  }
+}

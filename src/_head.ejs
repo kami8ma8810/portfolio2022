@@ -16,7 +16,7 @@
     <meta name="robots" content="index,follow" />
     <meta content="telephone=no" name="format-detection" />
     <!-- URL関係はすべて絶対パスで記述 -->
-    <link rel="canonical" href="<%= siteUrl %>">
+    <link rel="canonical" href="<%= meta.pageUrl %>">
     <meta property="og:title" content="<%= meta.title %><%= siteName %>" />
     <meta property="og:description" content="<%= meta.description %>" />
     <meta property="og:url" content="<%= meta.pageUrl %>" />
@@ -35,7 +35,7 @@
     <meta name="twitter:image:src" content="<%= siteUrl %>ogp.jpg" />
     <meta name="twitter:image:alt" content="Hayato Kamiyama Portfolio Site 2022" />
     <meta name="twitter:title" content="<%= meta.title %><%= siteName %>" />
-    <meta name="twitter:description" content="" />
+    <meta name="twitter:description" content="<%= meta.description %>" />
     <meta name="thumbnail" content="<%= siteUrl %>ogp.jpg" />
     <!-- favicon -->
     <!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
