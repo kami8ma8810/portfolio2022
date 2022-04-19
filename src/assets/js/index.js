@@ -10,17 +10,18 @@ import { BarbaTransition } from './libs/barba-transition';
 // import highlightNav from './libs/highlight-nav';
 import ScrollObserver from './libs/scroll-observer';
 // import setFillHeight from './libs/set-fill-height';
-import { SpanWrapText } from './libs/split-title';
-import switchDarkMode from './libs/switch-dark-mode';
+import slider from './libs/slider';
+// import { SpanWrapText } from './libs/split-title';
+// import switchDarkMode from './libs/switch-dark-mode';
 // import ua from './libs/ua-parser';
 
-const barbaInit = new BarbaTransition();
+// const barbaInit = new BarbaTransition();
 
 // 初期化
 document.addEventListener('DOMContentLoaded', function () {
   console.log('---------------------\nDOMContentLoaded\n---------------------');
 
-  // const main = new Main();
+  const main = new Main();
 });
 
 class Main {
@@ -39,10 +40,12 @@ class Main {
   }
   // 初期化処理（ここに実行する処理を追記していく
   _init() {
+    // const barbaInit = new BarbaTransition();
+
     // ユーザーエージェント判定
-    ua.init();
+    // ua.init();
     // ダークモード
-    switchDarkMode();
+    // switchDarkMode();
     //100vhのsafariフォールバック
     // setFillHeight();
     // ドロワー
@@ -57,12 +60,16 @@ class Main {
       console.log(
         '---------------------\nDONE__imagesLoaded\n---------------------'
       );
-      if (document.querySelector('.js-splitTitle') !== null) {
-        document.querySelectorAll('.js-splitTitle').forEach((element) => {
-          new SpanWrapText(element);
-        });
-      }
+      const barbaInit = new BarbaTransition();
+      // if (document.querySelector('.js-splitTitle') !== null) {
+      //   document.querySelectorAll('.js-splitTitle').forEach((element) => {
+      //     new SpanWrapText(element);
+      //   });
+      // }
       // this._scrollInit();
+      // if (document.querySelector('.js-slider') !== null) {
+      //   slider();
+      // }
     });
   }
   //検証用

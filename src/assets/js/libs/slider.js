@@ -1,3 +1,5 @@
+import Swiper from 'swiper';
+
 export default () => {
   console.log('RUN__sliedr.js');
 

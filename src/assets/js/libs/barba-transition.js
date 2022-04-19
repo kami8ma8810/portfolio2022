@@ -7,6 +7,8 @@ import gsap from 'gsap';
 import drawer from './drawer';
 import highlightNav from './highlight-nav';
 import setFillHeight from './set-fill-height';
+import { SpanWrapText } from './split-title';
+import slider from './slider';
 import switchDarkMode from './switch-dark-mode';
 import ua from './ua-parser';
 
@@ -80,6 +82,16 @@ class BarbaTransition {
       drawer();
       // 現在のディレクトリをハイライト
       highlightNav();
+      // タイトルアニメーション
+      if (document.querySelector('.js-splitTitle') !== null) {
+        document.querySelectorAll('.js-splitTitle').forEach((element) => {
+          new SpanWrapText(element);
+        });
+      }
+      // worksページslider
+      if (document.querySelector('.swiper') !== null) {
+        slider();
+      }
     }
 
     // ページを離脱するときのアニメーション（enter）
@@ -150,6 +162,14 @@ class BarbaTransition {
       setFillHeight();
       drawer();
       highlightNav();
+      if (data.next.container.querySelector('.js-splitTitle') !== null) {
+        data.next.container.querySelectorAll('.js-splitTitle').forEach((el) => {
+          new SpanWrapText(el);
+        });
+      }
+      if (data.next.container.querySelector('.swiper') !== null) {
+        slider();
+      }
     });
 
     // 初期化
@@ -158,12 +178,7 @@ class BarbaTransition {
       views: [
         //views で有効なのは beforeLeave, afterLeave, beforeEnter, afterEnter のみ。
         // ※transitionと重複しているものはviewsの処理が優先される（transitionの処理は動かない）
-        {
-          // namespace: 'about',
-          // beforeEnter(data) {
-          //   console.log('beforeEnter on VIEWS!');
-          // },
-        },
+        {},
       ],
       transitions: [
         {

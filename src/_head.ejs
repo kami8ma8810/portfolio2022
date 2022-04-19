@@ -12,7 +12,7 @@
     <title><%= meta.title %><%= siteName %></title>
     <meta name="description" content="<%= meta.description %>" />
     <meta name="keywords" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="robots" content="index,follow" />
     <meta content="telephone=no" name="format-detection" />
     <!-- URL関係はすべて絶対パスで記述 -->
@@ -64,12 +64,9 @@
       .loading{position:fixed;top:0;left:0;width:100%;min-height:100vh;min-height:calc(var(--vh,1vh) * 100);background-color:#fff;display:flex;justify-content:center;align-items:center;z-index:10000}.loading__logo{display:block;width:50%;max-width:100%;height:auto}@media screen and (min-width:960px){.loading__logo{width:300px}}
       </style> -->
 
-    <!-- WOKSページのみ読み込む -->
-    <% if(meta.isWorks) { %>
-    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link defer rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <% } %>
+    <script defer src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <!-- 共通CSS -->
     <link rel="stylesheet" href="<%= meta.stylePath %>style.css">
@@ -77,15 +74,9 @@
     <!-- <link rel="stylesheet" href="./assets/css/style.css" media="print" onload="this.media='all'" /> -->
     <!-- background-image 遅延読み込み用（hoverやclickなどアクションでしか表示されない画像がある場合 -->
     <!-- <link rel="stylesheet" href="<%= meta.stylePath %>preload.css" media="print" onload="this.media='all'" /> -->
-
-    <!-- Aboutページ専用 -->
-    <% if(meta.isAbout) { %>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/scroll-hint@1.1.10/css/scroll-hint.css">
-    <script src="https://unpkg.com/scroll-hint@1.1.10/js/scroll-hint.js"></script> -->
-    <% } %>
     <noscript>
       このサイトが完全に機能するには、JavaScript を有効にする必要があります。
-      以下は、 <a href="https://www.enablejavascript.io/">
-        お使いのウェブブラウザで JavaScript を有効にする方法の説明</a>.
+      以下サイトにお使いのウェブブラウザで JavaScript を有効にする方法が閲覧できますのでご参考ください。 <a href="https://www.enablejavascript.io/">
+      </a>
     </noscript>
   </head>

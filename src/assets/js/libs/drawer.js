@@ -84,7 +84,7 @@ export default () => {
       .to(
         hamburger,
         {
-          backgroundColor: '#4D7447',
+          backgroundColor: '#439BB5',
           // border: 0,
           duration: 0.2,
         },
