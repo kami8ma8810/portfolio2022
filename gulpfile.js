@@ -1,6 +1,6 @@
 'use strict';
 // gulpコマンドの省略
-const { src, dest, watch, series, parallel } = require('gulp');
+const { src, dest, watch, series, parallel, task } = require('gulp');
 
 // EJS
 const fs = require('fs'); //Node.jsでファイルを操作するための公式モジュール
@@ -8,6 +8,7 @@ const htmlMin = require('gulp-htmlmin');
 const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
+const gulpData = require('gulp-data');
 // Sass,CSS
 const sass = require('gulp-dart-sass');
 const sassGlob = require('gulp-sass-glob-use-forward');
@@ -85,9 +86,10 @@ const paths = {
 /* ------------------------------------------------------
 ejsコンパイル
 ------------------------------------------------------ */
+
 const ejsCompile = () => {
   // ejsの設定を読み込む
-  const data = JSON.parse(fs.readFileSync('./ejs-config.json'));
+  const data = JSON.parse(fs.readFileSync('./ejs-config.json', 'utf8'));
   return src(paths.ejs.src)
     .pipe(
       plumber({
@@ -95,7 +97,7 @@ const ejsCompile = () => {
         errorHandler: notify.onError('Error: <%= error.message %>'),
       })
     )
-    .pipe(ejs(data)) //ejsをまとめる
+    .pipe(ejs(data))
     .pipe(
       rename({
         extname: '.html',
@@ -121,6 +123,49 @@ const ejsCompile = () => {
 };
 
 /* ------------------------------------------------------
+ejsページ複製
+------------------------------------------------------ */
+const ejsDuplicate = (done) => {
+  const duplicateJson = JSON.parse(fs.readFileSync('./ejs-pages.json', 'utf8'));
+  let jsonPages = duplicateJson.pages;
+  let dataId;
+
+  for (let i = 0; i < jsonPages.length; i++) {
+    dataId = jsonPages[i].id;
+    (function () {
+      return src('./src/_template.ejs')
+        .pipe(
+          plumber({
+            // エラーがあっても処理を止めない
+            errorHandler: notify.onError('Error: <%= error.message %>'),
+          })
+        )
+        .pipe(
+          ejs({
+            //jsonデータをejsDataとしてEJSに渡す
+            ejsData: jsonPages[i],
+          })
+        )
+        .pipe(rename(dataId + '.html'))
+        .pipe(
+          htmlMin({
+            minifyCSS: true,
+            minifyJS: true,
+            removeComments: true,
+            collapseWhitespace: true,
+            collapseInlineTagWhitespace: true,
+            preserveLineBreaks: true,
+          })
+        )
+        .pipe(replace(/[\s\S]*?(<!DOCTYPE)/, '$1'))
+        .pipe(dest('./public/pages/'))
+        .pipe(browserSync.stream());
+    })();
+  }
+  done();
+};
+
+/* ------------------------------------------------------
 Sassコンパイル
 ------------------------------------------------------ */
 const sassCompile = () => {
@@ -140,7 +185,7 @@ const sassCompile = () => {
       // scss→cssコンパイル
       .pipe(
         sass({
-          includePaths: ['src/scss'],//フォルダ名と合わせる
+          includePaths: ['src/scss'], //フォルダ名と合わせる
           outputStyle: 'compressed',
           /*
           outputStyle 詳細
@@ -174,7 +219,7 @@ const sassCompile = () => {
 };
 
 /* ------------------------------------------------------
-JavaScriptコンパイル
+JavaScriptコンパイル（webpackを通さない場合）
 ------------------------------------------------------ */
 const jsCompile = () => {
   return src(paths.scripts.src)
@@ -196,14 +241,13 @@ const jsCompile = () => {
 /* ------------------------------------------------------
 webpack設定
 ------------------------------------------------------ */
-const jsBundle = (done) => {
+const jsBundle = () => {
   //webpackStreamの第2引数にwebpackを渡す
-  webpackStream(webpackConfig, webpack)
-    // .on('error', function (e) {
-    //   this.emit('end');
-    // })
+  return webpackStream(webpackConfig, webpack)
+    .on('error', function (e) {
+      this.emit('end'); //エラーが出ても処理を止めない
+    })
     .pipe(dest(paths.scripts.dist));
-  done();
 };
 
 /* ------------------------------------------------------
@@ -307,7 +351,7 @@ const fontsCopy = () => {
 };
 
 /* ------------------------------------------------------
-ローカルサーバー起動
+ローカルサーバー起動 browser-syncではreturnではなくコールバック関数
 ------------------------------------------------------ */
 const browserSyncFunc = (done) => {
   browserSync.init({
@@ -322,7 +366,7 @@ const browserSyncFunc = (done) => {
 };
 
 /* ------------------------------------------------------
-ブラウザリロード
+ブラウザリロード browser-syncではreturnではなくコールバック関数
 ------------------------------------------------------ */
 const browserReloadFunc = (done) => {
   browserSync.reload();
@@ -334,29 +378,25 @@ const browserReloadFunc = (done) => {
 ------------------------------------------------------ */
 
 // public 内をすべて削除
-const cleanAll = (done) => {
-  src(paths.clean.all, { read: false }).pipe(clean());
-  done();
+const cleanAll = () => {
+  return src(paths.clean.all, { read: false }).pipe(clean());
 };
 // HTML フォルダ、ファイルのみ削除（ assets 以外削除）
-const cleanHtml = (done) => {
-  src(paths.clean.html, { read: false }).pipe(clean());
-  done();
+const cleanHtml = () => {
+  return src(paths.clean.html, { read: false }).pipe(clean());
 };
 //public 内の CSS と JS を削除
-const cleanCssJs = (done) => {
-  src(paths.clean.assets, { read: false }).pipe(clean());
-  done();
+const cleanCssJs = () => {
+  return src(paths.clean.assets, { read: false }).pipe(clean());
 };
 //public 内の画像を削除
-const cleanImages = (done) => {
-  src(paths.clean.images, { read: false }).pipe(clean());
-  done();
+const cleanImages = () => {
+  return src(paths.clean.images, { read: false }).pipe(clean());
 };
 
 // ファイル監視
 const watchFiles = () => {
-  watch(paths.ejs.watch, series(ejsCompile, browserReloadFunc));
+  watch(paths.ejs.watch, series(ejsCompile, ejsDuplicate, browserReloadFunc));
   watch(paths.styles.src, series(sassCompile));
   watch(paths.styles.copy, series(cssCopy));
   watch(paths.scripts.src, series(jsBundle, browserReloadFunc));
@@ -377,6 +417,7 @@ const watchFiles = () => {
 exports.default = series(
   parallel(
     ejsCompile,
+    ejsDuplicate,
     sassCompile,
     cssCopy,
     jsBundle,
@@ -394,3 +435,6 @@ exports.cleanAll = series(cleanAll); //public内すべて削除
 exports.cleanExcludeHtml = series(cleanHtml); //assets以外削除
 exports.cleanCssJs = series(cleanCssJs); //css,jsを削除
 exports.cleanImages = series(cleanImages); //imagesを削除
+
+// テスト
+exports.test = series(ejsDuplicate); //imagesを削除

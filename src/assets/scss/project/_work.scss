@@ -1,1 +1,86 @@
 @use '../global' as *;
+
+.p-work-main {
+  &__inner {
+    @include mq(lg) {
+      position: relative;
+    }
+  }
+}
+.p-work-content {
+  $this: &;
+  &__title {
+    @include mq(lg) {
+      position: relative;
+    }
+    &--large,
+    &--small {
+      display: block;
+      line-height: 1;
+    }
+    &--large {
+      font-size: vw(100);
+      color: var(--colorText);
+      opacity: 0.2;
+      @include mq(lg) {
+        font-size: 56px;
+      }
+    }
+    &--small {
+      margin-top: 1em;
+      font-size: vw(40);
+      line-height: 1.5;
+      @include mq(lg) {
+        font-size: 32px;
+        margin-top: 0;
+        padding-left: 0.1em;
+        line-height: 1.2;
+      }
+    }
+  }
+  &__imgContainer {
+    margin-top: vw(80);
+    @include mq(lg) {
+      width: 50%;
+      position: absolute;
+      top: 50%;
+      right: min(vw_lg(40), 40px);
+      margin-top: 0;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__img {
+  }
+
+  &__list {
+    margin-top: 4em;
+    font-size: vw(32);
+    @include mq(lg) {
+      margin-top: 2em;
+      font-size: 18px;
+    }
+  }
+
+  &__term {
+    font-weight: bold;
+    letter-spacing: 0.05em;
+  }
+
+  &__desc {
+    margin-top: 1em;
+    padding-left: 1em;
+    &:not(:first-of-type) {
+      margin-top: 0.5em;
+    }
+  }
+}
+
+.p-work-main__back {
+  margin-top: 4em;
+  font-size: min(vw(32), 24px);
+  @include mq(lg) {
+    padding: 1em 4em;
+    font-size: 18px;
+  }
+}

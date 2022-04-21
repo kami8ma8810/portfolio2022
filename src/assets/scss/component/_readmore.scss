@@ -2,13 +2,14 @@
 
 .c-readmore {
   display: inline-block;
-  height: 2em;
-  padding: 0 1em;
+  padding: 1em 2em;
   background-color: var(--colorText);
-  line-height: 2em;
-  border-radius: 1em;
+  border-radius: 2em;
   color: var(--colorBg);
   font-family: $roboto-mono;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  @include mq(lg) {
+    padding: 1em 2em;
+  }
 }

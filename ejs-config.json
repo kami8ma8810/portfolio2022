@@ -1,8 +1,8 @@
 {
   "pageMeta": {
     "is-top": {
-      "title":"",
-      "description":"かみやまはやとのポートフォリオサイトです。This is portfolio site by Hayato Kamiyama.",
+      "title": "",
+      "description": "かみやまはやとのポートフォリオサイトです。This is portfolio site by Hayato Kamiyama.",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
@@ -11,27 +11,27 @@
       "isTop": true
     },
     "is-about": {
-      "title":"ABOUT｜",
-      "description":"かみやまはやとについての詳細ページ。Let me introduce myself.",
+      "title": "ABOUT｜",
+      "description": "かみやまはやとについての詳細ページ。Let me introduce myself.",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./",
-      "isAbout":true
+      "isAbout": true
     },
     "is-works": {
-      "title":"WORKS｜",
-      "description":"実績の紹介。Let me introduce my works.",
+      "title": "WORKS｜",
+      "description": "実績の紹介。Let me introduce my works.",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./",
-      "isWorks":true
+      "isWorks": true
     },
     "is-work01": {
-      "title":"WORK 01｜",
+      "title": "WORK 01｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
@@ -39,7 +39,7 @@
       "linkPath": "./"
     },
     "is-work02": {
-      "title":"WORK 02｜",
+      "title": "WORK 02｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
@@ -47,7 +47,7 @@
       "linkPath": "./"
     },
     "is-work03": {
-      "title":"WORK 03｜",
+      "title": "WORK 03｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
@@ -55,7 +55,7 @@
       "linkPath": "./"
     },
     "is-work04": {
-      "title":"WORK 04｜",
+      "title": "WORK 04｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
@@ -63,7 +63,7 @@
       "linkPath": "./"
     },
     "is-work05": {
-      "title":"WORK 05｜",
+      "title": "WORK 05｜",
       "pageUrl": "",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
