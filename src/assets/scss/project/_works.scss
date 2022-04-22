@@ -76,15 +76,6 @@
     line-height: 1.5;
     font-weight: bold;
     letter-spacing: 0.05em;
-    @include mq(lg) {
-      // white-space: nowrap;
-      br {
-        display: none;
-        // &.is-pc {
-        //   display: block;
-        // }
-      }
-    }
   }
   &__desc {
     padding-top: 2em;

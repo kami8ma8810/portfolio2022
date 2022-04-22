@@ -1,0 +1,19 @@
+<% const page='is-work03'; %>
+<!DOCTYPE html>
+<html lang="ja">
+<%- include('./_head.ejs',{meta:pageMeta[page]}); %>
+
+<body class="<%= page %>" data-barba="wrapper">
+  <%# include('./_loading.ejs',{meta:pageMeta[page]}); %>
+  <div class="l-wrapper" data-barba="container" data-barba-namespace="work">
+    <%- include('./_header.ejs',{meta:pageMeta[page]}); %>
+    <button id="js-openDrawer" class="c-hamburger js-openDrawer" type="button" aria-label="メニューを開く" aria-controls="js-drawer" aria-expanded="false"><span class="c-hamburger__inner"></span></button>
+    <%- include('./_drawer.ejs',{meta:pageMeta[page]}); %>
+    <%- include('./_main-work03.ejs',{meta:pageMeta[page]}); %>
+    <%- include('./_footer.ejs',{meta:pageMeta[page]}); %>
+  </div>
+  <%- include('./_switch-mode.ejs',{meta:pageMeta[page]}); %>
+  <%- include('./_footer-script.ejs',{meta:pageMeta[page]}); %>
+</body>
+
+</html>
