@@ -5,10 +5,12 @@
   z-index: 100;
   top: vw(20);
   right: vw(40);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-family: $roboto-mono;
+  pointer-events: none;
   @include mq(lg) {
+    width: auto;
     top: 30px;
     left: 80px;
   }
@@ -21,6 +23,7 @@
     }
   }
   &__btn {
+    pointer-events: all;
     margin-left: vw(32);
     @include mq(lg) {
       margin-left: 20px;

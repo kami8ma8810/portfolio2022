@@ -58,7 +58,7 @@ source {
 
 :root {
   --colorBg: #{$color-base};
-  --colorText: #2b2b2b;
+  --colorText: #{$color-main};
   --colorAccent: #{$color-accent};
 }
 /* OSの設定がダークモード時のスタイル */

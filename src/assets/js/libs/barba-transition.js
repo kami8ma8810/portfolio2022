@@ -94,6 +94,10 @@ class BarbaTransition {
       if (document.querySelector('.swiper') !== null) {
         slider();
       }
+      const logo = document.querySelectorAll('.l-header__logo');
+      gsap.to(logo, {
+        opacity: 1,
+      });
     }
 
     // ページを離脱するときのアニメーション（enter）
@@ -105,8 +109,10 @@ class BarbaTransition {
       const mainNext = el.next.container.querySelector('.l-main');
       const mainInnerNext =
         el.current.container.querySelector('.l-main__inner');
+      const logo = el.current.container.querySelectorAll('.l-header__logo');
+
       const tl = gsap.timeline();
-      tl.to([mainInnerCurrent, mainInnerNext], {
+      tl.to([mainInnerCurrent, mainInnerNext, logo], {
         opacity: 0,
         duration: 0.2,
       }).to([mainCurrent, mainNext], {
@@ -120,15 +126,22 @@ class BarbaTransition {
       console.log('enter animation!');
       const main = el.next.container.querySelector('.l-main');
       const mainInner = el.next.container.querySelector('.l-main__inner');
+      const logo = el.next.container.querySelectorAll('.l-header__logo');
+
       const tl = gsap.timeline();
       tl.to(main, {
         transformOrigin: 'bottom',
         scaleY: 1,
         duration: 0.4,
-      }).from(mainInner, {
-        opacity: 0,
-        duration: 0.2,
-      });
+      })
+        .from(mainInner, {
+          opacity: 0,
+          duration: 0.2,
+        })
+        .to(logo, {
+          opacity: 1,
+          duration: 0.2,
+        });
     }
 
     // prefetchはinitより前で実行

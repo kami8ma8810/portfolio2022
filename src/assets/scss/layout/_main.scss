@@ -6,22 +6,23 @@
   @include vh100;
   @include mq(lg) {
     position: relative;
-    background: url('../images/bg-spring.webp') no-repeat;
-    background: url('../images/bg-summer.webp') no-repeat;
-    background-size: cover;
-    z-index: 0;
+    background-color: var(--colorAccent);
+    // background: url('../images/bg-spring.webp') no-repeat;
+    // background: url('../images/bg-summer.webp') no-repeat;
+    // background-size: cover;
+    z-index: 100;
     overflow: hidden;
-    &::before {
-      content: '';
-      background: rgba(0, 0, 0, 0.6);
-      filter: blur(5px);
-      position: absolute;
-      top: -5px;
-      left: -5px;
-      right: -5px;
-      bottom: -5px;
-      z-index: -1;
-    }
+    // &::before {
+    //   content: '';
+    //   background: rgba(0, 0, 0, 0.6);
+    //   filter: blur(5px);
+    //   position: absolute;
+    //   top: -5px;
+    //   left: -5px;
+    //   right: -5px;
+    //   bottom: -5px;
+    //   z-index: -1;
+    // }
   }
 }
 .l-main {

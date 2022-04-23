@@ -59,7 +59,8 @@
   padding-left: 10px;
   color: $color-base;
   @include mq(lg) {
-    background-color: $color-accent;
+    // background-color: $color-accent;
+    background-color: var(--colorBg);
     padding-left: 10px;
   }
 }

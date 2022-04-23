@@ -23,6 +23,10 @@
   // }
 
   // animation: spiral 0.8s linear forwards;
+}
+
+.l-loading.is-done {
+  animation: spiral 0.8s ease-out 0.2s 1 forwards;
 
   @keyframes spiral {
     0% {
@@ -158,6 +162,25 @@
         0% 25%
       );
     }
+    99% {
+      clip-path: polygon(
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 0%,
+        0% 25%,
+        0% 25%,
+        0% 25%,
+        0% 25%,
+        0% 25%,
+        0% 25%,
+        0% 25%
+      );
+    }
     100% {
       clip-path: polygon(
         0% 0%,
@@ -176,6 +199,8 @@
         0% 25%,
         0% 25%
       );
+      pointer-events: none;
+      display: none;
     }
   }
 }
@@ -258,25 +283,44 @@
   font-size: 8vw;
   letter-spacing: 0.1em;
   animation: jump 1.4s linear infinite;
+  will-change: transform;
 
   @keyframes jump {
     0% {
       transform: translate3d(0, 0, 0) scale(1, 1);
     }
-
+    5% {
+      transform: translate3d(0, -0.25em, 0) scale(0.8, 1.2);
+      text-shadow: 0 0.1em 4px rgba(0, 0, 0, 1);
+    }
     10% {
-      transform: translate3d(0, -0.5em, 0) scale(0.8, 1.2);
-      -moz-text-shadow: 0px 0.5em 4px rgba(0, 0, 0, 1);
-      -webkit-text-shadow: 0px 0.5em 4px rgba(0, 0, 0, 1);
-      -ms-text-shadow: 0px 0.5em 4px rgba(0, 0, 0, 1);
-      text-shadow: 0px 0.5em 4px rgba(0, 0, 0, 1);
+      transform: translate3d(0, -0.5em, 0) scale(0.9, 1.1);
+      text-shadow: 0 0.3em 4px rgba(0, 0, 0, 1);
+    }
+    12% {
+      transform: translate3d(0, -0.5em, 0) scale(1, 1);
+      text-shadow: 0 0.3em 4px rgba(0, 0, 0, 1);
+    }
+    15% {
+      transform: translate3d(0, -0.25em, 0) scale(0.8, 1.2);
+      text-shadow: 0 0.2em 4px rgba(0, 0, 0, 1);
+    }
+    18% {
+      transform: translate3d(0, 0, 0) scale(1, 1);
+      text-shadow: 0 0.1em 4px rgba(0, 0, 0, 1);
     }
     20% {
-      transform: translate3d(0, 0, 0) scale(0.8, 1.2);
-      text-shadow: none;
+      transform: translate3d(0, 0, 0) scale(1.1, 0.9);
+      text-shadow: 0 0 4px rgba(0, 0, 0, 1);
+    }
+    22% {
+      transform: translate3d(0, 0, 0) scale(1.2, 0.8);
     }
     25% {
-      transform: translate3d(0, 0, 0) scale(1.2, 0.8);
+      transform: translate3d(0, 0, 0) scale(1.1, 0.9);
+    }
+    27% {
+      transform: translate3d(0, 0, 0) scale(1, 1);
     }
     30% {
       transform: translate3d(0, 0, 0) scale(1, 1);
