@@ -2,18 +2,8 @@
 // vendorsから読み込む外部ファイル
 import imagesLoaded from 'imagesloaded';
 import { BarbaTransition } from './libs/barba-transition';
-// import barba from '@barba/core';
-// import barbaPrefetch from '@barba/prefetch';
-// import gsap from 'gsap';
-// libsから読み込むファイル
-// import drawer from './libs/drawer';
-// import highlightNav from './libs/highlight-nav';
+
 import ScrollObserver from './libs/scroll-observer';
-// import setFillHeight from './libs/set-fill-height';
-import slider from './libs/slider';
-// import { SpanWrapText } from './libs/split-title';
-// import switchDarkMode from './libs/switch-dark-mode';
-// import ua from './libs/ua-parser';
 
 // const barbaInit = new BarbaTransition();
 
@@ -21,7 +11,25 @@ import slider from './libs/slider';
 document.addEventListener('DOMContentLoaded', function () {
   console.log('---------------------\nDOMContentLoaded\n---------------------');
 
-  const main = new Main();
+  // const main = new Main();
+
+  const watchTarget = document.querySelector('.l-wrapper');
+  const imgLoad = imagesLoaded(watchTarget, { background: true });
+  imgLoad.on('always', () => {
+    console.log(
+      '---------------------\nDONE__imagesLoaded\n---------------------'
+    );
+    const barbaInit = new BarbaTransition();
+    // if (document.querySelector('.js-splitTitle') !== null) {
+    //   document.querySelectorAll('.js-splitTitle').forEach((element) => {
+    //     new SpanWrapText(element);
+    //   });
+    // }
+    // this._scrollInit();
+    // if (document.querySelector('.js-slider') !== null) {
+    //   slider();
+    // }
+  });
 });
 
 class Main {

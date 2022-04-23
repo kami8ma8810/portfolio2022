@@ -17,8 +17,8 @@
     // height: vw(400);
     @include mq(lg) {
       margin: 0;
-      // padding: 200px 40px 0;
-      padding: 200px 120px 0;
+      // padding: 200px 120px 0;
+      padding: 0;
       width: 100%;
       height: 100%;
     }
@@ -37,8 +37,8 @@
   .swiper-pagination-bullets.swiper-pagination-horizontal,
   .swiper-pagination-custom,
   .swiper-pagination-fraction {
-    // top: 100px;
-    // bottom: auto;
+    top: 100px;
+    bottom: auto;
   }
   .swiper-pagination {
     @include mq(lg) {
@@ -69,7 +69,7 @@
     width: 80px;
     height: 80px;
     z-index: 10;
-    top: 50%;
+    bottom: 0;
     transform: translateY(-50%);
     border-radius: 50%;
     cursor: pointer;
@@ -107,7 +107,7 @@
       display: block;
     }
     &--prev {
-      left: 20px;
+      left: 40px;
       .p-works-slider__buttonArrow {
         &::before {
           top: 10px;
@@ -134,7 +134,7 @@
       }
     }
     &--next {
-      right: 20px;
+      right: 40px;
       .p-works-slider__buttonArrow {
         &::before {
           top: 28px;

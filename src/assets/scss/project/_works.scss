@@ -25,7 +25,7 @@
     transform: translateX(-50%);
     white-space: nowrap;
     @include mq(lg) {
-      top: 40px;
+      top: 20px;
     }
   }
 }
@@ -33,24 +33,11 @@
 .p-works-slide {
   @include mq(lg) {
     width: 100%;
-  }
-  &__article {
-    @include mq(lg) {
-      display: flex;
-      gap: 40px;
-      max-width: 1000px;
-      margin-left: auto;
-      margin-right: auto;
-    }
+    display: flex;
+    align-items: center;
   }
   &__imgContainer {
-    cursor: grab;
     transform-origin: bottom center;
-    @include mq(lg) {
-      flex: 0 0 40%;
-      width: 40%;
-      max-width: 500px;
-    }
   }
   &__img {
     aspect-ratio: 120/63;
@@ -58,17 +45,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    @include mq(lg) {
-      aspect-ratio: 1/1;
-      height: auto;
-    }
   }
   &__inner {
-    padding: 2em 0;
+    margin-top: 1em;
     opacity: 0;
+    transition: all 2s $easeOutCirc;
     @include mq(lg) {
-      flex: 1 1 auto;
-      padding: 0;
+      margin-top: 1em;
     }
   }
   &__title {
@@ -110,8 +93,11 @@
     margin-top: 2em;
     font-size: min(vw(32), 24px);
     @include mq(lg) {
-      margin-top: 4em;
       font-size: 18px;
     }
   }
+}
+
+.js-transitionOut {
+  // opacity: 0 !important;
 }

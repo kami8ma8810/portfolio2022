@@ -6,12 +6,8 @@
   top: 0;
   left: 0;
   z-index: 100;
-  .is-top & {
-    position: relative;
-  }
   &__inner {
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     padding: vw(20) vw(40);
@@ -56,16 +52,24 @@
       left: 0;
       width: 80px;
       height: 100vh;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
   &__logo {
-    width: vw(100);
+    display: inline-block;
+    width: vw(80);
     @include mq(lg) {
-      width: 50px;
+      width: 2em;
+      margin-top: 2em;
+      &--top {
+        display: none;
+      }
     }
   }
   &__rowTitle {
-    font-size: 24px;
+    font-size: 20px;
     font-family: $roboto-mono;
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;

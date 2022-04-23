@@ -45,15 +45,7 @@
               </div>
               <div class="p-works-slide__inner">
                 <h2 class="p-works-slide__title"><%- works.title %></h2>
-                <dl class="p-works-slide__desc">
-                  <dt class="p-works-slide__descLead">Technologies...</dt>
-                  <div class="p-works-slide__descItems">
-                    <% var array = works.tech %>
-                    <% array.forEach(function (value) { %>
-                    <dd class="p-works-slide__descItem"><%= value %></dd>
-                    <% }); %>
-                  </div>
-                </dl>
+
                 <a class="c-readmore p-works-slide__readmore" href="./work0<%= works.index %>.html">Read more</a>
               </div>
             </article>

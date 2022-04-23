@@ -9,9 +9,6 @@
   font-family: $roboto-mono;
   pointer-events: none;
   // background-color: var(--colorBg);
-  .is-top & {
-    position: relative;
-  }
   @include mq(lg) {
     display: none;
   }

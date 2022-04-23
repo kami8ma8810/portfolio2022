@@ -12,4 +12,10 @@
   @include mq(lg) {
     padding: 1em 2em;
   }
+  @include enableHover {
+    transition: opacity 0.4s $easeOutCirc;
+    &:hover {
+      opacity: 0.5;
+    }
+  }
 }

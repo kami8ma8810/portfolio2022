@@ -59,6 +59,7 @@ source {
 :root {
   --colorBg: #{$color-base};
   --colorText: #2b2b2b;
+  --colorAccent: #{$color-accent};
 }
 /* OSの設定がダークモード時のスタイル */
 // @media (prefers-color-scheme: dark) {

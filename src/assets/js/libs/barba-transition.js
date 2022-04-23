@@ -11,6 +11,8 @@ import { SpanWrapText } from './split-title';
 import slider from './slider';
 import switchDarkMode from './switch-dark-mode';
 import ua from './ua-parser';
+// import worksLeaveAnimation from './works-leave-animation';
+// import worksEnterAnimation from './works-enter-animation';
 
 class BarbaTransition {
   constructor() {
@@ -217,6 +219,32 @@ class BarbaTransition {
             enterAnimation(data);
           },
         },
+
+        // worksからwork遷移
+        // {
+        //   name: 'work',
+        //   from: {
+        //     namespace: 'works',
+        //   },
+        //   to: {
+        //     namespace: 'work',
+        //   },
+        //   async leave(data) {
+        //     console.log('☆☆☆ leave from works to work!');
+        //     const done = this.async();
+        //     worksLeaveAnimation(data.current.container);
+        //     // leaveAnimation(data);
+        //     // await delay(600); //ここの秒数と離脱アニメーションの秒数を揃える
+        //     await delay(5000); //ここの秒数と離脱アニメーションの秒数を揃える
+        //     done();
+        //   },
+        //   async enter(data) {
+        //     console.log('☆☆☆ enter from works to work!');
+        //     // await delay(600);
+        //     await delay(5000);
+        //     // worksEnterAnimation(data.next.container);
+        //   },
+        // },
       ],
     });
   }

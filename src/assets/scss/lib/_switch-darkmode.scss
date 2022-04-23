@@ -21,6 +21,7 @@
   cursor: pointer;
   border: 1px solid var(--colorText);
   border-radius: min(vw(40), 20px);
+
   @include mq(lg) {
     border: 2px solid var(--colorText);
     border-radius: 24px;
@@ -56,9 +57,9 @@
 .onoffswitch-inner:before {
   content: 'ON';
   padding-left: 10px;
-  background-color: $color-accent;
   color: $color-base;
   @include mq(lg) {
+    background-color: $color-accent;
     padding-left: 10px;
   }
 }
@@ -66,10 +67,11 @@
   content: 'OFF';
   right: 0;
   padding-right: 8px;
-  background-color: $color-base;
   color: $color-main;
   text-align: right;
+
   @include mq(lg) {
+    background-color: $color-base;
     padding-right: 10px;
   }
 }

@@ -243,11 +243,13 @@ webpack設定
 ------------------------------------------------------ */
 const jsBundle = () => {
   //webpackStreamの第2引数にwebpackを渡す
-  return webpackStream(webpackConfig, webpack)
-    .on('error', function (e) {
-      this.emit('end'); //エラーが出ても処理を止めない
-    })
-    .pipe(dest(paths.scripts.dist));
+  return (
+    webpackStream(webpackConfig, webpack)
+      // .on('error', function (e) {
+      //   this.emit('end'); //エラーが出ても処理を止めない
+      // })
+      .pipe(dest(paths.scripts.dist))
+  );
 };
 
 /* ------------------------------------------------------
