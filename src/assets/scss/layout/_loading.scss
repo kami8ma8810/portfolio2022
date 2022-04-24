@@ -271,7 +271,7 @@
 }
 
 .l-loading__chars {
-  margin: 0;
+  margin: 0 0 0 4em;
   padding: 0;
   display: flex;
   font-family: $roboto-mono;
@@ -362,15 +362,6 @@
 
 .l-loading__char:nth-child(8) {
   animation-delay: 0.7s;
-}
-.l-loading__char:nth-child(9) {
-  animation-delay: 0.8s;
-}
-.l-loading__char:nth-child(10) {
-  animation-delay: 0.9s;
-}
-.l-loading__char:nth-child(11) {
-  animation-delay: 1s;
 }
 
 @media screen and (min-width: 768px) {

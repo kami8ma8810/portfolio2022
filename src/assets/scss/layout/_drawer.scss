@@ -35,6 +35,10 @@
   &__link {
     display: block;
     // transform: translateY(101%);
+    transition: transform 0.2s $easeOutCirc;
+    &:active {
+      transform: translate3d(0, 0, 0) scale(0.8) !important;
+    }
   }
   &__close {
     position: absolute;

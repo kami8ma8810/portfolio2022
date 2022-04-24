@@ -1,4 +1,4 @@
-import ua from './ua-parser';
+// import ua from './ua-parser';
 import { gsap } from 'gsap';
 
 export default () => {
@@ -14,7 +14,7 @@ export default () => {
   const hamburgerInner = document.querySelector('.c-hamburger__inner');
 
   // スクロールバーの幅を取得
-  const scrollbarWidth = window.innerWidth - body.clientWidth;
+  // const scrollbarWidth = window.innerWidth - body.clientWidth;
 
   // 現在の状態（開いていたらtrue）
   let drawerOpen = false;
@@ -48,16 +48,16 @@ export default () => {
       opacity: 0,
     });
     const tl = gsap.timeline({
-      // onComplete: () => {
-      //   changeState(true);
-      //   drawerNav.setAttribute('aria-hidden', false);
-      //   body.style.overflowY = 'hidden'; //ドロワーを開いている間はメインコンテンツをスクロール不可にする
-      //   //PCのみスクロールバーのガタつきをなくすためにヘッダーにpadding-right設定
-      //   if (ua.getDevice() == 'pc') {
-      //     header.style.paddingRight = `${scrollbarWidth}px`;
-      //     header.style.backgroundColor = '#fff';
-      //   }
-      // },
+      onComplete: () => {
+        changeState(true);
+        drawerNav.setAttribute('aria-hidden', false);
+        //   body.style.overflowY = 'hidden'; //ドロワーを開いている間はメインコンテンツをスクロール不可にする
+        //   //PCのみスクロールバーのガタつきをなくすためにヘッダーにpadding-right設定
+        //   if (ua.getDevice() == 'pc') {
+        //     header.style.paddingRight = `${scrollbarWidth}px`;
+        //     header.style.backgroundColor = '#fff';
+        //   }
+      },
     });
     tl.to(hamburger, {
       keyframes: [
@@ -112,15 +112,15 @@ export default () => {
       defaults: {
         ease: 'circ.inOut',
       },
-      // onComplete: () => {
-      //   changeState(false);
-      //   drawerNav.setAttribute('aria-hidden', true);
-      //   body.style.overflowY = ''; //メインコンテンツをスクロール不可を解除する
-      //   if (ua.getDevice() == 'pc') {
-      //     header.style.paddingRight = ''; //PCのみヘッダーのpadding-right削除
-      //     header.style.backgroundColor = '';
-      //   }
-      // },
+      onComplete: () => {
+        changeState(false);
+        drawerNav.setAttribute('aria-hidden', true);
+        // body.style.overflowY = ''; //メインコンテンツをスクロール不可を解除する
+        // if (ua.getDevice() == 'pc') {
+        //   header.style.paddingRight = ''; //PCのみヘッダーのpadding-right削除
+        //   header.style.backgroundColor = '';
+        // }
+      },
     });
     tl.to(closeButton, {
       keyframes: [

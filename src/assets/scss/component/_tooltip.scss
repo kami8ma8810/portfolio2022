@@ -1,0 +1,26 @@
+@use '../global' as *;
+
+.c-tooltip {
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    .c-tooltip__inner {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &__inner {
+    display: block;
+    position: absolute;
+    top: -1em;
+    right: 2em;
+    opacity: 0;
+    content: '';
+    background-color: var(--colorBg);
+    padding: 0.5em 1em;
+    white-space: nowrap;
+    border: 1px solid var(--colorText);
+    font-size: 16px;
+    line-height: 2;
+  }
+}

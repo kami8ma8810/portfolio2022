@@ -1,10 +1,22 @@
 import { gsap } from 'gsap';
 
 export default () => {
-  console.log('RUN__loading-anime.js');
-  const tl = gsap.timeline();
-  tl.to('.loading__logo', { duration: 0.3, autoAlpha: 0, delay: 0.5 }).to(
-    '.loading',
-    { yPercent: -101, duration: 0.8, ease: 'power2.inOut' }
-  );
+  const loadingEl = document.getElementById('js-loading');
+  if (loadingEl !== null) {
+    const tl = gsap.timeline();
+    const clipStart = () => {
+      loadingEl.classList.add('is-done');
+    };
+
+    tl.to(['.l-loading__chars', '.l-loading__logo'], {
+      opacity: 0,
+      delay: 2.4,
+      duration: 0.4,
+    })
+      .call(clipStart)
+      .to(loadingEl, {
+        autoAlpha: 0,
+        delay: 1.2,
+      });
+  }
 };

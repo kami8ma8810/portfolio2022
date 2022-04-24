@@ -3,6 +3,8 @@
 import barba from '@barba/core';
 import barbaPrefetch from '@barba/prefetch';
 import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 import drawer from './drawer';
 import highlightNav from './highlight-nav';
@@ -94,10 +96,6 @@ class BarbaTransition {
       if (document.querySelector('.swiper') !== null) {
         slider();
       }
-      const logo = document.querySelectorAll('.l-header__logo');
-      gsap.to(logo, {
-        opacity: 1,
-      });
     }
 
     // ページを離脱するときのアニメーション（enter）
@@ -109,16 +107,52 @@ class BarbaTransition {
       const mainNext = el.next.container.querySelector('.l-main');
       const mainInnerNext =
         el.current.container.querySelector('.l-main__inner');
-      const logo = el.current.container.querySelectorAll('.l-header__logo');
+      const drawer = el.current.container.querySelector('.l-drawer');
+      const hamburgerBtn = el.current.container.querySelector('.c-hamburger');
 
       const tl = gsap.timeline();
-      tl.to([mainInnerCurrent, mainInnerNext, logo], {
-        opacity: 0,
-        duration: 0.2,
-      }).to([mainCurrent, mainNext], {
-        transformOrigin: 'top',
-        scaleY: 0,
-        duration: 0.4,
+
+      // SP
+      ScrollTrigger.matchMedia({
+        '(max-width: 959px)': function () {
+          tl.to(drawer, {
+            opacity: 0,
+            duration: 0.2,
+          })
+            .to(
+              [mainInnerCurrent, mainInnerNext],
+              {
+                opacity: 0,
+                duration: 0.4,
+              },
+              '<'
+            )
+            .to(
+              [mainCurrent, mainNext],
+              {
+                opacity: 0,
+                duration: 0.4,
+              },
+              '<'
+            )
+            .to(hamburgerBtn, {
+              scale: 1,
+              duration: 0.8,
+            });
+        },
+      });
+      // PC
+      ScrollTrigger.matchMedia({
+        '(min-width: 960px)': function () {
+          tl.to([mainInnerCurrent, mainInnerNext], {
+            opacity: 0,
+            duration: 0.2,
+          }).to([mainCurrent, mainNext], {
+            transformOrigin: 'top',
+            scaleY: 0,
+            duration: 0.4,
+          });
+        },
       });
     }
     // ページが表示されるときのアニメーション（enter）
@@ -126,22 +160,34 @@ class BarbaTransition {
       console.log('enter animation!');
       const main = el.next.container.querySelector('.l-main');
       const mainInner = el.next.container.querySelector('.l-main__inner');
-      const logo = el.next.container.querySelectorAll('.l-header__logo');
 
       const tl = gsap.timeline();
-      tl.to(main, {
-        transformOrigin: 'bottom',
-        scaleY: 1,
-        duration: 0.4,
-      })
-        .from(mainInner, {
-          opacity: 0,
-          duration: 0.2,
-        })
-        .to(logo, {
-          opacity: 1,
-          duration: 0.2,
-        });
+
+      // SP
+      ScrollTrigger.matchMedia({
+        '(max-width: 959px)': function () {
+          tl.to(main, {
+            opacity: 1,
+            duration: 0.2,
+          }).from(mainInner, {
+            opacity: 0,
+            duration: 0.2,
+          });
+        },
+      });
+      // PC
+      ScrollTrigger.matchMedia({
+        '(min-width: 960px)': function () {
+          tl.to(main, {
+            transformOrigin: 'bottom',
+            scaleY: 1,
+            duration: 0.4,
+          }).from(mainInner, {
+            opacity: 0,
+            duration: 0.2,
+          });
+        },
+      });
     }
 
     // prefetchはinitより前で実行
