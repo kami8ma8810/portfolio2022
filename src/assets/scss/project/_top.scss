@@ -22,21 +22,30 @@
   position: relative;
   width: 100%;
   &__title {
+    position: relative;
+    z-index: 10;
     font-size: min(vw(28), 20px);
     font-family: $roboto-mono;
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
     text-transform: uppercase;
+    font-weight: bold;
+    color: var(--colorBg);
+    background-color: var(--colorText);
     @include mq(lg) {
       display: none;
     }
   }
   &__desc {
+    position: relative;
+    z-index: 10;
     margin-top: 1em;
     font-size: min(vw(56), 48px);
     line-height: 1.8;
     font-weight: 700;
     letter-spacing: 0.05em;
+    // text-shadow: 0px 2px 4px #000;
+
     @include mq(lg) {
       font-size: 64px;
       margin-top: 0;
@@ -44,5 +53,41 @@
   }
   &__text {
     display: block;
+  }
+}
+
+.p-top-main__circleArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+img.p-top-main__circle {
+  position: absolute;
+  width: 150vw;
+  max-width: 200%;
+  will-change: transform;
+  mix-blend-mode: overlay;
+  // animation: mixBlend 1s linear 1s forwards;
+  // @keyframes mixBlend {
+  //   0% {
+  //     opacity: 0;
+  //     mix-blend-mode: initial;
+  //   }
+  //   100% {
+  //     opacity: 1;
+  //     mix-blend-mode: overlay;
+  //   }
+  // }
+  .is-darkmode & {
+    mix-blend-mode: difference;
+  }
+  @include mq(lg) {
+    width: 50vw;
   }
 }

@@ -16,7 +16,7 @@
   height: 100%;
   content: '';
   background-color: var(--colorAccent);
-  // pointer-events: none;
+  pointer-events: none;
   // opacity: 0;
   // .spiral-enter-active {
   //   animation: 1s spiral reverse;
@@ -199,82 +199,21 @@
         0% 25%,
         0% 25%
       );
-      pointer-events: none;
-      display: none;
     }
   }
 }
 .l-loading__logo {
-  transform: scale(0.5);
-}
-
-.l-loading__shape {
-  position: relative;
-  width: 150px;
-  height: 130px;
-  transform: rotate(90deg);
-  animation-name: spin;
-  animation-duration: 1.4s;
-  animation-timing-function: linear;
-  animation-direction: normal;
-  animation-iteration-count: infinite;
-  @keyframes spin {
-    0% {
-      transform: rotate(90deg);
-    }
-    50% {
-      transform: rotate(270deg);
-    }
-    70% {
-      transform: rotate(180deg);
-    }
-    80% {
-      transform: rotate(180deg);
-    }
-    90% {
-      transform: rotate(180deg);
-    }
-    100% {
-      transform: rotate(90deg);
-    }
-  }
-}
-.l-loading__shape2 {
-  position: relative;
-}
-.l-loading__face {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 100px 173.2px 100px;
-  border-color: transparent transparent #1976d2 transparent;
-}
-
-.l-loading__shape::before,
-.l-loading__shape::after {
-  content: '';
-  width: 150px;
-  position: absolute;
-  box-sizing: border-box;
-  border-left: 37.5px solid transparent;
-  border-right: 37.5px solid transparent;
-}
-
-.l-loading__shape::before {
-  border-bottom: 64.95px solid var(--colorAccent);
-}
-
-.l-loading__shape::after {
-  top: 64.95px;
-  border-top: 64.95px solid var(--colorAccent);
+  transform: scale(0.5) translateX(-5%);
 }
 
 .l-loading__chars {
-  margin: 0 0 0 4em;
+  margin: 0;
   padding: 0;
   display: flex;
   font-family: $roboto-mono;
+  @include mq(lg) {
+    margin: 0 0 0 4em;
+  }
 }
 .l-loading__char {
   display: inline-block;

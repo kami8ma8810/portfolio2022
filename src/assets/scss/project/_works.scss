@@ -38,6 +38,9 @@
   }
   &__imgContainer {
     transform-origin: bottom center;
+    @include enableHover {
+      cursor: grab;
+    }
   }
   &__img {
     aspect-ratio: 120/63;
@@ -59,6 +62,10 @@
     line-height: 1.5;
     font-weight: bold;
     letter-spacing: 0.05em;
+    @include mq(lg) {
+      font-size: 24px;
+      white-space: nowrap;
+    }
   }
   &__desc {
     padding-top: 2em;

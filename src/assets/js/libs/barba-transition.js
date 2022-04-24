@@ -13,6 +13,7 @@ import { SpanWrapText } from './split-title';
 import slider from './slider';
 import switchDarkMode from './switch-dark-mode';
 import ua from './ua-parser';
+import randomMove from './random-move';
 // import worksLeaveAnimation from './works-leave-animation';
 // import worksEnterAnimation from './works-enter-animation';
 
@@ -73,6 +74,18 @@ class BarbaTransition {
     function enableScrollBody() {
       document.body.style.overflow = 'auto';
     }
+    //  TOPページcircle制御
+    function disappearCircle(el) {
+      if (el.current.container.querySelector('.js-moveCircle') !== null) {
+        const circlesCurrent = el.current.container.querySelectorAll(
+          '.p-top-main__circle'
+        );
+        gsap.to(circlesCurrent, {
+          opacity: 0,
+          duration: 0.01,
+        });
+      }
+    }
 
     // アクセス時の処理
     function onceAnimation() {
@@ -96,6 +109,9 @@ class BarbaTransition {
       if (document.querySelector('.swiper') !== null) {
         slider();
       }
+      if (document.querySelector('.js-moveCircle') !== null) {
+        randomMove();
+      }
     }
 
     // ページを離脱するときのアニメーション（enter）
@@ -111,13 +127,13 @@ class BarbaTransition {
       const hamburgerBtn = el.current.container.querySelector('.c-hamburger');
 
       const tl = gsap.timeline();
-
-      // SP
       ScrollTrigger.matchMedia({
+        // SP
         '(max-width: 959px)': function () {
           tl.to(drawer, {
             opacity: 0,
             duration: 0.2,
+            delay: 0.2,
           })
             .to(
               [mainInnerCurrent, mainInnerNext],
@@ -137,12 +153,10 @@ class BarbaTransition {
             )
             .to(hamburgerBtn, {
               scale: 1,
-              duration: 0.8,
+              duration: 0.7,
             });
         },
-      });
-      // PC
-      ScrollTrigger.matchMedia({
+        // PC
         '(min-width: 960px)': function () {
           tl.to([mainInnerCurrent, mainInnerNext], {
             opacity: 0,
@@ -161,10 +175,15 @@ class BarbaTransition {
       const main = el.next.container.querySelector('.l-main');
       const mainInner = el.next.container.querySelector('.l-main__inner');
 
-      const tl = gsap.timeline();
-
-      // SP
+      const tl = gsap.timeline({
+        onComplete: () => {
+          // if (el.next.container.querySelector('.js-moveCircle') !== null) {
+          //   gsap.
+          // }
+        },
+      });
       ScrollTrigger.matchMedia({
+        // SP
         '(max-width: 959px)': function () {
           tl.to(main, {
             opacity: 1,
@@ -174,9 +193,7 @@ class BarbaTransition {
             duration: 0.2,
           });
         },
-      });
-      // PC
-      ScrollTrigger.matchMedia({
+        // PC
         '(min-width: 960px)': function () {
           tl.to(main, {
             transformOrigin: 'bottom',
@@ -188,6 +205,7 @@ class BarbaTransition {
           });
         },
       });
+      // PC
     }
 
     // prefetchはinitより前で実行
@@ -198,6 +216,7 @@ class BarbaTransition {
       console.log('●●●●● hooks beforeLeave ●●●●●');
       // console.log(data.current.container);
       disableScrollBody();
+      disappearCircle(data);
     });
 
     barba.hooks.leave((data) => {
@@ -231,6 +250,9 @@ class BarbaTransition {
       if (data.next.container.querySelector('.swiper') !== null) {
         slider();
       }
+      if (document.querySelector('.js-moveCircle') !== null) {
+        randomMove();
+      }
     });
 
     // 初期化
@@ -259,7 +281,7 @@ class BarbaTransition {
             console.log('●●●●● leave ●●●●●');
             const done = this.async();
             leaveAnimation(data);
-            await delay(600); //ここの秒数と離脱アニメーションの秒数を揃える
+            await delay(500); //ここの秒数と離脱アニメーションの秒数を揃える
             done();
           },
 
@@ -273,11 +295,21 @@ class BarbaTransition {
           // ページを表示するときの処理（leaveと同時発火。awaitの秒数でタイミングを制御））
           // ===================================
           async enter(data) {
-            await delay(600);
+            await delay(500);
             console.log('●●●●● enter ●●●●●');
             enterAnimation(data);
           },
         },
+        // {
+        //   name:'to-top',
+        //   to:{
+        //     namespace:'top'
+        //   },
+        //   from:{
+        //     namespace:'top'
+        //   }
+
+        // }
 
         // worksからwork遷移
         // {

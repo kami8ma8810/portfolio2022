@@ -3,12 +3,11 @@
 .c-tooltip {
   position: relative;
   cursor: pointer;
-  &:hover {
-    .c-tooltip__inner {
-      opacity: 1;
-      visibility: visible;
-    }
+  &:hover + .c-tooltip__inner {
+    opacity: 1;
+    visibility: visible;
   }
+
   &__inner {
     display: block;
     position: absolute;
@@ -16,11 +15,13 @@
     right: 2em;
     opacity: 0;
     content: '';
-    background-color: var(--colorBg);
+    background-color: var(--colorText);
     padding: 0.5em 1em;
     white-space: nowrap;
-    border: 1px solid var(--colorText);
+    border: 1px solid var(--colorBg);
     font-size: 16px;
+    color: var(--colorBg);
     line-height: 2;
+    visibility: hidden;
   }
 }

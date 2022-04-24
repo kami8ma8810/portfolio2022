@@ -9,11 +9,14 @@
   font-family: $roboto-mono;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  transition: all 0.2s $easeOutCirc;
+  &:active {
+    transform: scale(0.9);
+  }
   @include mq(lg) {
     padding: 1em 2em;
   }
   @include enableHover {
-    transition: opacity 0.4s $easeOutCirc;
     &:hover {
       opacity: 0.5;
     }

@@ -74,6 +74,9 @@
     &:not(:first-of-type) {
       margin-top: 0.5em;
     }
+    a {
+      text-decoration: underline;
+    }
   }
 }
 

@@ -19,6 +19,9 @@
 
 .p-about-content {
   $this: &;
+  &__link {
+    text-decoration: underline;
+  }
   &__lead {
     position: relative;
     font-size: vw(48);

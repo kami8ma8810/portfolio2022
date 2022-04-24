@@ -36,8 +36,10 @@
     display: block;
     // transform: translateY(101%);
     transition: transform 0.2s $easeOutCirc;
+    color: $color-base !important;
+    white-space: nowrap;
     &:active {
-      transform: translate3d(0, 0, 0) scale(0.8) !important;
+      transform: translate3d(0, 0, 0) scale(0.9) !important;
     }
   }
   &__close {

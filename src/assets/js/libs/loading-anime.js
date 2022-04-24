@@ -16,6 +16,7 @@ export default () => {
       .call(clipStart)
       .to(loadingEl, {
         autoAlpha: 0,
+        display: 'none',
         delay: 1.2,
       });
   }
