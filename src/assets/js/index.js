@@ -4,7 +4,7 @@ import imagesLoaded from 'imagesloaded';
 import { BarbaTransition } from './libs/barba-transition';
 import loadingAnime from './libs/loading-anime';
 import ScrollObserver from './libs/scroll-observer';
-import { gsap } from 'gsap';
+// import { gsap } from 'gsap';
 
 // 初期化
 document.addEventListener('DOMContentLoaded', function () {

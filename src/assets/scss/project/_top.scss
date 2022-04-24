@@ -69,25 +69,15 @@
 }
 img.p-top-main__circle {
   position: absolute;
-  width: 150vw;
+  width: 120vw;
   max-width: 200%;
-  will-change: transform;
   mix-blend-mode: overlay;
-  // animation: mixBlend 1s linear 1s forwards;
-  // @keyframes mixBlend {
-  //   0% {
-  //     opacity: 0;
-  //     mix-blend-mode: initial;
-  //   }
-  //   100% {
-  //     opacity: 1;
-  //     mix-blend-mode: overlay;
-  //   }
-  // }
+  will-change: transform;
+
   .is-darkmode & {
     mix-blend-mode: difference;
   }
   @include mq(lg) {
-    width: 50vw;
+    width: 100vh;
   }
 }

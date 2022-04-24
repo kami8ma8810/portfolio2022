@@ -153,7 +153,7 @@ class BarbaTransition {
             )
             .to(hamburgerBtn, {
               scale: 1,
-              duration: 0.7,
+              duration: 0.4,
             });
         },
         // PC
@@ -175,13 +175,7 @@ class BarbaTransition {
       const main = el.next.container.querySelector('.l-main');
       const mainInner = el.next.container.querySelector('.l-main__inner');
 
-      const tl = gsap.timeline({
-        onComplete: () => {
-          // if (el.next.container.querySelector('.js-moveCircle') !== null) {
-          //   gsap.
-          // }
-        },
-      });
+      const tl = gsap.timeline();
       ScrollTrigger.matchMedia({
         // SP
         '(max-width: 959px)': function () {
@@ -250,7 +244,7 @@ class BarbaTransition {
       if (data.next.container.querySelector('.swiper') !== null) {
         slider();
       }
-      if (document.querySelector('.js-moveCircle') !== null) {
+      if (data.next.container.querySelector('.js-moveCircle') !== null) {
         randomMove();
       }
     });
