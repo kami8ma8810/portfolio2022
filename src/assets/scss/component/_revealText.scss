@@ -1,0 +1,11 @@
+@use '../global' as *;
+
+.c-revealText {
+  clip-path: inset(0 99.9% 0 0);
+  display: block;
+  transition: 1s $easeInOutQuad;
+  transition-property: clip-path;
+  &.is-show {
+    clip-path: inset(0);
+  }
+}

@@ -22,6 +22,14 @@
   &__link {
     text-decoration: underline;
   }
+  &__set {
+    &:not(:first-of-type) {
+      margin-top: 4em;
+      @include mq(lg) {
+        margin-top: 8em;
+      }
+    }
+  }
   &__lead {
     position: relative;
     font-size: vw(48);
@@ -31,12 +39,6 @@
     letter-spacing: 0.2em;
     @include mq(lg) {
       font-size: 40px;
-    }
-    &:not(:first-of-type) {
-      margin-top: 4em;
-      @include mq(lg) {
-        margin-top: 2em;
-      }
     }
   }
   &__leadText {

@@ -55,6 +55,7 @@
       margin: 0 auto;
       left: 50%;
       transform: translateX(-50%);
+      pointer-events: none;
     }
   }
   .swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
@@ -64,9 +65,10 @@
     // width: calc((100% - 40px) / 5);
     // height: 4px;
     // border-radius: 0;
+    background-color: var(--colorText) !important;
   }
   .swiper-pagination-bullet-active {
-    background: var(--colorText);
+    background: var(--colorText) !important;
   }
   &__button {
     display: none;

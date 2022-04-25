@@ -98,26 +98,6 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     overflow: hidden;
-    // &::before {
-    //   content: attr(data-text);
-    //   // content: 'WORKS';
-    //   position: absolute;
-    //   top: 2px;
-    //   left: 0;
-    //   color: $color-main;
-    //   font-size: 24px;
-    //   font-family: $roboto-mono;
-    //   font-weight: bold;
-    //   width: 0%;
-    //   overflow: hidden;
-    //   transition: all 0.5s;
-    //   pointer-events: none;
-    // }
-    // &:hover {
-    //   &::before {
-    //     width: 100%;
-    //   }
-    // }
     & + & {
       margin-left: 1em;
     }
@@ -133,10 +113,7 @@
     text-decoration: none;
     overflow: hidden;
     color: $color-base !important;
-    // transition: transform 0.2s $easeOutCirc;
-    // &:active {
-    //   transform: scale(0.8);
-    // }
+
     @include enableHover {
       &:hover {
         span {
@@ -173,16 +150,33 @@
     }
     span {
       display: inline-block;
-      transform-origin: center center 1em;
+      transform-origin: center center 0.5em;
       will-change: transform;
       // transition: transform 0.2s ease;
-    }
-    @for $i from 0 through 7 {
-      span:nth-of-type(#{$i}) {
-        animation-delay: #{$i * 0.04}s;
-        // transition-delay: #{$i * 0.1}s;
+      &:nth-of-type(2) {
+        animation-delay: 0.04s;
+      }
+      &:nth-of-type(3) {
+        animation-delay: 0.08s;
+      }
+      &:nth-of-type(4) {
+        animation-delay: 0.12s;
+      }
+      &:nth-of-type(5) {
+        animation-delay: 0.16s;
+      }
+      &:nth-of-type(6) {
+        animation-delay: 0.2s;
+      }
+      &:nth-of-type(7) {
+        animation-delay: 0.24s;
       }
     }
+    // @for $i from 1 through 7 {
+    //   span:nth-of-type(#{$i}) {
+    //     animation-delay: #{$i * 0.07}s;
+    //   }
+    // }
   }
   // &__seasonItems {
   //   display: flex;

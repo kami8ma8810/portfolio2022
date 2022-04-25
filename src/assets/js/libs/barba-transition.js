@@ -14,6 +14,7 @@ import slider from './slider';
 import switchDarkMode from './switch-dark-mode';
 import ua from './ua-parser';
 import randomMove from './random-move';
+import scrollShow from './scroll-show';
 // import worksLeaveAnimation from './works-leave-animation';
 // import worksEnterAnimation from './works-enter-animation';
 
@@ -104,6 +105,9 @@ class BarbaTransition {
         document.querySelectorAll('.js-splitTitle').forEach((element) => {
           new SpanWrapText(element);
         });
+      }
+      if (document.querySelector('.js-showIn') !== null) {
+        scrollShow();
       }
       // worksページslider
       if (document.querySelector('.swiper') !== null) {
@@ -240,6 +244,9 @@ class BarbaTransition {
         data.next.container.querySelectorAll('.js-splitTitle').forEach((el) => {
           new SpanWrapText(el);
         });
+      }
+      if (data.next.container.querySelector('.js-showIn') !== null) {
+        scrollShow();
       }
       if (data.next.container.querySelector('.swiper') !== null) {
         slider();
