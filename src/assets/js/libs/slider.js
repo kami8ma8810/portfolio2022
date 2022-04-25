@@ -52,10 +52,12 @@ export default () => {
         const $previousSlide = slides.eq(previousIndex); //1つ前のスライド
         const bgColor = $activeSlide.attr('data-slide-bg-color');
         $el.css('background', bgColor);
+        // 次のスライドのテキストを非表示
         $previousSlide
           .find('.p-works-slide__inner')
           .transition(200)
           .css('opacity', 0);
+        // 現在のスライドが遷移して前のスライドになるテキストを非表示
         $activeSlide
           .find('.p-works-slide__inner')
           .transition(200)

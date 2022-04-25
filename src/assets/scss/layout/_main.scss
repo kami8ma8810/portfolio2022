@@ -48,11 +48,11 @@
     height: 100%;
     padding: vw(160) 0;
     overflow-y: scroll;
-    -ms-overflow-style: none; /* IE, Edge 対応 */
-    scrollbar-width: none; /* Firefox 対応 */
+    // -ms-overflow-style: none; /* IE, Edge 対応 */
+    // scrollbar-width: none; /* Firefox 対応 */
     &::-webkit-scrollbar {
       /* Chrome, Safari 対応 */
-      display: none;
+      // display: none;
     }
     @include mq(lg) {
       padding: min(vw_lg(40), 40px);

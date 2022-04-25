@@ -139,7 +139,7 @@ class BarbaTransition {
               [mainInnerCurrent, mainInnerNext],
               {
                 opacity: 0,
-                duration: 0.4,
+                duration: 0.3,
               },
               '<'
             )
@@ -147,7 +147,7 @@ class BarbaTransition {
               [mainCurrent, mainNext],
               {
                 opacity: 0,
-                duration: 0.4,
+                duration: 0.3,
               },
               '<'
             )
@@ -162,9 +162,9 @@ class BarbaTransition {
             opacity: 0,
             duration: 0.2,
           }).to([mainCurrent, mainNext], {
-            transformOrigin: 'top',
+            transformOrigin: 'bottom',
             scaleY: 0,
-            duration: 0.4,
+            duration: 0.3,
           });
         },
       });
@@ -184,15 +184,15 @@ class BarbaTransition {
             duration: 0.2,
           }).from(mainInner, {
             opacity: 0,
-            duration: 0.2,
+            duration: 0.3,
           });
         },
         // PC
         '(min-width: 960px)': function () {
           tl.to(main, {
-            transformOrigin: 'bottom',
+            transformOrigin: 'top',
             scaleY: 1,
-            duration: 0.4,
+            duration: 0.3,
           }).from(mainInner, {
             opacity: 0,
             duration: 0.2,

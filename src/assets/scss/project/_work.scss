@@ -44,6 +44,7 @@
     @include mq(lg) {
       position: absolute;
       top: 50%;
+      z-index: -1;
       right: min(vw_lg(40), 40px);
       margin-top: 0;
       width: 50%;
