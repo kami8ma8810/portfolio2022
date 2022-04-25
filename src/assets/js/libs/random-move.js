@@ -8,6 +8,7 @@ export default () => {
   const circles = gsap.utils.toArray('.js-moveCircle');
   circles.forEach((el) => {
     ScrollTrigger.matchMedia({
+      // SP---------------------------------
       '(max-width: 959px)': function () {
         gsap.config({
           force3D: 'auto',
@@ -21,6 +22,7 @@ export default () => {
               scale: 1,
               duration: 0.4,
               delay: 0.6,
+              ease: 'back.out(1.5)',
             }
           )
           .to(el, {
@@ -31,6 +33,7 @@ export default () => {
             repeatRefresh: true,
           });
       },
+      // PC---------------------------------
       '(min-width: 960px)': function () {
         gsap.config({
           force3D: true,
@@ -44,6 +47,7 @@ export default () => {
               scale: 1,
               duration: 0.4,
               delay: 0.6,
+              ease: 'back.out(2)',
             }
           )
           .to(el, {

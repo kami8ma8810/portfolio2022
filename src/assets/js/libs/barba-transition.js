@@ -15,6 +15,7 @@ import switchDarkMode from './switch-dark-mode';
 import ua from './ua-parser';
 import randomMove from './random-move';
 import scrollShow from './scroll-show';
+import parallaxMouse from './parallax-mouse';
 // import worksLeaveAnimation from './works-leave-animation';
 // import worksEnterAnimation from './works-enter-animation';
 
@@ -78,9 +79,8 @@ class BarbaTransition {
     //  TOPページcircle制御
     function disappearCircle(el) {
       if (el.current.container.querySelector('.js-moveCircle') !== null) {
-        const circlesCurrent = el.current.container.querySelectorAll(
-          '.p-top-main__circle'
-        );
+        const circlesCurrent =
+          el.current.container.querySelectorAll('.js-moveCircle');
         gsap.to(circlesCurrent, {
           opacity: 0,
           duration: 0.01,
@@ -115,6 +115,9 @@ class BarbaTransition {
       }
       if (document.querySelector('.js-moveCircle') !== null) {
         randomMove();
+      }
+      if (document.querySelector('.js-parallaMouse') !== null) {
+        parallaxMouse();
       }
     }
 
@@ -253,6 +256,9 @@ class BarbaTransition {
       }
       if (data.next.container.querySelector('.js-moveCircle') !== null) {
         randomMove();
+      }
+      if (data.next.container.querySelector('.js-parallaMouse') !== null) {
+        parallaxMouse();
       }
     });
 

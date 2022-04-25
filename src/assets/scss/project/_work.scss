@@ -4,6 +4,7 @@
   &__inner {
     @include mq(lg) {
       position: relative;
+      overflow-x: hidden;
     }
   }
 }
