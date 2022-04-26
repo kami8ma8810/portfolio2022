@@ -1,9 +1,9 @@
 {
   "pageMeta": {
     "is-top": {
-      "title": "",
+      "title": "TOP｜",
       "description": "かみやまはやとのポートフォリオサイトです。This is portfolio site by Hayato Kamiyama.",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
@@ -13,7 +13,7 @@
     "is-about": {
       "title": "ABOUT｜",
       "description": "かみやまはやとについての詳細ページ。Let me introduce myself.",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/about.html",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
@@ -23,7 +23,7 @@
     "is-works": {
       "title": "WORKS｜",
       "description": "実績の紹介。Let me introduce my works.",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/works.html",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
@@ -32,7 +32,7 @@
     },
     "is-work01": {
       "title": "WORK 01｜",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/work01.html",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
@@ -40,7 +40,7 @@
     },
     "is-work02": {
       "title": "WORK 02｜",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/work02.html",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
@@ -48,7 +48,7 @@
     },
     "is-work03": {
       "title": "WORK 03｜",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/work03.html",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
@@ -56,7 +56,7 @@
     },
     "is-work04": {
       "title": "WORK 04｜",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/work04.html",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
@@ -64,7 +64,7 @@
     },
     "is-work05": {
       "title": "WORK 05｜",
-      "pageUrl": "",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/work05.html",
       "stylePath": "./assets/css/",
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
