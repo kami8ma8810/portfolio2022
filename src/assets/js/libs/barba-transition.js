@@ -16,8 +16,6 @@ import ua from './ua-parser';
 import randomMove from './random-move';
 import scrollShow from './scroll-show';
 import parallaxMouse from './parallax-mouse';
-// import worksLeaveAnimation from './works-leave-animation';
-// import worksEnterAnimation from './works-enter-animation';
 
 class BarbaTransition {
   constructor() {
