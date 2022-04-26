@@ -3,11 +3,11 @@ import { gsap } from 'gsap';
 export default () => {
   const loadingEl = document.getElementById('js-loading');
   if (loadingEl !== null) {
-    const tl = gsap.timeline();
     const clipStart = () => {
       loadingEl.classList.add('is-done');
     };
 
+    const tl = gsap.timeline();
     tl.to(['.l-loading__chars', '.l-loading__logo'], {
       opacity: 0,
       delay: 2.4,

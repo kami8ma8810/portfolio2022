@@ -10,11 +10,25 @@ export default () => {
     ScrollTrigger.matchMedia({
       // SP---------------------------------
       '(max-width: 959px)': function () {
+        function movingSp() {
+          gsap.to(el, {
+            xPercent: 'random(-50, 50)',
+            yPercent: 'random(-65, 65)',
+            duration: 'random(5, 10)',
+            ease: 'power3.inOut',
+            repeat: -1,
+            repeatRefresh: true,
+          });
+        }
         gsap.config({
           force3D: 'auto',
         });
         gsap
-          .timeline()
+          .timeline({
+            onComplete: () => {
+              movingSp();
+            },
+          })
           .fromTo(
             el,
             { scale: 0 },
@@ -24,22 +38,29 @@ export default () => {
               delay: 0.6,
               ease: 'back.out(1.5)',
             }
-          )
-          .to(el, {
-            xPercent: 'random(-50, 50)',
-            yPercent: 'random(-75, 75)',
-            duration: 'random(10, 15)',
-            repeat: -1,
-            repeatRefresh: true,
-          });
+          );
       },
       // PC---------------------------------
       '(min-width: 960px)': function () {
+        function moving() {
+          gsap.to(el, {
+            xPercent: 'random(-60, 60)',
+            yPercent: 'random(-60, 60)',
+            duration: 'random(10, 20)',
+            ease: 'power3.inOut',
+            repeat: -1,
+            repeatRefresh: true,
+          });
+        }
         gsap.config({
           force3D: true,
         });
         gsap
-          .timeline()
+          .timeline({
+            onComplete: () => {
+              moving();
+            },
+          })
           .fromTo(
             el,
             { scale: 0 },
@@ -49,14 +70,7 @@ export default () => {
               delay: 0.6,
               ease: 'back.out(2)',
             }
-          )
-          .to(el, {
-            xPercent: 'random(-70, 70)',
-            yPercent: 'random(-60, 60)',
-            duration: 'random(5, 20)',
-            repeat: -1,
-            repeatRefresh: true,
-          });
+          );
       },
     });
   });
