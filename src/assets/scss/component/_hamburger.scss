@@ -7,8 +7,8 @@
   right: vw(40);
   bottom: vw(40);
   z-index: 200;
-  width: min(vw(90), 80px);
-  height: min(vw(90), 80px);
+  width: min(vw(100), 80px);
+  height: min(vw(100), 80px);
   border: 1px solid $color-main;
   border-radius: 50%;
   @include mq(lg) {

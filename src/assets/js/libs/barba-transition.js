@@ -135,6 +135,9 @@ class BarbaTransition {
       ScrollTrigger.matchMedia({
         // SP
         '(max-width: 959px)': function () {
+          gsap.config({
+            force3D: 'auto',
+          });
           tl.to(drawer, {
             opacity: 0,
             duration: 0.2,
@@ -163,6 +166,9 @@ class BarbaTransition {
         },
         // PC
         '(min-width: 960px)': function () {
+          gsap.config({
+            force3D: true,
+          });
           tl.to([mainInnerCurrent, mainInnerNext], {
             opacity: 0,
             duration: 0.2,
@@ -184,6 +190,9 @@ class BarbaTransition {
       ScrollTrigger.matchMedia({
         // SP
         '(max-width: 959px)': function () {
+          gsap.config({
+            force3D: 'auto',
+          });
           tl.to(main, {
             opacity: 1,
             duration: 0.2,
@@ -194,6 +203,9 @@ class BarbaTransition {
         },
         // PC
         '(min-width: 960px)': function () {
+          gsap.config({
+            force3D: true,
+          });
           tl.to(main, {
             transformOrigin: 'top',
             scaleY: 1,

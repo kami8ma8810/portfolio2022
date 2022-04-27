@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: vw(20) vw(40);
+    padding: vw(20) vw(40) vw(20) vw(30);
     font-family: $roboto-mono;
     // background-color: var(--colorBg);
     @include mq(lg) {

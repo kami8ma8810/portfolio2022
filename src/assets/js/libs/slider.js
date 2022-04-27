@@ -15,12 +15,14 @@ export default () => {
   };
 
   const swiper = new Swiper('.swiper', {
-    // direction: 'vertical',
+    direction: 'horizontal',
     loop: true,
     slidesPerView: 1.1,
     centeredSlides: true,
     spaceBetween: 20,
     // speed: 500,
+    // allowTouchMove: true,
+    // effect: 'fade',
     breakpoints: {
       // 650: {
       //   slidesPerView: 1.4,

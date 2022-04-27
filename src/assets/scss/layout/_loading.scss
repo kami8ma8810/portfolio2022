@@ -21,6 +21,7 @@
 
 .l-loading.is-done {
   animation: spiral 0.8s ease-out 0.2s 1 forwards;
+  // will-change: clip-path;
 
   @keyframes spiral {
     0% {
@@ -224,27 +225,27 @@
     }
     5% {
       transform: translate3d(0, -0.25em, 0) scale(0.8, 1.2);
-      text-shadow: 0 0.1em 4px rgba(0, 0, 0, 1);
+      text-shadow: 0 0.1em 2px rgba(#123c22, 1);
     }
     10% {
       transform: translate3d(0, -0.5em, 0) scale(0.9, 1.1);
-      text-shadow: 0 0.3em 4px rgba(0, 0, 0, 1);
+      text-shadow: 0 0.3em 2px rgba(#123c22, 1);
     }
     12% {
       transform: translate3d(0, -0.5em, 0) scale(1, 1);
-      text-shadow: 0 0.3em 4px rgba(0, 0, 0, 1);
+      text-shadow: 0 0.3em 2px rgba(#123c22, 1);
     }
     15% {
       transform: translate3d(0, -0.25em, 0) scale(0.8, 1.2);
-      text-shadow: 0 0.2em 4px rgba(0, 0, 0, 1);
+      text-shadow: 0 0.2em 2px rgba(#123c22, 1);
     }
     18% {
       transform: translate3d(0, 0, 0) scale(1, 1);
-      text-shadow: 0 0.1em 4px rgba(0, 0, 0, 1);
+      text-shadow: 0 0.1em 2px rgba(#123c22, 1);
     }
     20% {
       transform: translate3d(0, 0, 0) scale(1.1, 0.9);
-      text-shadow: 0 0 4px rgba(0, 0, 0, 1);
+      text-shadow: 0 0 2px rgba(#123c22, 1);
     }
     22% {
       transform: translate3d(0, 0, 0) scale(1.2, 0.8);

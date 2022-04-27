@@ -7,7 +7,10 @@
     span {
       display: inline-block;
       transform: translateY(101%);
-      animation: showEachChar 0.8s forwards;
+      animation-name: showEachChar;
+      animation-duration: 0.8s;
+      animation-fill-mode: forwards;
+      // will-change: transform;
       @keyframes showEachChar {
         0% {
           transform: translateY(101%);

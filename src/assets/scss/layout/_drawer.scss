@@ -7,23 +7,29 @@
   color: $color-base;
   width: 100%;
   height: 100vh;
-  @include vh100;
+  // @include vh100;
   @include mq(lg) {
     display: none;
   }
   &__inner {
     display: flex;
-    align-items: center;
+    // align-items: center;
+    justify-content: center;
     position: relative;
+    flex-direction: column;
     background-color: $color-accent;
     width: 100%;
     height: 100vh;
-    @include vh100;
+    // @include vh100;
     padding-left: vw(40);
+    overflow: hidden;
+  }
+  &__items {
+    margin-left: vw(20);
   }
   &__item {
     position: relative;
-    font-size: min(vw(100), 72px);
+    font-size: min(vw(80), 72px);
     text-transform: uppercase;
     letter-spacing: 0.05em;
     line-height: 1;
@@ -37,15 +43,20 @@
     // transform: translateY(101%);
     transition: transform 0.2s $easeOutCirc;
     color: $color-base !important;
+    font-family: $roboto-mono;
     white-space: nowrap;
     &:active {
       transform: translate3d(0, 0, 0) scale(0.9) !important;
     }
   }
-  &__close {
-    position: absolute;
-    bottom: vw(40);
-    right: vw(40);
+  &__close.c-hamburger--close {
+    position: relative;
+    left: auto;
+    right: auto;
+    // bottom: vw(40);
+    // right: vw(40);
+    margin-top: 10vh;
+    align-self: flex-start;
     overflow: hidden;
   }
 }

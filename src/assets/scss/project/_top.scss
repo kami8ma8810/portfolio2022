@@ -32,6 +32,7 @@
     font-weight: bold;
     color: var(--colorBg);
     background-color: var(--colorText);
+    padding-right: 0.25em;
     @include mq(lg) {
       display: none;
     }
@@ -74,7 +75,7 @@ img.p-top-main__circle {
   max-width: 200%;
   mix-blend-mode: overlay;
   // mix-blend-mode: difference;
-  will-change: transform;
+  // will-change: transform;
 
   .is-darkmode & {
     mix-blend-mode: difference;

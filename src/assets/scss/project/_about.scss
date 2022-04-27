@@ -45,15 +45,16 @@
     line-height: 1;
     display: block;
     position: relative;
+    padding-top: 0.45em;
     z-index: 10;
   }
   &__leadBg {
     position: absolute;
     left: 0;
-    top: 50%;
+    top: 0;
     z-index: 0;
     opacity: 0.2;
-    transform: translateY(-50%);
+    // transform: translateY(-50%);
     color: var(--colorText);
     font-size: vw(96);
     line-height: 1;
