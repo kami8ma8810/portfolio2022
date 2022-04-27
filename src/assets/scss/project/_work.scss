@@ -42,7 +42,9 @@
   }
   &__imgContainer {
     margin-top: vw(80);
+    pointer-events: none;
     @include mq(lg) {
+      perspective: 1000px;
       position: absolute;
       top: 50%;
       z-index: -1;
@@ -50,6 +52,12 @@
       margin-top: 0;
       width: 50%;
       transform: translate(0%, -50%);
+    }
+  }
+  &__img {
+    @include mq(lg) {
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
     }
   }
 
