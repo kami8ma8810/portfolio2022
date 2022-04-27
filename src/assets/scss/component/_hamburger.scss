@@ -9,7 +9,7 @@
   z-index: 200;
   width: min(vw(100), 80px);
   height: min(vw(100), 80px);
-  border: 1px solid $color-main;
+  border: 1px solid var(--colorText);
   border-radius: 50%;
   @include mq(lg) {
     display: none;
@@ -31,7 +31,8 @@
         width: 100%;
         top: 50%;
         left: 0;
-        background-color: $color-base;
+        // background-color: $color-base;
+        background-color: var(--colorBg);
       }
       &::before {
         transform: rotate(30deg);
@@ -55,11 +56,9 @@
       left: 50%;
       width: 80%;
       height: 1px;
-      background-color: $color-main;
+      // background-color: $color-main;
+      background-color: var(--colorText);
       transform: translateX(-50%);
-      :root.is-darkmode & {
-        background-color: $color-base;
-      }
     }
     &::before {
       top: 30%;
@@ -67,8 +66,5 @@
     &::after {
       bottom: 30%;
     }
-  }
-  :root.is-darkmode & {
-    border-color: $color-base;
   }
 }

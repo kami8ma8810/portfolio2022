@@ -1,15 +1,55 @@
 @use '../global' as *;
 
 .c-externalLink {
-  display: inline-flex;
+  // display: inline-flex;
+  // align-items: center;
+  display: inline-block;
   color: var(--colorText);
   // color: $color-accent;
-  margin-right: 0.5em;
+  // margin-right: 0.5em;
   // border-bottom: 1px solid var(--colorText);
   line-height: 1.2;
   svg {
     align-self: center;
     width: 0.9em;
     height: auto;
+  }
+  &__icon {
+    // box-sizing: border-box;
+    display: inline-block;
+    position: relative;
+    width: 0.5em;
+    height: 0.4em;
+    margin: 0 0.3em;
+
+    &::before,
+    &::after {
+      content: '';
+      box-sizing: border-box;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-style: solid;
+      border-color: var(--colorText);
+    }
+
+    &::before {
+      top: -0.2em;
+      right: 0;
+      border-width: 1px;
+    }
+
+    &::after {
+      top: -0.05em;
+      right: 0.15em;
+      border-width: 0 0 1px 1px;
+    }
+    .l-header__link &,
+    .l-drawer__link & {
+      &::before,
+      &::after {
+        border-color: var(--colorBg);
+      }
+    }
   }
 }

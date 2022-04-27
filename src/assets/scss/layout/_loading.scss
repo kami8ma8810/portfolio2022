@@ -15,7 +15,8 @@
   width: 100%;
   height: 100%;
   content: '';
-  background-color: var(--colorAccent);
+  // background-color: var(--colorAccent);
+  background-color: var(--colorBg);
   pointer-events: none;
 }
 
@@ -213,10 +214,11 @@
 .l-loading__char {
   display: inline-block;
   list-style: none;
-  color: #fff;
+  // color: #fff;
+  color: var(--colorText);
   font-size: 8vw;
   letter-spacing: 0.1em;
-  animation: jump 1.4s linear infinite;
+  animation: jump 1.4s linear 1 forwards;
   will-change: transform;
 
   @keyframes jump {
@@ -225,27 +227,21 @@
     }
     5% {
       transform: translate3d(0, -0.25em, 0) scale(0.8, 1.2);
-      text-shadow: 0 0.1em 2px rgba(#123c22, 1);
     }
     10% {
       transform: translate3d(0, -0.5em, 0) scale(0.9, 1.1);
-      text-shadow: 0 0.3em 2px rgba(#123c22, 1);
     }
     12% {
       transform: translate3d(0, -0.5em, 0) scale(1, 1);
-      text-shadow: 0 0.3em 2px rgba(#123c22, 1);
     }
     15% {
       transform: translate3d(0, -0.25em, 0) scale(0.8, 1.2);
-      text-shadow: 0 0.2em 2px rgba(#123c22, 1);
     }
     18% {
       transform: translate3d(0, 0, 0) scale(1, 1);
-      text-shadow: 0 0.1em 2px rgba(#123c22, 1);
     }
     20% {
       transform: translate3d(0, 0, 0) scale(1.1, 0.9);
-      text-shadow: 0 0 2px rgba(#123c22, 1);
     }
     22% {
       transform: translate3d(0, 0, 0) scale(1.2, 0.8);
@@ -259,7 +255,6 @@
     30% {
       transform: translate3d(0, 0, 0) scale(1, 1);
     }
-
     100% {
       transform: translate3d(0, 0, 0) scale(1, 1);
     }

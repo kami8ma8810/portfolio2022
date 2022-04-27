@@ -13,9 +13,13 @@
     top: 50%;
     transform: translateY(-50%);
     width: 0%;
-    height: 1px;
-    background-color: $color-base;
+    height: vw(2);
+    // background-color: $color-base;
+    background-color: var(--colorBg);
     transition: width 0.5s $easeInOutCirc;
+    @include mq(lg) {
+      height: 2px;
+    }
   }
   &.is-current {
     pointer-events: none;

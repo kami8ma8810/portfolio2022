@@ -47,6 +47,9 @@
     position: relative;
     padding-top: 0.45em;
     z-index: 10;
+    @include mq(lg) {
+      padding-top: 0.35em;
+    }
   }
   &__leadBg {
     position: absolute;

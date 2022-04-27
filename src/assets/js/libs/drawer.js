@@ -47,6 +47,12 @@ export default () => {
     gsap.set('.l-drawer__close', {
       opacity: 0,
     });
+
+    const colorEl = document.querySelector('.l-drawer__inner');
+    let bgColor = window
+      .getComputedStyle(colorEl, null)
+      .getPropertyValue('background-color');
+
     const tl = gsap.timeline({
       // onStart: () => {
       //   body.style.overflowY = 'hidden'; //ドロワーを開いている間はメインコンテンツをスクロール不可にする
@@ -80,7 +86,7 @@ export default () => {
       .to(
         hamburger,
         {
-          backgroundColor: '#316745',
+          backgroundColor: bgColor,
           // border: 0,
           duration: 0.2,
         },

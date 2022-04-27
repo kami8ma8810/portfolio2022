@@ -73,12 +73,14 @@
     font-family: $roboto-mono;
     letter-spacing: 0.1em;
     writing-mode: vertical-rl;
-    color: $color-base;
+    // color: $color-base;
+    color: var(--colorBg);
   }
   &__twitter {
     width: 40px;
     .st0 {
-      fill: $color-base;
+      // fill: $color-base;
+      fill: var(--colorBg) !important;
     }
   }
   &__nav {
@@ -94,7 +96,6 @@
   &__menu {
     position: relative;
     font-size: 24px;
-    color: $color-base;
     text-transform: uppercase;
     letter-spacing: 0.05em;
     overflow: hidden;
@@ -112,7 +113,7 @@
     display: block;
     text-decoration: none;
     overflow: hidden;
-    color: $color-base !important;
+    color: var(--colorBg) !important;
 
     @include enableHover {
       &:hover {

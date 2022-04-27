@@ -18,7 +18,8 @@
     color: var(--colorText);
     font-size: min(vw(28), 20px);
     @include mq(lg) {
-      color: $color-base;
+      // color: $color-base;
+      color: var(--colorBg);
       font-size: 20px;
     }
   }

@@ -10,7 +10,7 @@ export default () => {
     const tl = gsap.timeline();
     tl.to(['.l-loading__chars', '.l-loading__logo'], {
       opacity: 0,
-      delay: 2.4,
+      delay: 1.2,
       duration: 0.4,
     })
       .call(clipStart)

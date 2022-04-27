@@ -41,9 +41,9 @@ export default () => {
             { scale: 0 },
             {
               scale: 1,
-              duration: 0.4,
+              duration: 1.2,
               delay: 0.6,
-              ease: 'back.out(1.5)',
+              ease: 'power3.out',
             }
           );
       },
@@ -63,9 +63,9 @@ export default () => {
             { scale: 0 },
             {
               scale: 1,
-              duration: 0.4,
+              duration: 1.2,
               delay: 0.6,
-              ease: 'back.out(2)',
+              ease: 'power3.inOut',
             }
           );
       },
