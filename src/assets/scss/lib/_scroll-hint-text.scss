@@ -1,26 +1,26 @@
-@use '../global' as *;
+// @use '../global' as *;
 
-// 外枠
-.scroll-hint-icon {
-  top: 50% !important;
-  left: 50% !important;
-  transform: translate(-50%, -50%) !important;
-  width: vw(320) !important;
-  height: vw(320) !important;
-}
-.scroll-hint-icon {
-  display: flex !important;
-  flex-direction: column !important;
-  justify-content: center !important;
-  align-items: center !important;
-}
-.scroll-hint-icon-white .scroll-hint-text {
-  color: var(--colorText) !important;
-  font-family: $shippori-mincho !important;
-  font-size: vw(28) !important;
-  white-space: nowrap !important;
-}
+// // 外枠
+// .scroll-hint-icon {
+//   top: 50% !important;
+//   left: 50% !important;
+//   transform: translate(-50%, -50%) !important;
+//   width: vw(320) !important;
+//   height: vw(320) !important;
+// }
+// .scroll-hint-icon {
+//   display: flex !important;
+//   flex-direction: column !important;
+//   justify-content: center !important;
+//   align-items: center !important;
+// }
+// .scroll-hint-icon-white .scroll-hint-text {
+//   color: var(--colorText) !important;
+//   font-family: $shippori-mincho !important;
+//   font-size: vw(28) !important;
+//   white-space: nowrap !important;
+// }
 
-.scroll-hint-icon:after {
-  top: vw(40) !important;
-}
+// .scroll-hint-icon:after {
+//   top: vw(40) !important;
+// }
