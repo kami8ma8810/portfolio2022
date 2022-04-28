@@ -15,7 +15,7 @@ export default () => {
       tl.to(el, {
         xPercent: 'random(-50, 50)',
         yPercent: 'random(-50, 50)',
-        scale: 'random(0.5, 1.5)',
+        scale: 'random(0.8, 1.2)',
         duration: dur,
         ease: 'sine.inOut',
         transformOrigin: '50% 50%',
