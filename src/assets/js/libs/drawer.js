@@ -1,3 +1,4 @@
+'use strict';
 // import ua from './ua-parser';
 import { gsap } from 'gsap';
 

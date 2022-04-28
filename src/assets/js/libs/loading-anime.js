@@ -1,4 +1,8 @@
+'use strict';
+
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+gsap.registerPlugin(ScrollTrigger);
 
 export default () => {
   const loadingLayer = document.querySelector('.js-loading');
@@ -11,7 +15,7 @@ export default () => {
   const face2 = faceArray[1];
   const face3 = faceArray[2];
 
-  if (loadingLayer !== null) {
+  const loadingAnimation = () => {
     const clipStart = () => {
       loadingLayer.classList.add('is-done');
       gsap.to(loadingLayer, {
@@ -30,7 +34,6 @@ export default () => {
       autoAlpha: 0,
       duration: 0.4,
       delay: 2,
-      // delay: 10000,
     })
       .to(face1, {
         keyframes: [
@@ -115,5 +118,20 @@ export default () => {
         },
         '<.4'
       );
-  }
+  };
+
+  ScrollTrigger.matchMedia({
+    '(max-width: 959px)': function () {
+      gsap.config({
+        force3D: 'auto',
+      });
+      loadingAnimation();
+    },
+    '(min-width: 960px)': function () {
+      gsap.config({
+        force3D: true,
+      });
+      loadingAnimation();
+    },
+  });
 };

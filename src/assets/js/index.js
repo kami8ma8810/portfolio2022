@@ -17,7 +17,9 @@ document.addEventListener('DOMContentLoaded', function () {
       '---------------------\nDONE__imagesLoaded\n---------------------'
     );
     //   // ローディング処理
-    loadingAnime();
+    if (document.querySelector('.js-loading') !== null) {
+      loadingAnime();
+    }
     //   // barba init
     const barbaInit = new BarbaTransition();
   });
