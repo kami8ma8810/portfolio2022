@@ -152,7 +152,7 @@
     span {
       display: inline-block;
       transform-origin: center center 0.5em;
-      will-change: transform;
+      // will-change: transform;
       // transition: transform 0.2s ease;
       &:nth-of-type(2) {
         animation-delay: 0.04s;
