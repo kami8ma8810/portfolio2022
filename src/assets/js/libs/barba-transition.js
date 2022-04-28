@@ -209,7 +209,7 @@ class BarbaTransition {
           tl.to(main, {
             transformOrigin: 'top',
             scaleY: 1,
-            duration: 0.3,
+            duration: 0.4,
           }).from(mainInner, {
             opacity: 0,
             duration: 0.2,
