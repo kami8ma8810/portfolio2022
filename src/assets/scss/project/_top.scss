@@ -79,7 +79,6 @@ img.p-top-main__circle {
   // will-change: transform;
   @include mq(lg) {
     width: 100vh;
-    filter: blur(10px);
   }
 
   .is-darkmode & {

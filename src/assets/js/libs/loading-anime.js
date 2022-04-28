@@ -11,13 +11,6 @@ export default () => {
   const face2 = faceArray[1];
   const face3 = faceArray[2];
 
-  const fadeoutText = () => {
-    gsap.to(loadingText, {
-      autoAlpha: 0,
-      duration: 0.5,
-    });
-  };
-
   if (loadingLayer !== null) {
     const clipStart = () => {
       loadingLayer.classList.add('is-done');
@@ -36,7 +29,8 @@ export default () => {
     tl.to(loadingText, {
       autoAlpha: 0,
       duration: 0.4,
-      delay: 1.2,
+      delay: 2,
+      // delay: 10000,
     })
       .to(face1, {
         keyframes: [
@@ -109,7 +103,7 @@ export default () => {
         duration: 0.6,
         opacity: 0,
         scale: 0,
-        ease: 'back.out(1.2)',
+        ease: 'back.inOut(1.5)',
       })
       .to(
         loadinLogo,
@@ -117,9 +111,9 @@ export default () => {
           duration: 0.6,
           opacity: 1,
           scale: 1,
-          ease: 'back.out(1.2)',
+          ease: 'back.out(1.5)',
         },
-        '<'
+        '<.4'
       );
   }
 };
