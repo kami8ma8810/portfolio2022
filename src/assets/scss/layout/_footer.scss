@@ -7,7 +7,7 @@
   z-index: 100;
   width: 100%;
   font-family: $roboto-mono;
-  pointer-events: none;
+  // pointer-events: none;
   // background-color: var(--colorBg);
   @include mq(lg) {
     display: none;
