@@ -1,5 +1,6 @@
 'use strict';
 
+import ua from './ua-parser';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
@@ -119,19 +120,11 @@ export default () => {
         '<.4'
       );
   };
+  loadingAnimation();
 
-  ScrollTrigger.matchMedia({
-    '(max-width: 959px)': function () {
-      gsap.config({
-        force3D: 'auto',
-      });
-      loadingAnimation();
-    },
-    '(min-width: 960px)': function () {
-      gsap.config({
-        force3D: true,
-      });
-      loadingAnimation();
-    },
-  });
+  if (ua.getDevice() === 'pc') {
+    gsap.config({
+      force3D: true,
+    });
+  }
 };

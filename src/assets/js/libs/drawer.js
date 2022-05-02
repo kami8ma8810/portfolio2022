@@ -38,7 +38,6 @@ export default () => {
     drawerOpen = state;
   }
   gsap.config({
-    force3D: 'auto',
     nullTargetWarn: false,
     trialWarn: false,
   });

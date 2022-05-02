@@ -135,9 +135,6 @@ class BarbaTransition {
       ScrollTrigger.matchMedia({
         // SP
         '(max-width: 959px)': function () {
-          gsap.config({
-            force3D: 'auto',
-          });
           tl.to(drawer, {
             opacity: 0,
             duration: 0.2,
