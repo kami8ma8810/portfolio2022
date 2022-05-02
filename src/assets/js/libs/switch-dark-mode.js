@@ -40,6 +40,8 @@ export default () => {
 
   // リスナー登録
   osDark.addEventListener('change', listener);
+  // 初期化処理
+  listener(osDark);
 
   // ロード時の処理（２回目以降、ページ遷移時はsessionStrageをチェックして維持する）
   if (sessionStorage.getItem('darkMode') === 'on') {
