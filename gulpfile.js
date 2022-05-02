@@ -123,7 +123,7 @@ const ejsCompile = () => {
 };
 
 /* ------------------------------------------------------
-ejsページ複製
+ejsテンプレートで複製する場合
 ------------------------------------------------------ */
 const ejsDuplicate = (done) => {
   const duplicateJson = JSON.parse(fs.readFileSync('./ejs-pages.json', 'utf8'));
@@ -133,7 +133,7 @@ const ejsDuplicate = (done) => {
   for (let i = 0; i < jsonPages.length; i++) {
     dataId = jsonPages[i].id;
     (function () {
-      return src('./src/_template.ejs')
+      return src('./src/_template.ejs') //複製ファイルのテンプレートファイル名を指定
         .pipe(
           plumber({
             // エラーがあっても処理を止めない
@@ -158,7 +158,7 @@ const ejsDuplicate = (done) => {
           })
         )
         .pipe(replace(/[\s\S]*?(<!DOCTYPE)/, '$1'))
-        .pipe(dest('./public/pages/'))
+        .pipe(dest('./public/pages/')) //複製ファイルの出力先
         .pipe(browserSync.stream());
     })();
   }

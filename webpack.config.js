@@ -13,8 +13,8 @@ module.exports = {
   // エントリーポイントの設定
   entry: {
     index: './src/assets/js/index.js',
-    works: './src/assets/js/works.js',
-    about: './src/assets/js/about.js',
+    // works: './src/assets/js/works.js',
+    // about: './src/assets/js/about.js',
   },
   // 出力の設定
   output: {
