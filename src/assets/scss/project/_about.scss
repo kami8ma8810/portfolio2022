@@ -105,15 +105,34 @@
   }
   &__skills {
     @include mq(lg) {
-      display: flex;
-      align-items: center;
-      gap: 1em;
-      flex-wrap: wrap;
-      #{$this}__item {
-        @include mq(lg) {
-          padding: 0;
-        }
+      // display: flex;
+      // align-items: center;
+      // gap: 1em;
+      // flex-wrap: wrap;
+      .p-about-content__item {
+        padding: 0;
       }
+    }
+  }
+  &__skill{
+    & + &{
+      margin-top: 1em;
+      @include mq(lg) {
+      margin-top: 2em;
+      }
+    }
+  }
+  &__skillTitle{
+    border-left:4px solid var(--colorText);
+    padding-left: .5em;
+  }
+
+  &__skillDesc{
+    margin-top: 2em;
+    font-size: vw(28);
+    @include mq(lg) {
+      margin-top: 2em;
+    font-size: 20px;
     }
   }
   &__strength {

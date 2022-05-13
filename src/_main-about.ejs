@@ -1,70 +1,187 @@
 <main class="l-main p-about-main">
   <div class="l-main__inner p-about-main__inner">
-    <h1 class="c-splitTitle l-main__title"><span class="c-splitTitle__inner js-splitTitle">About</span></h1>
+    <h1 class="c-splitTitle l-main__title">
+      <span class="c-splitTitle__inner js-splitTitle">About</span>
+    </h1>
     <dl class="p-about-main__content p-about-content">
       <div class="c-revealText p-about-content__set js-showIn">
-        <dt class="p-about-content__lead"><span class="p-about-content__leadText">名前</span><span class="p-about-content__leadBg">Name</span></dt>
+        <dt class="p-about-content__lead">
+          <span class="p-about-content__leadText">名前</span
+          ><span class="p-about-content__leadBg">Name</span>
+        </dt>
         <dd class="p-about-content__desc">かみやま はやと Hayato Kamiyama</dd>
       </div>
       <div class="c-revealText p-about-content__set js-showIn">
-        <dt class="p-about-content__lead"><span class="p-about-content__leadText">職種</span><span class="p-about-content__leadBg">Occupation</span></dt>
-        <dd class="p-about-content__desc">フロントエンドエンジニア（会社員）</dd>
+        <dt class="p-about-content__lead">
+          <span class="p-about-content__leadText">職種</span
+          ><span class="p-about-content__leadBg">Occupation</span>
+        </dt>
+        <dd class="p-about-content__desc">
+          フロントエンドエンジニア（会社員）
+        </dd>
       </div>
       <div class="c-revealText p-about-content__set js-showIn">
-        <dt class="p-about-content__lead"><span class="p-about-content__leadText">スキル</span><span class="p-about-content__leadBg">Skills</span></dt>
+        <dt class="p-about-content__lead">
+          <span class="p-about-content__leadText">スキル</span
+          ><span class="p-about-content__leadBg">Skills</span>
+        </dt>
         <dd class="p-about-content__desc">
           <ul class="p-about-content__items p-about-content__skills">
-            <li class="p-about-content__item">HTML（EJS,Pug）</li>
-            <li class="p-about-content__item">CSS（Sass）</li>
-            <li class="p-about-content__item">JavaScript</li>
-            <li class="p-about-content__item">Vue.js/Nuxt.js</li>
-            <li class="p-about-content__item">WordPress</li>
-            <li class="p-about-content__item">microCMS</li>
-            <li class="p-about-content__item">STUDIO</li>
+            <li class="p-about-content__item p-about-content__skill">
+              <dl>
+                <dt class="p-about-content__skillTitle">HTML（EJS, Pug）</dt>
+                <dd class="p-about-content__skillDesc">
+                  基本はEJSというテンプレートエンジンを使用してコーディングしておりますがPugの案件の修正なども対応
+                  可能です。
+                </dd>
+                <dd class="p-about-content__skillDesc">
+                  セマンティック、アクセシビリティにも配慮したマークアップに努めています。
+                </dd>
+              </dl>
+            </li>
+            <li class="p-about-content__item p-about-content__skill">
+              <dl>
+                <dt class="p-about-content__skillTitle">CSS（Sass）</dt>
+                <dd class="p-about-content__skillDesc">PDFLOCSSというCSS設計を用いて、見通しのある修正しやすいファイルになるよう努めています。</dd>
+                <dd class="p-about-content__skillDesc">スマートフォンからタブレット、デスクトップパソコンやワイドモニターなど幅広いデバイスで崩れないスタイルを当てるようにしてます。</dd>
+              </dl>
+            </li>
+            <li class="p-about-content__item p-about-content__skill">
+              <dl>
+                <dt class="p-about-content__skillTitle">JavaScript</dt>
+                <dd class="p-about-content__skillDesc">gulpやwebpackなどのバンドルツールを利用して修正しやすく、軽いファイルになるように努めています。</dd>
+                <dd class="p-about-content__skillDesc">アニメーションなどの動きに関してはGSAPというライブラリを使用して実装することが多いです。</dd>
+              </dl>
+            </li>
+            <li class="p-about-content__item p-about-content__skill">
+              <dl>
+                <dt class="p-about-content__skillTitle">Vue.js / Nuxt.js</dt>
+                <dd class="p-about-content__skillDesc">フレームワークのVue.js/Nuxt.jsを利用してサイトを構築することが可能です。</dd>
+              </dl>
+            </li>
+            <li class="p-about-content__item p-about-content__skill">
+              <dl>
+                <dt class="p-about-content__skillTitle">WordPress</dt>
+                <dd class="p-about-content__skillDesc">既存テーマを使わずにオリジナルテーマを制作することが可能です。</dd>
+                <dd class="p-about-content__skillDesc">静的サイトにWordPressを組み込むことも可能です。</dd>
+              </dl>
+            </li>
+            <li class="p-about-content__item p-about-content__skill">
+              <dl>
+                <dt class="p-about-content__skillTitle">microCMS</dt>
+                <dd class="p-about-content__skillDesc">ヘッドレスCMSであるmicroCMSを利用して動的なコンテンツを組み込むことが可能です。</dd>
+              </dl>
+            </li>
+            <li class="p-about-content__item p-about-content__skill">  <dl>
+              <dt class="p-about-content__skillTitle">STUDIO</dt>
+              <dd class="p-about-content__skillDesc">ノーコードツールのSTUDIOを使ったサイト制作が可能です。ある程度のアニメーションも実装できます。</dd>
+            </dl></li>
           </ul>
         </dd>
-        <dd class="p-about-content__desc">詳細は<a class="c-externalLink p-about-content__link" href="https://www.notion.so/jookalubi24/CONTACT-eeeec7aebdf3411da0b00c2b1ef2d90f" target="_blank" rel="noopener noreferrer">Notion<i class="c-externalLink__icon"></i></a>に記載しています。</dd>
+        <dd class="p-about-content__desc">
+          ※その他コーディングに関する詳細は<a
+            class="c-externalLink p-about-content__link"
+            href="https://www.notion.so/jookalubi24/CONTACT-eeeec7aebdf3411da0b00c2b1ef2d90f"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Notion<i class="c-externalLink__icon"></i></a
+          >に記載しています。
+        </dd>
       </div>
       <div class="c-revealText p-about-content__set js-showIn">
-        <dt class="p-about-content__lead"><span class="p-about-content__leadText">強み</span><span class="p-about-content__leadBg">Strength</span></dt>
+        <dt class="p-about-content__lead">
+          <span class="p-about-content__leadText">強み</span
+          ><span class="p-about-content__leadBg">Strength</span>
+        </dt>
         <dd class="p-about-content__desc">
           <ul class="p-about-content__items p-about-content__strength">
             <li class="p-about-content__item">
               <dl>
-                <dt class="p-about-content__subLead">迅速な対応とリソースの意識</dt>
-                <dd class="p-about-content__subDesc">Web制作はチームの連携が大切なのでチャットやメールなどの連絡は10分以内の返信を心がけています。即答できないものに関しても現状報告をし自分で止めないようにすることで、「時間」というリソースを最大限活用できるように心がけています。</dd>
+                <dt class="p-about-content__subLead">
+                  迅速な対応とリソースの意識
+                </dt>
+                <dd class="p-about-content__subDesc">
+                  Web制作はチームの連携が大切なのでチャットやメールなどの連絡は10分以内の返信を心がけています。即答できないものに関しても現状報告をし自分で止めないようにすることで、「時間」というリソースを最大限活用できるように心がけています。
+                </dd>
               </dl>
             </li>
             <li class="p-about-content__item">
               <dl>
                 <dt class="p-about-content__subLead">忠実・再現・工夫</dt>
-                <dd class="p-about-content__subDesc">コーディング面ではデザインに忠実に実装することを前提に、クライアントやデザイナーと対話しながら希望の挙動やアニメーションを再現します。実装者目線でのプラスアルファの考えやアイデアなどを提案することで、より見やすい、使いやすいサイトになるようコーディングします。</dd>
+                <dd class="p-about-content__subDesc">
+                  コーディング面ではデザインに忠実に実装することを前提に、クライアントやデザイナーと対話しながら希望の挙動やアニメーションを再現します。実装者目線でのプラスアルファの考えやアイデアなどを提案することで、より見やすい、使いやすいサイトになるようコーディングします。
+                </dd>
               </dl>
             </li>
             <li class="p-about-content__item">
               <dl>
                 <dt class="p-about-content__subLead">調査力・推進力・発信力</dt>
-                <dd class="p-about-content__subDesc">コーディングはほぼ独学で学んできたので、疑問点などは基本的に自分で調べて進めます。普段からSNSをはじめQiitaやZenn、技術書や動画教材などを通してインプットし、<a class="c-externalLink p-about-content__link" href="https://onedarling.site/" target="_blank" rel="noopener noreferrer">ブログ<i class="c-externalLink__icon"></i></a>や<a class="c-externalLink p-about-content__link" href="https://twitter.com/jookalubi24" target="_blank" rel="noopener noreferrer">Twitter<i class="c-externalLink__icon"></i></a>などでアウトプットするよう努めています。</dd>
+                <dd class="p-about-content__subDesc">
+                  コーディングはほぼ独学で学んできたので、疑問点などは基本的に自分で調べて進めます。普段からSNSをはじめQiitaやZenn、技術書や動画教材などを通してインプットし、<a
+                    class="c-externalLink p-about-content__link"
+                    href="https://onedarling.site/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >ブログ<i class="c-externalLink__icon"></i></a
+                  >や<a
+                    class="c-externalLink p-about-content__link"
+                    href="https://twitter.com/jookalubi24"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >Twitter<i class="c-externalLink__icon"></i></a
+                  >などでアウトプットするよう努めています。
+                </dd>
               </dl>
             </li>
           </ul>
         </dd>
       </div>
       <div class="c-revealText p-about-content__set js-showIn">
-        <dt class="p-about-content__lead"><span class="p-about-content__leadText">略歴</span><span class="p-about-content__leadBg">Brief</span></dt>
+        <dt class="p-about-content__lead">
+          <span class="p-about-content__leadText">略歴</span
+          ><span class="p-about-content__leadBg">Brief</span>
+        </dt>
         <dd class="p-about-content__desc">
           <ol class="p-about-content__briefItems">
             <li class="p-about-content__briefItem">栃木県立 鹿沼東高等学校</li>
-            <li class="p-about-content__briefItem">国立大学法人 宇都宮大学 教育学部 技術教育専攻</li>
-            <li class="p-about-content__briefItem">小中学校の教師（栃木県・埼玉県）</li>
-            <li class="p-about-content__briefItem">Webデザイナー兼コーダー（東京都）</li>
-            <li class="p-about-content__briefItem">フロントエンドエンジニア<span class="p-about-content__briefItemText">（現在に至る）</span></li>
+            <li class="p-about-content__briefItem">
+              国立大学法人 宇都宮大学 教育学部 技術教育専攻
+            </li>
+            <li class="p-about-content__briefItem">
+              小中学校の教師（栃木県・埼玉県）
+            </li>
+            <li class="p-about-content__briefItem">
+              Webデザイナー兼コーダー（東京都）
+            </li>
+            <li class="p-about-content__briefItem">
+              フロントエンドエンジニア<span
+                class="p-about-content__briefItemText"
+                >（東京都・現在に至る）</span
+              >
+            </li>
           </ol>
         </dd>
       </div>
       <div class="c-revealText p-about-content__set js-showIn">
-        <dt class="p-about-content__lead"><span class="p-about-content__leadText">本サイトについて</span><span class="p-about-content__leadBg">About Site</span></dt>
-        <dd class="p-about-content__desc">デザインからコーディングまですべて自分で制作しました。（実働期間は約10日）ポートフォリオサイトはダラダラ作りがちなので、自分で納期を設定して取り組みました。「どんな形、どんな希望にも応えたい」というコンセプトをもとに、三原色と折り鶴をイメージしてデザインやロゴなどを決めました。<br>ただデザインもロゴもとりあえずで作ったので、ゆくゆくはきちんとしたデザインとロゴでリニューアルしたいと考えております。<br>もしデザイナーの方で「ポートフォリオサイトを作りたいけど、コーディングの実装は誰かにお願いしたい」と考えていて且つ私にコーディングをお願いしてもよいという方がいらっしゃいましたら、是非ご連絡いただけると嬉しいです。お互いに補填し合ってwin-winの関係になれればと思っております☺<br>気になる方は<a class="c-externalLink p-about-content__link" href="https://www.notion.so/jookalubi24/CONTACT-eeeec7aebdf3411da0b00c2b1ef2d90f" target="_blank" rel="noopener noreferrer">Notion<i class="c-externalLink__icon"></i></a>または<a class="c-externalLink p-about-content__link" href="https://twitter.com/jookalubi24" target="_blank" rel="noopener noreferrer">Twitter<i class="c-externalLink__icon"></i></a>よりご連絡ください。</dd>
+        <dt class="p-about-content__lead">
+          <span class="p-about-content__leadText">本サイトについて</span
+          ><span class="p-about-content__leadBg">About Site</span>
+        </dt>
+        <dd class="p-about-content__desc">
+          デザインからコーディングまですべて自分で制作しました。（実働期間は約10日）ポートフォリオサイトはダラダラ作りがちなので、自分で納期を設定して取り組みました。「どんな形、どんな希望にも応えたい」というコンセプトをもとに、三原色と折り鶴をイメージしてデザインやロゴなどを決めました。<br />ただデザインもロゴもとりあえずで作ったので、ゆくゆくはきちんとしたデザインとロゴでリニューアルしたいと考えております。<br />もしデザイナーの方で「ポートフォリオサイトを作りたいけど、コーディングの実装は誰かにお願いしたい」と考えていて且つ私にコーディングをお願いしてもよいという方がいらっしゃいましたら、是非ご連絡いただけると嬉しいです。お互いに補填し合ってwin-winの関係になれればと思っております☺<br />気になる方は<a
+            class="c-externalLink p-about-content__link"
+            href="https://www.notion.so/jookalubi24/CONTACT-eeeec7aebdf3411da0b00c2b1ef2d90f"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Notion<i class="c-externalLink__icon"></i></a
+          >または<a
+            class="c-externalLink p-about-content__link"
+            href="https://twitter.com/jookalubi24"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Twitter<i class="c-externalLink__icon"></i></a
+          >よりご連絡ください。
+        </dd>
       </div>
     </dl>
   </div>
