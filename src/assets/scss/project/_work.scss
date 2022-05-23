@@ -8,6 +8,15 @@
     }
   }
 }
+.p-work-main__back {
+  margin-top: 4em;
+  font-size: min(vw(32), 24px);
+  @include mq(lg) {
+    margin-top: 2em;
+    padding: 1em 2em;
+    font-size: 18px;
+  }
+}
 .p-work-content {
   $this: &;
   &__title {
@@ -88,15 +97,5 @@
     display: inline;
     text-decoration: underline;
     word-break: break-all;
-  }
-}
-
-.p-work-main__back {
-  margin-top: 4em;
-  font-size: min(vw(32), 24px);
-  @include mq(lg) {
-    margin-top: 2em;
-    padding: 1em 2em;
-    font-size: 18px;
   }
 }

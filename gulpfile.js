@@ -8,7 +8,6 @@ const htmlMin = require('gulp-htmlmin');
 const ejs = require('gulp-ejs');
 const rename = require('gulp-rename');
 const replace = require('gulp-replace');
-const gulpData = require('gulp-data');
 // Sass,CSS
 const sass = require('gulp-dart-sass');
 const sassGlob = require('gulp-sass-glob-use-forward');
@@ -66,7 +65,6 @@ const paths = {
     src: './src/assets/images/**/*.{jpg,jpeg,png,gif,svg}',
     srcWebp: './src/assets/images/**/*.{jpg,jpeg,png}',
     dist: './public/assets/images/',
-    // distWebp: './public/assets/images/webp/',
   },
   fonts: {
     src: './src/assets/fonts/*.{off,ttf,woff,woff2}',
@@ -120,49 +118,6 @@ const ejsCompile = () => {
     .pipe(replace(/[\s\S]*?(<!DOCTYPE)/, '$1'))
     .pipe(dest(paths.ejs.dist))
     .pipe(browserSync.stream()); //変更があった所のみコンパイル
-};
-
-/* ------------------------------------------------------
-ejsテンプレートで複製する場合
------------------------------------------------------- */
-const ejsDuplicate = (done) => {
-  const duplicateJson = JSON.parse(fs.readFileSync('./ejs-pages.json', 'utf8'));
-  let jsonPages = duplicateJson.pages;
-  let dataId;
-
-  for (let i = 0; i < jsonPages.length; i++) {
-    dataId = jsonPages[i].id;
-    (function () {
-      return src('./src/_template.ejs') //複製ファイルのテンプレートファイル名を指定
-        .pipe(
-          plumber({
-            // エラーがあっても処理を止めない
-            errorHandler: notify.onError('Error: <%= error.message %>'),
-          })
-        )
-        .pipe(
-          ejs({
-            //jsonデータをejsDataとしてEJSに渡す
-            ejsData: jsonPages[i],
-          })
-        )
-        .pipe(rename(dataId + '.html'))
-        .pipe(
-          htmlMin({
-            minifyCSS: true,
-            minifyJS: true,
-            removeComments: true,
-            collapseWhitespace: true,
-            collapseInlineTagWhitespace: true,
-            preserveLineBreaks: true,
-          })
-        )
-        .pipe(replace(/[\s\S]*?(<!DOCTYPE)/, '$1'))
-        .pipe(dest('./public/pages/')) //複製ファイルの出力先
-        .pipe(browserSync.stream());
-    })();
-  }
-  done();
 };
 
 /* ------------------------------------------------------
@@ -243,13 +198,11 @@ webpack設定
 ------------------------------------------------------ */
 const jsBundle = () => {
   //webpackStreamの第2引数にwebpackを渡す
-  return (
-    webpackStream(webpackConfig, webpack)
-      // .on('error', function (e) {
-      //   this.emit('end'); //エラーが出ても処理を止めない
-      // })
-      .pipe(dest(paths.scripts.dist))
-  );
+  return webpackStream(webpackConfig, webpack)
+    .on('error', function () {
+      this.emit('end'); //エラーが出ても処理を止めない
+    })
+    .pipe(dest(paths.scripts.dist));
 };
 
 /* ------------------------------------------------------
@@ -308,7 +261,7 @@ const imagesCompress = () => {
             cleanupIDs: false, //SVG内に<style>や<script>がなければidを削除するかどうか
           },
           // {
-          //   mergePaths: false,//複数のPathを一つに統合
+          //   mergePaths: false,//複数のPathを一つに統合するかどうか
           // },
         ],
       })
@@ -398,16 +351,11 @@ const cleanImages = () => {
 
 // ファイル監視
 const watchFiles = () => {
-  watch(paths.ejs.watch, series(ejsCompile, ejsDuplicate, browserReloadFunc));
+  watch(paths.ejs.watch, series(ejsCompile, browserReloadFunc));
   watch(paths.styles.src, series(sassCompile));
   watch(paths.styles.copy, series(cssCopy));
   watch(paths.scripts.src, series(jsBundle, browserReloadFunc));
   watch(paths.scripts.copy, series(jsCopy, browserReloadFunc));
-  // watch(paths.images.src, series(imagesCopy, webpConvert, browserReloadFunc));
-  // watch(
-  //   paths.images.src,
-  //   series(cleanImages, imagesCompress, webpConvert, browserReloadFunc)
-  // );
   watch(
     paths.images.src,
     series(imagesCompress, webpConvert, browserReloadFunc)
@@ -415,11 +363,10 @@ const watchFiles = () => {
   watch(paths.fonts.src, series(fontsCopy, browserReloadFunc));
 };
 
-// npx gulp のコマンドで実行される処理
+// npx gulp のコマンドで実行される処理（画像圧縮・webp変換は差分処理の実装ができていないので初回コマンドでは実行しない）
 exports.default = series(
   parallel(
     ejsCompile,
-    ejsDuplicate,
     sassCompile,
     cssCopy,
     jsBundle,
@@ -431,12 +378,9 @@ exports.default = series(
   parallel(watchFiles, browserSyncFunc)
 );
 
-// その他のコマンド 例： npx gulp cleanAll の形で入力
-exports.jsBundleStart = series(jsBundle);
+// その他のコマンド 例： npx gulp コマンド名(exportsに続く単語) の形で入力
+exports.jsBundleStart = series(jsBundle); //webpack処理
 exports.cleanAll = series(cleanAll); //public内すべて削除
 exports.cleanExcludeHtml = series(cleanHtml); //assets以外削除
 exports.cleanCssJs = series(cleanCssJs); //css,jsを削除
 exports.cleanImages = series(cleanImages); //imagesを削除
-
-// テスト
-exports.test = series(ejsDuplicate); //imagesを削除
