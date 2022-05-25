@@ -48,19 +48,17 @@
     "@barba/core": "^2.9.7",
     "@barba/prefetch": "^2.1.10",
     "@barba/router": "^2.1.10",
-    "chart.js": "^3.7.1",
     "core-js": "^3.19.0",
     "gsap": "^3.8.0",
     "imagesloaded": "^4.1.4",
-    "jquery": "^3.6.0",
     "locomotive-scroll": "^4.1.4",
     "smoothscroll-polyfill": "^0.4.4",
     "swiper": "^8.0.6",
     "ua-parser-js": "^1.0.2"
   },
   "browserslist": [
-    "defaults and > 0.5% in JP and last 5 versions",
+    "defaults",
     "safari >= 13",
-    "not IE >=9"
+    "not IE 11"
   ]
 }
