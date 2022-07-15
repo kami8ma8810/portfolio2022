@@ -7,6 +7,18 @@
     overflow: visible;
     @include mq(lg) {
       overflow: auto;
+      &::-webkit-scrollbar-track {
+        background-color: var(--colorBg);
+      }
+      &::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--colorText);
+        border-radius: 100vmax;
+      }
     }
   }
   &__content {
@@ -114,25 +126,25 @@
       }
     }
   }
-  &__skill{
-    & + &{
+  &__skill {
+    & + & {
       margin-top: 1em;
       @include mq(lg) {
-      margin-top: 2em;
+        margin-top: 2em;
       }
     }
   }
-  &__skillTitle{
-    border-left:4px solid var(--colorText);
-    padding-left: .5em;
+  &__skillTitle {
+    border-left: 4px solid var(--colorText);
+    padding-left: 0.5em;
   }
 
-  &__skillDesc{
+  &__skillDesc {
     margin-top: 2em;
     font-size: vw(28);
     @include mq(lg) {
       margin-top: 2em;
-    font-size: 20px;
+      font-size: 20px;
     }
   }
   &__strength {

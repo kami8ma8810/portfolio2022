@@ -69,6 +69,14 @@
       "scriptPath": "./assets/js/",
       "imgPath": "./assets/images/",
       "linkPath": "./"
+    },
+    "is-work06": {
+      "title": "WORK 06｜",
+      "pageUrl": "https://kami8ma8810.github.io/portfolio/work06.html",
+      "stylePath": "./assets/css/",
+      "scriptPath": "./assets/js/",
+      "imgPath": "./assets/images/",
+      "linkPath": "./"
     }
   }
 }
