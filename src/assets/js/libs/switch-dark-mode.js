@@ -27,26 +27,13 @@ export default () => {
   }
 
   // イベントリスナー
-  const listener = (event) => {
-    if (event.matches) {
+  const listener = () => {
+    // ロード時の処理（２回目以降、ページ遷移時はsessionStrageをチェックして維持する）
+    if (sessionStorage.getItem('darkMode') === 'on') {
       darkModeOn();
-    } else {
+    } else if (sessionStorage.getItem('darkMode') === 'off') {
       darkModeOff();
     }
   };
-
-  // OSの設定がダークモードかどうか判定
-  const osDark = window.matchMedia('(prefers-color-scheme: dark)');
-
-  // リスナー登録
-  osDark.addEventListener('change', listener);
-  // 初期化処理
-  listener(osDark);
-
-  // ロード時の処理（２回目以降、ページ遷移時はsessionStrageをチェックして維持する）
-  if (sessionStorage.getItem('darkMode') === 'on') {
-    listener(osDark);
-  } else if (sessionStorage.getItem('darkMode') === 'off') {
-    darkModeOff();
-  }
+  listener();
 };

@@ -22,7 +22,7 @@ module.exports = {
     // 出力するファイル名 [name] には entry に指定した名前が入る。
     filename: '[name].bundle.js',
   },
-  target: ['web', 'es5'],
+  // target: ['web', 'es5'],
   module: {
     rules: [
       {
@@ -35,15 +35,15 @@ module.exports = {
               presets: [
                 [
                   '@babel/preset-env',
-                  {
-                    // targets: {
-                    //   ie: 11,
-                    //   esmodules: true,
-                    // },
-                    useBuiltIns: 'usage',
-                    corejs: 3,
-                    // corejs: { version: '3', proposals: true },
-                  },
+                  // {
+                  //   // targets: {
+                  //   //   ie: 11,
+                  //   //   esmodules: true,
+                  //   // },
+                  //   useBuiltIns: 'usage',
+                  //   corejs: 3,
+                  //   // corejs: { version: '3', proposals: true },
+                  // },
                 ],
               ],
             },
@@ -87,7 +87,7 @@ module.exports = {
         terserOptions: {
           compress: {
             // console.logを削除（trueで削除）
-            drop_console: true,
+            // drop_console: true,
           },
         },
       }),
